@@ -1,0 +1,11 @@
+.NavBar {
+    background-color: hsl(0, 5%, 10%);
+    height: 4em;
+}
+
+.logo {
+    text-align: left;
+    font-size: 2em;
+    padding: 0.3em 1em 0.3em 1em;
+    /* Order: Top, right, bottom, left */
+}

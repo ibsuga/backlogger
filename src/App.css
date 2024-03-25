@@ -1,0 +1,18 @@
+html,
+body,
+#root {
+  background-color: hsl(0, 5%, 15%);
+  color: hsl(0, 5%, 85%);
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: min-content auto;
+}
+
+.Content {
+  display: grid;
+  grid-template-rows: min-content auto;
+}
