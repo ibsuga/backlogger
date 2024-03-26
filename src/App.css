@@ -10,13 +10,7 @@ body,
   padding: 0;
 }
 
-
 .App {
   display: grid;
   grid-template-rows: min-content auto;
-}
-
-.Content {
-  display: grid;
-  grid-template-rows: min-content min-content min-content auto;
 }

@@ -1,9 +1,9 @@
 .Card {
     display: grid;
     grid-template-rows: min-content auto min-content;
-    height: 13em;
+    /* height: 13em;
     width: 8.5em;
-    margin: 0.5em;
+    margin: 0.5em; */
     background-color: hsl(0, 0%, 30%);
     border: 1px solid;
     border-radius: 0.5em;
@@ -14,4 +14,16 @@
     text-align: right;
     padding-right: 0.5em;
     padding-bottom: 0.1em;
+}
+
+.Card.big {
+    width: 8.5em;
+    height: 13em;
+    margin: 0.5em;
+}
+
+.Card.small {
+    width: 5em;
+    height: 7em;
+    margin: 0.2em
 }

@@ -1,0 +1,18 @@
+.ProfilePage {
+    display: grid;
+    grid-template-columns: 70em 30em;
+    display: grid;
+    margin: 0 10em;
+}
+
+.ProfilePage .Main {
+    display: grid;
+    grid-template-rows: min-content min-content min-content auto;
+    margin: 1em;
+}
+
+.ProfilePage .Aside {
+    display: grid;
+    grid-template-rows: min-content min-content min-content;
+    margin: 1em;
+}

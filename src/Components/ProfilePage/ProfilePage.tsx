@@ -18,13 +18,24 @@ const ProfilePage = () => {
 
     return (
         <div className="ProfilePage">
-            <div className='FilterBar'>filterbar</div>
-            <h1>Your Backlog</h1>
-            <div className='Separator'>--------------</div>
-            <Section gameList={filter_to_play} />
-            <h1>Completed Games</h1>
-            <div className='Separator'>--------------</div>
-            <Section gameList={filter_completed} />
+            <div className='Main'>
+                <div className='FilterBar'>filterbar</div>
+                <h1>Your Backlog</h1>
+                <div className='Separator'>--------------</div>
+                <Section gameList={filter_to_play} cardSize='big' />
+                <h1>Completed Games</h1>
+                <div className='Separator'>--------------</div>
+                <Section gameList={filter_completed} cardSize='big' />
+            </div>
+            <div className='Aside'>
+                <div className='Favorites'>
+                    <h1>Favorites</h1>
+                    <div className='Separator'>--------------</div>
+                    <Section gameList={game_data} cardSize='small' />
+                </div>
+                <div className='Calendar'>Calendar</div>
+                <div className='Activity'>Activity</div>
+            </div>
         </div>
     )
 }

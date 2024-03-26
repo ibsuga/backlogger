@@ -5,6 +5,7 @@ import Card from '../Card/Card';
 
 const Section = (props: {
     gameList: gameType[]
+    cardSize: string
 }) => {
 
 
@@ -12,6 +13,7 @@ const Section = (props: {
         <div className='Section'>
             {props.gameList.map((game) =>
                 <Card
+                    size={props.cardSize}
                     name={game.name}
                     platform={game.platform}
                 />
