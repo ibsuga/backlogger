@@ -1,6 +1,6 @@
 import './App.css';
-import Section from './Components/Section/Section';
 import NavBar from './Components/Navbar/NavBar';
+import ProfilePage from './Components/ProfilePage/ProfilePage';
 
 
 function App() {
@@ -8,14 +8,11 @@ function App() {
   return (
     <div className='App'>
       <NavBar />
-      <div className='Content'>content
-        <div className='FilterBar'>filterbar</div>
-        <Section />
-
+      <div className='Content'>
+        <ProfilePage />
       </div>
     </div>
   )
-
 }
 
 export default App

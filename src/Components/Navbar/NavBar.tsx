@@ -3,7 +3,7 @@ import './NavBar.css'
 const NavBar = () => {
     return (
         <div className='NavBar'>
-            <div className='logo'>logo increible</div>
+            <div className='logo'>BACKLOGGER</div>
         </div>
     )
 

@@ -1,15 +1,24 @@
 import './Section.css';
-import game_data from '../../data/game_data';
+import { gameType } from '../../data/game_data';
 import Card from '../Card/Card';
 
 
-const Section = () => {
+const Section = (props: {
+    gameList: gameType[]
+}) => {
+
 
     return (
-        <div className='Section'>{game_data.map((game) => <Card name={game.name} />)}</div>
+        <div className='Section'>
+            {props.gameList.map((game) =>
+                <Card
+                    name={game.name}
+                    platform={game.platform}
+                />
+            )}
+        </div>
     )
 }
 
 export default Section;
-
 
