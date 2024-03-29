@@ -1,9 +1,11 @@
 import './ProfilePage.css';
-import Section from '../Section/Section';
-import { game_data, gameType } from '../../data/game_data';
-import CalendarItem from '../CalendarItem/CalendarItem';
+import CardSection from '../../CardSection/CardSection';
+import { game_data, gameType } from '../../../data/game_data';
+import CalendarItem from '../../CalendarItem/CalendarItem';
 
-const ProfilePage = () => {
+const ProfilePage = (props: {
+    setPage: (page: string) => void
+}) => {
 
     //To play filter
     let filter_to_play = [...game_data];
@@ -25,31 +27,31 @@ const ProfilePage = () => {
         <div className="ProfilePage">
             <div className='Main'>
                 <div className='FilterBar'>filterbar</div>
-                <h1>Your Backlog</h1>
-                <div className='Separator'>--------------</div>
-                <Section gameList={filter_to_play} cardSize='big' />
+                <h1 onClick={() => props.setPage('backlog')}>Your Backlog</h1>
+                <hr />
+                <CardSection gameList={filter_to_play} cardSize='big' />
                 <h1>Completed Games</h1>
-                <div className='Separator'>--------------</div>
-                <Section gameList={filter_completed} cardSize='big' />
+                <hr />
+                <CardSection gameList={filter_completed} cardSize='big' />
             </div>
             <div className='Aside'>
                 <div className='Favorites'>
                     <h1>Favorites</h1>
-                    <div className='Separator'>--------------</div>
-                    <Section gameList={filter_favorite} cardSize='small' />
+                    <hr />
+                    <CardSection gameList={filter_favorite} cardSize='small' />
                 </div>
                 <div className='Calendar'>
                     <h1>Calendar</h1>
-                    <div className='Separator'>--------------</div>
+                    <hr />
                     <CalendarItem />
                     <CalendarItem />
                     <CalendarItem />
                 </div>
                 <div className='Activity'>
                     <h1>Activity</h1>
-                    <div className='Separator'>--------------</div>
+                    <hr />
                     <ul className='ActivityList'>
-                        <li>placeholder 1 placeholder 1 placeholder 1 placeholder 1 placeholder 1 placeholder 1</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nesciunt ex maiores saepe temporibus aspernatur facere aut. Dolorum non minus eligendi dolores esse? </li>
                         <li>placeholder 2</li>
                         <li>placeholder 3</li>
                     </ul>

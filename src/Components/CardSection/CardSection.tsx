@@ -1,4 +1,4 @@
-import './Section.css';
+import './CardSection.css';
 import { gameType } from '../../data/game_data';
 import Card from '../Card/Card';
 
@@ -10,7 +10,7 @@ const Section = (props: {
 
 
     return (
-        <div className='Section'>
+        <div className='CardSection'>
             {props.gameList.map((game) =>
                 <Card
                     size={props.cardSize}

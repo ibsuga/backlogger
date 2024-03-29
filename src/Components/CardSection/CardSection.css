@@ -1,0 +1,11 @@
+h1 {
+    font-size: 20px;
+    font-family: 'Kanit';
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+.CardSection {
+    display: flex;
+    flex-wrap: wrap;
+}

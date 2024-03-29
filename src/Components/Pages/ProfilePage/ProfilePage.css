@@ -1,3 +1,14 @@
+hr {
+    border-bottom: 3px solid hsl(0, 0%, 80%);
+    width: 100%;
+    border-radius: 20px;
+
+}
+
+h1 {
+    cursor: pointer;
+}
+
 .ProfilePage {
     display: grid;
     grid-template-columns: auto minmax(10em, 30em);
@@ -18,7 +29,11 @@
 }
 
 
-/* Acitivity bullet lines test*/
+/* Acitivity bullet lines */
+
+ul.ActivityList {
+    padding-left: 1em;
+}
 
 ul.ActivityList li {
     position: relative;
@@ -27,12 +42,14 @@ ul.ActivityList li {
 }
 
 ul.ActivityList li:after {
+    /*bullets*/
     position: absolute;
     left: -26px;
     top: 0px;
 }
 
 ul.ActivityList li:before {
+    /*lines*/
     content: '';
     position: absolute;
     left: -12px;
@@ -42,9 +59,11 @@ ul.ActivityList li:before {
 }
 
 ul.ActivityList li:first-child:before {
+    /*first li's line*/
     top: 10px;
 }
 
 ul.ActivityList li:last-child:before {
+    /*last li's line*/
     height: 10px;
 }

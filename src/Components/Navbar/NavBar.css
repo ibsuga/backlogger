@@ -4,6 +4,7 @@
 }
 
 .logo {
+    cursor: pointer;
     font-family: 'Bebas Neue';
     text-align: left;
     font-size: 2em;

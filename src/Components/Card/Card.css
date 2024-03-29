@@ -6,7 +6,6 @@
     margin: 0.5em; */
     background-color: hsl(0, 0%, 30%);
     border: 1px solid;
-    border-radius: 0.5em;
 }
 
 .Platform {
@@ -20,6 +19,7 @@
     width: 8.5em;
     height: 13em;
     margin: 0.5em;
+    border-radius: 0.5em;
 }
 
 .Card.small {
