@@ -1,6 +1,7 @@
 import './ProfilePage.css';
 import Section from '../Section/Section';
 import { game_data, gameType } from '../../data/game_data';
+import CalendarItem from '../CalendarItem/CalendarItem';
 
 const ProfilePage = () => {
 
@@ -15,6 +16,10 @@ const ProfilePage = () => {
             return true;
         }
     })
+
+    //Favorites filter
+    let filter_favorite = [...game_data];
+    filter_favorite = filter_favorite.filter((game: gameType) => game.favorite === 'checked')
 
     return (
         <div className="ProfilePage">
@@ -31,10 +36,24 @@ const ProfilePage = () => {
                 <div className='Favorites'>
                     <h1>Favorites</h1>
                     <div className='Separator'>--------------</div>
-                    <Section gameList={game_data} cardSize='small' />
+                    <Section gameList={filter_favorite} cardSize='small' />
                 </div>
-                <div className='Calendar'>Calendar</div>
-                <div className='Activity'>Activity</div>
+                <div className='Calendar'>
+                    <h1>Calendar</h1>
+                    <div className='Separator'>--------------</div>
+                    <CalendarItem />
+                    <CalendarItem />
+                    <CalendarItem />
+                </div>
+                <div className='Activity'>
+                    <h1>Activity</h1>
+                    <div className='Separator'>--------------</div>
+                    <ul className='ActivityList'>
+                        <li>placeholder 1 placeholder 1 placeholder 1 placeholder 1 placeholder 1 placeholder 1</li>
+                        <li>placeholder 2</li>
+                        <li>placeholder 3</li>
+                    </ul>
+                </div>
             </div>
         </div>
     )

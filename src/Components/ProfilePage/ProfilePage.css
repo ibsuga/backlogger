@@ -1,7 +1,6 @@
 .ProfilePage {
     display: grid;
-    grid-template-columns: 70em 30em;
-    display: grid;
+    grid-template-columns: auto minmax(10em, 30em);
     margin: 0 10em;
 }
 
@@ -15,4 +14,37 @@
     display: grid;
     grid-template-rows: min-content min-content min-content;
     margin: 1em;
+    gap: 5em;
+}
+
+
+/* Acitivity bullet lines test*/
+
+ul.ActivityList li {
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 2.5em;
+}
+
+ul.ActivityList li:after {
+    position: absolute;
+    left: -26px;
+    top: 0px;
+}
+
+ul.ActivityList li:before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    border-left: 1px solid hsl(0, 0%, 80%);
+    height: 100%;
+    width: 1px;
+}
+
+ul.ActivityList li:first-child:before {
+    top: 10px;
+}
+
+ul.ActivityList li:last-child:before {
+    height: 10px;
 }
