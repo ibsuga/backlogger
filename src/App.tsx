@@ -12,7 +12,6 @@ function App() {
   const pages: { [key: string]: JSX.Element } = {
     'profile': <ProfilePage setPage={setPage} />,
     'backlog': <BacklogPage />
-
   }
 
 

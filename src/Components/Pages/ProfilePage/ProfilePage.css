@@ -1,5 +1,5 @@
 hr {
-    border-bottom: 3px solid hsl(0, 0%, 80%);
+    border-bottom: 2px solid hsl(0, 0%, 80%);
     width: 100%;
     border-radius: 20px;
 
@@ -7,6 +7,12 @@ hr {
 
 h1 {
     cursor: pointer;
+    transition: 0.25s;
+}
+
+h1:hover {
+    color: white;
+    transition: 0.25s;
 }
 
 .ProfilePage {

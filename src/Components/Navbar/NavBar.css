@@ -1,13 +1,26 @@
 .NavBar {
+    display: flex;
+    align-items: center;
     background-color: hsl(0, 5%, 10%);
     height: 4em;
+    padding: 0 1em;
 }
 
 .logo {
     cursor: pointer;
     font-family: 'Bebas Neue';
     text-align: left;
-    font-size: 2em;
-    padding: 0.3em 1em 0.3em 1em;
-    /* Order: Top, right, bottom, left */
+    font-size: 2.5em;
+    transition: 0.5s;
+}
+
+.logo:hover {
+    color: hsl(170, 75%, 45%);
+    transition: 0.5s;
+}
+
+.searchbar {
+    margin-left: auto;
+    height: 2em;
+    border-radius: 5px;
 }

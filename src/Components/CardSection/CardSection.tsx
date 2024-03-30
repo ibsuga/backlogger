@@ -3,7 +3,7 @@ import { gameType } from '../../data/game_data';
 import Card from '../Card/Card';
 
 
-const Section = (props: {
+const CardSection = (props: {
     gameList: gameType[]
     cardSize: string
 }) => {
@@ -22,5 +22,5 @@ const Section = (props: {
     )
 }
 
-export default Section;
+export default CardSection;
 
