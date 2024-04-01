@@ -11,8 +11,9 @@ const CardSection = (props: {
 
     return (
         <div className='CardSection'>
-            {props.gameList.map((game) =>
+            {props.gameList.map((game, index) =>
                 <Card
+                    key={index}
                     size={props.cardSize}
                     name={game.name}
                     platform={game.platform}

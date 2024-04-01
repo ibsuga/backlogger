@@ -5,6 +5,28 @@ hr {
 
 .BacklogPage {
     display: grid;
-    grid-template-rows: min-content min-content auto;
+    grid-template-columns: auto 10em;
     margin: 1em 1em;
+}
+
+.BacklogPage .Content {
+    display: grid;
+    grid-template-rows: min-content min-content auto;
+}
+
+.BacklogPage .Aside {
+    display: flex;
+    justify-content: center;
+}
+
+.CreateGameDialog {
+    background-color: tomato;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40em;
+    width: 50em;
+    border-radius: 0.3em;
 }

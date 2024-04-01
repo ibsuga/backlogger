@@ -1,0 +1,9 @@
+.CreateGameButton {
+    cursor: pointer;
+    width: 10em;
+    height: 3em;
+}
+
+.CreateGameButton span {
+    font-size: 1.5em;
+}
