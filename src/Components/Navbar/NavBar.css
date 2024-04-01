@@ -11,16 +11,24 @@
     font-family: 'Bebas Neue';
     text-align: left;
     font-size: 2.5em;
-    transition: 0.5s;
+    transition: color 0.5s;
 }
 
 .logo:hover {
     color: hsl(170, 75%, 45%);
-    transition: 0.5s;
+    /* font-family: 'Press Start 2P';
+    font-size: 1.25em; */
+    /* transform: rotateZ(-4deg); */
 }
 
 .searchbar {
     margin-left: auto;
     height: 2em;
     border-radius: 5px;
+}
+
+
+/*  */
+.NavBar input:focus {
+    outline: none;
 }

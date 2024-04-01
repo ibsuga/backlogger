@@ -1,0 +1,10 @@
+hr {
+    max-width: 800px;
+    margin-left: 0;
+}
+
+.BacklogPage {
+    display: grid;
+    grid-template-rows: min-content min-content auto;
+    margin: 1em 1em;
+}

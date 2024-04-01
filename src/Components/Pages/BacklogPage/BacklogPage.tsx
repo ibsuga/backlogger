@@ -9,9 +9,9 @@ const BacklogPage = () => {
 
     return (
         <div className="BacklogPage">
-            <h1>Welcome to your backlog</h1>
+            <h1>Games you want to play</h1>
             <hr />
-            <CardSection gameList={games_to_play} cardSize='big' />
+            <CardSection gameList={games_to_play} cardSize='medium' />
         </div>
     )
 }

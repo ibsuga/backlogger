@@ -16,14 +16,22 @@
 }
 
 .Card.big {
-    width: 8.5em;
+    width: 9em;
     height: 13em;
     margin: 0.5em;
-    border-radius: 0.5em;
+    border-radius: 0.3em;
+}
+
+.Card.medium {
+    width: 6em;
+    height: 10em;
+    margin: 0.5em;
+    border-radius: 0.3em;
 }
 
 .Card.small {
     width: 5em;
     height: 7em;
-    margin: 0.2em
+    margin: 0.2em;
+    border-radius: 0.3em;
 }
