@@ -1,18 +1,20 @@
 import './ProfilePage.css';
 import CardSection from '../../CardSection/CardSection';
-import { game_data, gameType } from '../../../data/game_data';
+import { gameType } from '../../../data/game_data';
 import CalendarItem from '../../CalendarItem/CalendarItem';
 
 const ProfilePage = (props: {
     setPage: (page: string) => void
+    gameData: gameType[]
 }) => {
+    console.log(props.gameData);
 
     //To play filter
-    let filter_to_play = [...game_data];
+    let filter_to_play = [...props.gameData];
     filter_to_play = filter_to_play.filter((game: gameType) => game.status === 'to-play')
 
     //Completed filter
-    let filter_completed = [...game_data];
+    let filter_completed = [...props.gameData];
     filter_completed = filter_completed.filter((game: gameType) => {
         if (game.status === 'completed') {
             return true;
@@ -20,7 +22,7 @@ const ProfilePage = (props: {
     })
 
     //Favorites filter
-    let filter_favorite = [...game_data];
+    let filter_favorite = [...props.gameData];
     filter_favorite = filter_favorite.filter((game: gameType) => game.favorite === 'checked')
 
     return (

@@ -9,7 +9,7 @@ import { gameType } from './data/game_data';
 function App() {
   const [page, setPage] = useState('profile');
   const [gameData, setGameData] = useState<gameType[]>(JSON.parse(localStorage.getItem('BackloggerGames') || '[]'));
-  console.log(gameData);
+  console.log(gameData)
 
   const handleSetGameData = (game: gameType) => {
     let games = [...gameData];
@@ -19,8 +19,8 @@ function App() {
   }
 
   const pages: { [key: string]: JSX.Element } = {
-    'profile': <ProfilePage setPage={setPage} />,
-    'backlog': <BacklogPage setGameData={handleSetGameData} />
+    'profile': <ProfilePage gameData={gameData} setPage={setPage} />,
+    'backlog': <BacklogPage gameData={gameData} setGameData={handleSetGameData} />
   }
 
   return (

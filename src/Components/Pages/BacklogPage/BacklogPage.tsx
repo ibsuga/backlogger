@@ -1,13 +1,14 @@
-import { gameType, game_data } from '../../../data/game_data';
+import { gameType } from '../../../data/game_data';
 import './BacklogPage.css'
 import CardSection from '../../CardSection/CardSection';
 import CreateGameButton from '../../CreateGameButton/CreateGameButton';
 
 const BacklogPage = (props: {
-    setGameData: (game: gameType) => void;
+    setGameData: (game: gameType) => void
+    gameData: gameType[]
 }) => {
     //filtered backlog games
-    let games_to_play = [...game_data];
+    let games_to_play = [...props.gameData];
     games_to_play = games_to_play.filter((game: gameType) => game.status === 'to-play')
 
     return (
