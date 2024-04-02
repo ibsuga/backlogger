@@ -32,19 +32,25 @@ const CreateGameButton = (props: {
                 <span>+</span>
             </button>
             {
-                dialogOpen &&
+                dialogOpen &&       //if dialogOpen returns true:
                 <div className='CreateGameDialog'>
-                    <label>Game Name</label>
-                    <input type='text' value={name} onChange={(event) => setName(event.target.value)} />
-                    <label>Platform</label>
-                    <select value={platform} onChange={(event) => setPlatform(event.target.value)}>
-                        <option value="-">-</option>
-                        <option value="steam">Steam</option>
-                        <option value="nsw">Nintendo Switch</option>
-                        <option value="ps5">PlayStation 5</option>
-                    </select>
-                    <button className='CloseDialog' onClick={() => setDialogOpen(false)}>X</button>
-                    <button className='SubmitGame' onClick={handleSubmitGame}>Submit Game</button>
+                    <div className='content'>
+                        <div className='GameName'>
+                            <label>Game Title</label>
+                            <input placeholder='Game you want to play...' type='text' value={name} onChange={(event) => setName(event.target.value)} />
+                        </div>
+                        <div className='Platform'>
+                            <label>Platform</label>
+                            <select value={platform} onChange={(event) => setPlatform(event.target.value)}>
+                                <option value="-">-</option>
+                                <option value="steam">Steam</option>
+                                <option value="nsw">Nintendo Switch</option>
+                                <option value="ps5">PlayStation 5</option>
+                            </select>
+                        </div>
+                        <button className='SubmitGame' onClick={handleSubmitGame}>Submit Game</button>
+                    </div>
+                    <button className='CloseDialog' onClick={() => setDialogOpen(false)}>x</button>
                 </div>
             }
         </>

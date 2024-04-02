@@ -20,13 +20,95 @@ hr {
 }
 
 .CreateGameDialog {
-    background-color: tomato;
+    background-color: hsla(0, 0%, 10%, 0.95);
     position: absolute;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    height: 40em;
-    width: 50em;
+    height: 15em;
+    width: 30em;
     border-radius: 0.3em;
+}
+
+.CreateGameDialog .content {
+    margin: 1em 1em;
+    display: grid;
+    grid-template-rows: auto auto min-content;
+    gap: 2em;
+}
+
+
+.CreateGameDialog .GameName,
+.Platform {
+    font-family: 'Bebas Neue';
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+.CreateGameDialog input,
+select {
+    font-family: 'Kanit';
+    color: hsl(0, 5%, 85%);
+    background-color: hsl(0, 0%, 30%);
+    margin: 0 auto;
+    text-align: center;
+    align-self: center;
+    width: 25em;
+    border-color: hsl(170, 75%, 45%);
+    border-radius: 0.3em;
+}
+
+.CreateGameDialog label {
+    text-align: center;
+}
+
+.CreateGameDialog select {
+    margin-left: 4.3em;
+}
+
+.CreateGameDialog select:hover {
+    cursor: pointer;
+}
+
+.CreateGameDialog input:focus {
+    outline: none;
+}
+
+.CreateGameDialog .SubmitGame {
+    margin: 0 auto;
+    width: 10em;
+    height: 2em;
+    font-family: 'Kanit';
+    cursor: pointer;
+    color: hsl(0, 5%, 85%);
+    background-color: hsl(0, 0%, 30%);
+    border-radius: 0.3em;
+    border-color: hsl(170, 75%, 45%);
+}
+
+.CreateGameDialog .SubmitGame:hover {
+    background-color: hsl(0, 0%, 40%);
+    border-color: hsl(170, 75%, 50%);
+}
+
+.CreateGameDialog .CloseDialog {
+    position: absolute;
+    height: 2em;
+    width: 2em;
+    right: 0.5em;
+    top: 0.5em;
+    color: hsl(0, 5%, 85%);
+    background-color: hsl(0, 0%, 30%);
+    border-color: hsl(170, 75%, 45%);
+    border-radius: 50%;
+    text-align: center;
+}
+
+.CreateGameDialog .CloseDialog:hover {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 40%);
+    border-color: hsl(170, 75%, 50%);
 }
