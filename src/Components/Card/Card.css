@@ -1,14 +1,103 @@
 .Card {
     display: grid;
-    grid-template-rows: min-content auto min-content;
-    /* height: 13em;
-    width: 8.5em;
-    margin: 0.5em; */
-    background-color: hsl(0, 0%, 30%);
-    border: 1px solid;
+    grid-template-columns: auto 1.5em;
+    height: 15em;
+    width: 11em;
+    border-radius: 0.3em;
+    overflow: hidden;
+    box-shadow: 4px 4px 10px 1px hsla(0, 0%, 0%, 0.5);
+
+    background: url(../../assets/bg.png);
+    background-size: cover;
+
 }
 
-.Card .Platform {
+.Card .card-content {
+    display: grid;
+    grid-template-rows: min-content auto min-content;
+    padding: 0.25em 0.5em;
+    gap: 0.35em;
+    /* box-shadow: inset 0px -75px 20px -2px tomato; */
+    box-shadow: inset 0px -80px 20px -2px hsla(0, 0%, 10%, 0.5);
+}
+
+.Card .card-name {
+    display: flex;
+    align-items: end;
+    font-family: 'Bebas Neue';
+    font-size: 1.5em;
+    line-height: 1em;
+    text-shadow: hsl(0, 0%, 20%) 1px 0 10px;
+    user-select: none;
+}
+
+.Card .card-info {
+    display: flex;
+    gap: 0.5em;
+    width: 100%;
+}
+
+.Card .card-info .card-info-button {
+    flex-grow: 1;
+    border-radius: 0.3em;
+    height: 1em;
+    width: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.Card .card-info .card-info-button:active {
+    transform: scale(0.9);
+}
+
+.Card .card-info .card-info-button.active {
+    color: hsl(170, 75%, 45%);
+}
+
+.Card .card-platform {
+    font-family: 'Bebas Neue';
+    color: hsl(0, 60%, 98%);
+    padding: 0.5em 0.2em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    user-select: none;
+}
+
+.Card .card-platform.nsw {
+    background: linear-gradient(180deg, hsl(0, 60%, 40%) 50%, hsl(0, 60%, 50%) 100%);
+}
+
+.Card .card-platform.steam {
+    background: linear-gradient(180deg, hsl(0, 0%, 10%) 20%, hsl(0, 0%, 20%) 100%);
+}
+
+.Card .card-platform.ps5 {
+    background: linear-gradient(180deg, hsl(216, 91%, 64%) 50%, hsl(235, 19%, 88%) 100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .Card .Platform {
     text-transform: capitalize;
     text-align: right;
     padding-right: 0.5em;
@@ -34,4 +123,4 @@
     height: 7em;
     margin: 0.2em;
     border-radius: 0.3em;
-}
+} */

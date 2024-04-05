@@ -8,4 +8,5 @@ h1 {
 .CardSection {
     display: flex;
     flex-wrap: wrap;
+    gap: 1em;
 }

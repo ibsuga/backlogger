@@ -20,17 +20,24 @@ const Card = (props: {
         gameDataCtx.handleUpdateGame(game);
     }
 
-
     return (
-        <div className={`Card ${props.size}`} >
-            <div className='Title'>{props.game.name}</div>
-            <div className='Content'>&nbsp;</div>
-            <div className='Platform'>{props.game.platform}</div>
-            <button onClick={handleToggleFavorite}>
-                {props.game.favorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
-            </button>
-            <button onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}>DELETE</button>
-        </div >
+        <div className="Card">
+            <div className="card-content">
+                <div className="card-tools">
+                    <button onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}>DELETE</button>
+                </div>
+                <div className="card-name"><span>{props.game.name}</span></div>
+                <div className="card-info">
+                    <div className="card-info-button">R</div>
+                    <div className={`card-info-button ${props.game.favorite ? 'active' : ''}`} onClick={handleToggleFavorite}>
+                        {props.game.favorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
+                    </div>
+                    <div className="card-info-button">S</div>
+                    <div className="card-info-button">C</div>
+                </div>
+            </div>
+            <div className={`card-platform ${props.game.platform}`}>{props.game.platform}</div>
+        </div>
     )
 }
 
