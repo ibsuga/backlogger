@@ -34,13 +34,11 @@
 
 
 .create-game-dialog .close-dialog {
-    height: 2em;
-    width: 2em;
-    color: hsl(0, 5%, 85%);
-    background-color: hsl(0, 0%, 30%);
-    border-color: hsl(170, 75%, 45%);
-    border-radius: 50%;
+    height: 1.5em;
+    width: 1.5em;
+    color: hsl(0, 0%, 50%);
     align-self: end;
+    transition: 0.10s;
 }
 
 .create-game-dialog .dialog-content>div {
@@ -87,9 +85,17 @@
     margin-top: 3em;
 }
 
-.create-game-dialog .submit-game:hover,
-.create-game-dialog .close-dialog:hover {
+.create-game-dialog .submit-game:hover {
     cursor: pointer;
     background-color: hsl(0, 0%, 40%);
     border-color: hsl(170, 75%, 50%);
+}
+
+.create-game-dialog .close-dialog:hover {
+    cursor: pointer;
+    color: hsl(0, 40%, 50%);
+}
+
+.create-game-dialog .close-dialog:active {
+    transform: scale(0.9);
 }

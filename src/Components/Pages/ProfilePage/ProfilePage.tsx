@@ -23,7 +23,7 @@ const ProfilePage = (props: {
 
     //Favorites filter
     let filter_favorite = [...props.gameData];
-    filter_favorite = filter_favorite.filter((game: gameType) => game.favorite === 'checked')
+    filter_favorite = filter_favorite.filter((game: gameType) => game.favorite === true)
 
     return (
         <div className="ProfilePage">

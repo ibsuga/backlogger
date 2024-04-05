@@ -1,14 +1,14 @@
-import { useState, useRef } from 'react';
-import { gameType } from '../../data/game_data';
-import './CreateGameButton.css'
+import { FaWindowClose } from "react-icons/fa";
+import { useState, useRef, useContext } from 'react';
+import { GameDataContext } from "../../App";
+import './CreateGameButton.css';
 
 
-const CreateGameButton = (props: {
-    setGameData: (game: gameType) => void;
-}) => {
+const CreateGameButton = () => {
     const [name, setName] = useState('');
     const [platform, setPlatform] = useState('-');
     const ref: any = useRef(null);
+    const gameDataCtx = useContext(GameDataContext);
 
     const handleOpenDialog = () => {
         if (ref.current?.open) ref.current.close();
@@ -19,12 +19,13 @@ const CreateGameButton = (props: {
         if (name != '' && platform != '-') {
             console.log(name, platform);
             const game = {
+                id: Date.now(),
                 name,
                 platform,
                 status: 'to-play',
-                favorite: '-'
+                favorite: false
             }
-            props.setGameData(game);
+            gameDataCtx.handleAddGame(game);
             setName('')
             setPlatform('-')
             ref.current.close()
@@ -41,7 +42,7 @@ const CreateGameButton = (props: {
                 className="create-game-dialog"
             >
                 <div className="dialog-content">
-                    <button className='close-dialog' onClick={handleOpenDialog}>x</button>
+                    <FaWindowClose className='close-dialog' onClick={handleOpenDialog}>x </FaWindowClose>
                     <div>
                         <label>Game Title</label>
                         <input placeholder='Game you want to play...' type='text' value={name} onChange={(event) => setName(event.target.value)} />
@@ -49,7 +50,7 @@ const CreateGameButton = (props: {
                     <div>
                         <label>Platform</label>
                         <select value={platform} onChange={(event) => setPlatform(event.target.value)}>
-                            <option value="-">-</option>
+                            <option hidden value="-">-</option>
                             <option value="steam">Steam</option>
                             <option value="nsw">Nintendo Switch</option>
                             <option value="ps5">PlayStation 5</option>

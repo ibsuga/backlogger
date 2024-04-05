@@ -4,7 +4,6 @@ import CardSection from '../../CardSection/CardSection';
 import CreateGameButton from '../../CreateGameButton/CreateGameButton';
 
 const BacklogPage = (props: {
-    setGameData: (game: gameType) => void
     gameData: gameType[]
 }) => {
     //filtered backlog games
@@ -19,7 +18,7 @@ const BacklogPage = (props: {
                 <CardSection gameList={games_to_play} cardSize='medium' />
             </div>
             <div className='Aside'>
-                <CreateGameButton setGameData={props.setGameData} />
+                <CreateGameButton />
             </div>
         </div>
     )
