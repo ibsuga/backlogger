@@ -32,7 +32,7 @@ h1:hover {
     display: grid;
     grid-template-rows: min-content min-content min-content;
     margin: 1em;
-    gap: 5em;
+    gap: 1em;
 }
 
 

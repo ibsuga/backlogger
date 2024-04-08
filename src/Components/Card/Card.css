@@ -1,27 +1,25 @@
 .Card {
+    position: relative;
     display: grid;
-    grid-template-columns: auto 1.5em;
-    height: 15em;
+    grid-template-columns: auto 1.75em;
+    height: 16em;
     width: 11em;
     border-radius: 0.3em;
     overflow: hidden;
     box-shadow: 4px 4px 10px 1px hsla(0, 0%, 0%, 0.5);
-
     background: url(../../assets/bg.png);
     background-size: cover;
-
 }
 
 .Card .card-content {
     display: grid;
-    grid-template-rows: min-content auto min-content;
-    padding: 0.25em 0.5em;
-    gap: 0.35em;
-    /* box-shadow: inset 0px -75px 20px -2px tomato; */
-    box-shadow: inset 0px -80px 20px -2px hsla(0, 0%, 10%, 0.5);
+    grid-template-rows: min-content min-content min-content auto min-content;
+    padding: 0.25em;
+    gap: 0.5em;
 }
 
 .Card .card-name {
+    padding-bottom: 0;
     display: flex;
     align-items: end;
     font-family: 'Bebas Neue';
@@ -31,96 +29,75 @@
     user-select: none;
 }
 
-.Card .card-info {
+.Card .card-tools {
     display: flex;
-    gap: 0.5em;
-    width: 100%;
 }
 
-.Card .card-info .card-info-button {
-    flex-grow: 1;
-    border-radius: 0.3em;
-    height: 1em;
-    width: 1em;
+.Card .card-tools button {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 1.25em;
+    color: hsl(0, 60%, 98%);
+    transition: 0.25s;
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
+.Card .card-tools button.card-delete {
+    right: 0;
+    margin-left: auto;
+}
+
+.Card .card-tools button:hover {
     cursor: pointer;
-    user-select: none;
 }
 
-.Card .card-info .card-info-button:active {
-    transform: scale(0.9);
+.Card .card-tools .card-favorite:hover {
+    color: rgb(255, 70, 150);
 }
 
-.Card .card-info .card-info-button.active {
-    color: hsl(170, 75%, 45%);
+.Card .card-tools .card-delete:hover {
+    color: hsl(0, 90%, 60%);
 }
 
 .Card .card-platform {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.25em;
+    gap: 0.2em;
+}
+
+.Card .card-platform div {
+    display: flex;
+    font-size: 20px;
+}
+
+.Card .card-platform span {
+    flex-grow: 1;
+    font-size: 1.5em;
+    line-height: 0.9em;
     font-family: 'Bebas Neue';
-    color: hsl(0, 60%, 98%);
-    padding: 0.5em 0.2em;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     user-select: none;
+    justify-items: start;
 }
 
 .Card .card-platform.nsw {
     background: linear-gradient(180deg, hsl(0, 60%, 40%) 50%, hsl(0, 60%, 50%) 100%);
+    color: hsl(0, 60%, 90%);
 }
 
 .Card .card-platform.steam {
     background: linear-gradient(180deg, hsl(0, 0%, 10%) 20%, hsl(0, 0%, 20%) 100%);
+    color: hsl(0, 0%, 90%)
 }
 
 .Card .card-platform.ps5 {
-    background: linear-gradient(180deg, hsl(216, 91%, 64%) 50%, hsl(235, 19%, 88%) 100%);
+    background: linear-gradient(180deg, hsl(215, 90%, 65%) 50%, hsl(215, 90%, 80%) 100%);
+    color: hsl(215, 90%, 95%);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .Card .Platform {
-    text-transform: capitalize;
-    text-align: right;
-    padding-right: 0.5em;
-    padding-bottom: 0.1em;
+/* CardRatingSelector */
+.CardRatingSelector {
+    display: flex;
 }
-
-.Card.big {
-    width: 9em;
-    height: 13em;
-    margin: 0.5em;
-    border-radius: 0.3em;
-}
-
-.Card.medium {
-    width: 6em;
-    height: 10em;
-    margin: 0.5em;
-    border-radius: 0.3em;
-}
-
-.Card.small {
-    width: 5em;
-    height: 7em;
-    margin: 0.2em;
-    border-radius: 0.3em;
-} */
