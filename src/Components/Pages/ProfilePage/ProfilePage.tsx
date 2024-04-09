@@ -7,8 +7,6 @@ const ProfilePage = (props: {
     setPage: (page: string) => void
     gameData: gameType[]
 }) => {
-    console.log(props.gameData);
-
     //To play filter
     let filter_to_play = [...props.gameData];
     filter_to_play = filter_to_play.filter((game: gameType) => game.status === 'to-play')

@@ -5,5 +5,7 @@ export type gameType = {
     platform: string,
     status: string,
     favorite: boolean,
+    completion: string,
+    rating: number
 }
 

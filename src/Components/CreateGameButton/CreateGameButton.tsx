@@ -23,7 +23,9 @@ const CreateGameButton = () => {
                 name,
                 platform,
                 status: 'to-play',
-                favorite: false
+                favorite: false,
+                completion: 'not-completed',
+                rating: -1
             }
             gameDataCtx.handleAddGame(game);
             setName('')
