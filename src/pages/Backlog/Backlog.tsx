@@ -15,7 +15,7 @@ const Backlog = (props: {
             <div className='Content'>
                 <h1>Games you want to play</h1>
                 <hr />
-                <CardSection gameList={games_to_play} cardSize='medium' />
+                <CardSection gameList={games_to_play} />
             </div>
             <div className='Aside'>
                 <CreateGameButton />

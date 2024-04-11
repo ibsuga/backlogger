@@ -1,12 +1,51 @@
 .NavBar {
-    display: flex;
+    display: grid;
+    grid-template-rows: min-content min-content;
     align-items: center;
-    background-color: hsl(0, 5%, 10%);
-    height: 4em;
-    padding: 0 1em;
+    height: auto;
+    backdrop-filter: blur(5px);
+    padding: 0.5em;
+}
+
+.NavBar::before {
+    z-index: -1;
+    background-color: hsla(0, 6%, 10%, 0.25);
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    filter: blur(5px);
+}
+
+.NavBar .navbar-top {
+    display: flex;
+    flex: 1;
+}
+
+.NavBar .navbar-bottom {
+    display: flex;
+    gap: 0.5em
+}
+
+.NavBar .navbar-bottom .buttons-bar {
+    display: flex;
+    gap: 1em;
+    margin-left: 2em;
+
+}
+
+.NavBar .navbar-bottom .buttons-bar svg {
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: 0.1s;
+}
+
+.NavBar .navbar-bottom .buttons-bar svg:hover {
+    transform: scale(1.3);
 }
 
 .logo {
+    flex: 1;
     cursor: pointer;
     font-family: 'Bebas Neue';
     text-align: left;
@@ -21,11 +60,6 @@
     /* transform: rotateZ(-4deg); */
 }
 
-.searchbar {
-    margin-left: auto;
-    height: 2em;
-    border-radius: 5px;
-}
 
 
 /*  */

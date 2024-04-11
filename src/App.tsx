@@ -37,7 +37,7 @@ function App() {
 
 
   const pages: { [key: string]: JSX.Element } = {
-    'home': <Home />,
+    'home': <Home gameData={gameData} />,
     'profile': <Profile gameData={gameData} setPage={setPage} />,
     'backlog': <Backlog gameData={gameData} />
   }

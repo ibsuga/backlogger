@@ -13,7 +13,6 @@ type GameDataType = { [key: string]: { 'label': string, 'icon': JSX.Element } };
 
 const Card = (props: {
     game: gameType,
-    size: string
 }) => {
     const gameDataCtx = useContext(GameDataContext);
 

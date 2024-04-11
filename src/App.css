@@ -9,7 +9,8 @@ html,
 body,
 #root {
   /* background-image: url('./assets/main-bg.jpg'); */
-  background-color: hsl(0, 5%, 15%);
+  /* background-color: hsl(0, 5%, 15%); */
+  background-image: url(./assets/switch-bg.png);
   color: hsl(0, 5%, 85%);
   margin: 0;
   padding: 0;

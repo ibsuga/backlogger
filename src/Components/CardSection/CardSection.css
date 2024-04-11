@@ -9,6 +9,6 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
-
+    padding: 0.5em;
     /* background: radial-gradient(circle, rgba(4, 255, 163, 0.04) 28%, rgba(24, 63, 59, 0) 100%); */
 }
