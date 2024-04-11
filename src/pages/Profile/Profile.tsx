@@ -1,9 +1,9 @@
-import './ProfilePage.css';
-import CardSection from '../../CardSection/CardSection';
-import { gameType } from '../../../data/game_data';
-import CalendarItem from '../../CalendarItem/CalendarItem';
+import './Profile.css';
+import CardSection from '../../Components/CardSection/CardSection';
+import { gameType } from '../../data/game_data';
+import CalendarItem from '../../Components/CalendarItem/CalendarItem';
 
-const ProfilePage = (props: {
+const Profile = (props: {
     setPage: (page: string) => void
     gameData: gameType[]
 }) => {
@@ -24,15 +24,19 @@ const ProfilePage = (props: {
     filter_favorite = filter_favorite.filter((game: gameType) => game.favorite === true)
 
     return (
-        <div className="ProfilePage">
+        <div className="Profile">
             <div className='Main'>
+
                 <div className='FilterBar'>filterbar</div>
+
                 <h1 onClick={() => props.setPage('backlog')}>Your Backlog</h1>
                 <hr />
                 <CardSection gameList={filter_to_play} cardSize='big' />
+
                 <h1>Completed Games</h1>
                 <hr />
                 <CardSection gameList={filter_completed} cardSize='big' />
+
             </div>
             <div className='Aside'>
                 <div className='Favorites'>
@@ -61,4 +65,4 @@ const ProfilePage = (props: {
     )
 }
 
-export default ProfilePage;
+export default Profile;

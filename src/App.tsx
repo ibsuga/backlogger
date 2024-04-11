@@ -1,14 +1,15 @@
 import { useState, createContext } from 'react';
 import { gameType } from './data/game_data';
 import NavBar from './Components/Navbar/NavBar';
-import ProfilePage from './Components/Pages/ProfilePage/ProfilePage';
-import BacklogPage from './Components/Pages/BacklogPage/BacklogPage';
+import Profile from './pages/Profile/Profile';
+import Backlog from './pages/Backlog/Backlog';
+import Home from './pages/Home/Home';
 import './App.css';
 
 export const GameDataContext = createContext<any>(null);
 
 function App() {
-  const [page, setPage] = useState('profile');
+  const [page, setPage] = useState('home');
   const [gameData, setGameData] = useState<gameType[]>(JSON.parse(localStorage.getItem('BackloggerGames') || '[]'));
 
   const handleAddGame = (game: gameType) => {
@@ -36,8 +37,9 @@ function App() {
 
 
   const pages: { [key: string]: JSX.Element } = {
-    'profile': <ProfilePage gameData={gameData} setPage={setPage} />,
-    'backlog': <BacklogPage gameData={gameData} />
+    'home': <Home />,
+    'profile': <Profile gameData={gameData} setPage={setPage} />,
+    'backlog': <Backlog gameData={gameData} />
   }
 
   const ctx_value = { handleAddGame, handleUpdateGame, handleDeleteGame };

@@ -3,18 +3,18 @@ hr {
     margin-left: 0;
 }
 
-.BacklogPage {
+.Backlog {
     display: grid;
     grid-template-columns: auto 10em;
     margin: 1em 1em;
 }
 
-.BacklogPage .Content {
+.Backlog .Content {
     display: grid;
     grid-template-rows: min-content min-content auto;
 }
 
-.BacklogPage .Aside {
+.Backlog .Aside {
     display: flex;
     justify-content: center;
 }

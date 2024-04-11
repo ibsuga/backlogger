@@ -9,7 +9,17 @@
     box-shadow: 4px 4px 10px 1px hsla(0, 0%, 0%, 0.5);
     background: url(../../assets/bg.png);
     background-size: cover;
+
+
+    /* hover transition test*/
+    /* transform-origin: center;
+    transform: perspective(800px) rotateY(25deg);
+    transition: 0.5s; */
 }
+
+/* .Card:hover {
+    transform: perspective(800px) rotateY(0deg);
+} */
 
 .Card .card-content {
     display: grid;

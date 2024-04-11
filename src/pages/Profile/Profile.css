@@ -16,19 +16,19 @@ h1:hover {
     transition: 0.25s;
 }
 
-.ProfilePage {
+.Profile {
     display: grid;
     grid-template-columns: auto minmax(10em, 30em);
     margin: 0 10em;
 }
 
-.ProfilePage .Main {
+.Profile .Main {
     display: grid;
-    grid-template-rows: min-content min-content min-content auto;
+    grid-template-rows: min-content min-content min-content auto min-content min-content auto;
     margin: 1em;
 }
 
-.ProfilePage .Aside {
+.Profile .Aside {
     display: grid;
     grid-template-rows: min-content min-content min-content;
     margin: 1em;
