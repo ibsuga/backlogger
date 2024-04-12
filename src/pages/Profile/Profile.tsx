@@ -6,6 +6,7 @@ import CalendarItem from '../../Components/CalendarItem/CalendarItem';
 const Profile = (props: {
     setPage: (page: string) => void
     gameData: gameType[]
+
 }) => {
     //To play filter
     let filter_to_play = [...props.gameData];
@@ -31,18 +32,18 @@ const Profile = (props: {
 
                 <h1 onClick={() => props.setPage('backlog')}>Your Backlog</h1>
                 <hr />
-                <CardSection gameList={filter_to_play} cardSize='big' />
+                <CardSection gameList={filter_to_play} platformFilter='' />
 
                 <h1>Completed Games</h1>
                 <hr />
-                <CardSection gameList={filter_completed} cardSize='big' />
+                <CardSection gameList={filter_completed} platformFilter='' />
 
             </div>
             <div className='Aside'>
                 <div className='Favorites'>
                     <h1>Favorites</h1>
                     <hr />
-                    <CardSection gameList={filter_favorite} cardSize='small' />
+                    <CardSection gameList={filter_favorite} platformFilter='' />
                 </div>
                 <div className='Calendar'>
                     <h1>Calendar</h1>

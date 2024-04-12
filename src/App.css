@@ -8,15 +8,39 @@
 html,
 body,
 #root {
-  /* background-image: url('./assets/main-bg.jpg'); */
-  /* background-color: hsl(0, 5%, 15%); */
-  background-image: url(./assets/switch-bg.png);
   color: hsl(0, 5%, 85%);
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+
+/* OVERLAY GRADIENT */
+.App:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: linear-gradient(310deg, rgba(102, 101, 101, 1) 20%, rgba(255, 69, 84, 0) 50%, rgba(61, 61, 61, 1) 80%);
+  transition: background 2s ease-out;
 }
 
 .App {
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-rows: min-content auto;
+  background-color: rgba(102, 101, 101, 1);
+  transition: background 0.5s ease-out;
+}
+
+
+.App.nsw {
+  background: rgba(255, 69, 84, 1);
+  /* background: rgb(102, 101, 101); */
+  /* background: linear-gradient(310deg, rgba(102, 101, 101, 1) 15%, rgba(255, 69, 84, 1) 50%, rgba(48, 171, 200, 1) 85%, rgba(0, 195, 227, 1) 98%); */
+  transition: background 0.5s ease-out;
 }

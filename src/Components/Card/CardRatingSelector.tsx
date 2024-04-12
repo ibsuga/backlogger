@@ -18,6 +18,7 @@ const CardRatingSelector = (props: {
         for (let i = 0; i < 5; i++) {
             stars.push(
                 <CardRatingStar
+                    key={i}
                     value={i}
                     rating={rating}
                     hoveredRating={hoveredRating}

@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import { gameType } from './data/game_data';
 import NavBar from './Components/Navbar/NavBar';
 import Profile from './pages/Profile/Profile';
@@ -11,6 +11,11 @@ export const GameDataContext = createContext<any>(null);
 function App() {
   const [page, setPage] = useState('home');
   const [gameData, setGameData] = useState<gameType[]>(JSON.parse(localStorage.getItem('BackloggerGames') || '[]'));
+  const [platformFilter, setPlatformFilter] = useState('');
+
+  useEffect(() => {
+    setPlatformFilter('')
+  }, [page])
 
   const handleAddGame = (game: gameType) => {
     let games = [...gameData];
@@ -35,9 +40,8 @@ function App() {
     localStorage.setItem('BackloggerGames', JSON.stringify(games));
   }
 
-
   const pages: { [key: string]: JSX.Element } = {
-    'home': <Home gameData={gameData} />,
+    'home': <Home gameData={gameData} platformFilter={platformFilter} />,
     'profile': <Profile gameData={gameData} setPage={setPage} />,
     'backlog': <Backlog gameData={gameData} />
   }
@@ -45,9 +49,9 @@ function App() {
   const ctx_value = { handleAddGame, handleUpdateGame, handleDeleteGame };
 
   return (
-    <div className='App'>
+    <div className={`App ${platformFilter}`}>
       <GameDataContext.Provider value={ctx_value}>
-        <NavBar setPage={setPage} />
+        <NavBar setPage={setPage} setPlatformFilter={setPlatformFilter} />
         <div className='Content'>
           {pages[page]}
         </div>
