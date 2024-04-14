@@ -41,17 +41,17 @@ function App() {
   }
 
   const pages: { [key: string]: JSX.Element } = {
-    'home': <Home gameData={gameData} platformFilter={platformFilter} />,
+    'home': <Home gameData={gameData} />,
     'profile': <Profile gameData={gameData} setPage={setPage} />,
     'backlog': <Backlog gameData={gameData} />
   }
 
-  const ctx_value = { handleAddGame, handleUpdateGame, handleDeleteGame };
+  const ctx_value = { handleAddGame, handleUpdateGame, handleDeleteGame, platformFilter };
 
   return (
-    <div className={`App ${platformFilter}`}>
+    <div className={'App'}>
       <GameDataContext.Provider value={ctx_value}>
-        <NavBar setPage={setPage} setPlatformFilter={setPlatformFilter} />
+        <NavBar setPage={setPage} platformFilter={platformFilter} setPlatformFilter={setPlatformFilter} />
         <div className='Content'>
           {pages[page]}
         </div>

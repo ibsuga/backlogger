@@ -37,7 +37,7 @@ const CreateGameButton = () => {
     return (
         <>
             <button className='CreateGameButton' onClick={handleOpenDialog}>
-                <span>+</span>
+                <span>Add Game</span>
             </button>
             <dialog
                 ref={ref}

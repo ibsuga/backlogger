@@ -1,22 +1,15 @@
-import CardSection from '../../Components/CardSection/CardSection';
-import './Home.css';
+import CardCollection from '../../Components/CardCollection/CardCollection';
 import { gameType } from '../../data/game_data';
-
+import './Home.css';
 
 
 const Home = (props: {
     gameData: gameType[],
-    platformFilter: string
-
 }) => {
-
     return (
         <div className="Home">
-            <div className='content'>
-                <CardSection gameList={props.gameData} platformFilter={props.platformFilter} />
-            </div>
+            <CardCollection gameList={props.gameData} />
         </div>
-
     )
 }
 

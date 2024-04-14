@@ -2,8 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
-
+#root {
+  --platform-nsw: hsl(355, 100%, 65%);
+  --platform-ps5: hsl(222, 17%, 75%);
+  --platform-steam: hsl(207, 38%, 30%);
+}
 
 html,
 body,
@@ -14,9 +17,8 @@ body,
   height: 100%;
 }
 
-
 /* OVERLAY GRADIENT */
-.App:before {
+/* .App:before {
   content: '';
   position: absolute;
   top: 0;
@@ -24,23 +26,23 @@ body,
   height: 100%;
   width: 100%;
   display: block;
-  background: linear-gradient(310deg, rgba(102, 101, 101, 1) 20%, rgba(255, 69, 84, 0) 50%, rgba(61, 61, 61, 1) 80%);
-  transition: background 2s ease-out;
-}
+
+  /* background: linear-gradient(310deg, hsl(222, 20%, 10%) 20%, rgba(255, 69, 84, 0) 50%, hsl(222, 20%, 10%) 80%); */
+/* transition: background 1s ease; */
+/* }  */
 
 .App {
   height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-rows: min-content auto;
-  background-color: rgba(102, 101, 101, 1);
-  transition: background 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgba(102, 101, 101, 1); */
+  background-color: rgb(58, 58, 58);
+  /* transition: background 1s ease; */
 }
 
 
-.App.nsw {
-  background: rgba(255, 69, 84, 1);
-  /* background: rgb(102, 101, 101); */
-  /* background: linear-gradient(310deg, rgba(102, 101, 101, 1) 15%, rgba(255, 69, 84, 1) 50%, rgba(48, 171, 200, 1) 85%, rgba(0, 195, 227, 1) 98%); */
-  transition: background 0.5s ease-out;
+
+.Content {
+  z-index: 9;
+  padding: 1em;
 }

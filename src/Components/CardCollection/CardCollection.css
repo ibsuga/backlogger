@@ -1,0 +1,18 @@
+h1 {
+    font-size: 20px;
+    font-family: 'Kanit';
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+.CardCollection {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1em;
+    padding: 1em;
+}
+
+.CardCollection .Card {
+    flex-shrink: 0;
+}

@@ -2,10 +2,25 @@
     cursor: pointer;
     width: 10em;
     height: 3em;
+    border: 0;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: background 0.3s;
 }
 
-.CreateGameButton span {
-    font-size: 1.5em;
+.CreateGameButton:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.CreateGameButton .CreateGameButton span {
+    font-size: 1em;
 }
 
 .create-game-dialog::backdrop {

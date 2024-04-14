@@ -1,6 +1,6 @@
 import { gameType } from '../../data/game_data';
 import './Backlog.css'
-import CardSection from '../../Components/CardSection/CardSection';
+import CardCollection from '../../Components/CardCollection/CardCollection';
 import CreateGameButton from '../../Components/CreateGameButton/CreateGameButton';
 
 const Backlog = (props: {
@@ -15,7 +15,7 @@ const Backlog = (props: {
             <div className='Content'>
                 <h1>Games you want to play</h1>
                 <hr />
-                <CardSection gameList={games_to_play} />
+                <CardCollection gameList={games_to_play} />
             </div>
             <div className='Aside'>
                 <CreateGameButton />

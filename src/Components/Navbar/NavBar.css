@@ -4,7 +4,7 @@
     align-items: center;
     height: auto;
     backdrop-filter: blur(5px);
-    padding: 0.5em;
+    padding: 0.5em 1em;
 }
 
 .NavBar::before {
@@ -20,6 +20,19 @@
 .NavBar .navbar-top {
     display: flex;
     flex: 1;
+    align-items: center;
+}
+
+
+.NavBar .navbar-top svg {
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-right: 1em;
+    transition: 0.1s;
+}
+
+.NavBar .navbar-top svg:hover {
+    transform: scale(1.3);
 }
 
 .NavBar .navbar-bottom {
@@ -41,16 +54,20 @@
 }
 
 .NavBar .navbar-bottom .buttons-bar svg:hover {
-    transform: scale(1.3);
+    transform: scale(1.25);
+}
+
+.logo-container {
+    flex: 1;
 }
 
 .logo {
-    flex: 1;
     cursor: pointer;
     font-family: 'Bebas Neue';
     text-align: left;
     font-size: 2.5em;
     transition: color 0.5s;
+    width: min-content;
 }
 
 .logo:hover {
@@ -65,4 +82,19 @@
 /*  */
 .NavBar input:focus {
     outline: none;
+}
+
+.NavBar .navbar-bottom .buttons-bar svg.active.nsw {
+    filter: drop-shadow(0px 0px 5px hsl(355, 100%, 65%));
+    transition: 0.5s;
+}
+
+.NavBar .navbar-bottom .buttons-bar svg.active.ps5 {
+    filter: drop-shadow(0px 0px 5px hsl(222, 17%, 75%));
+    transition: 0.5s;
+}
+
+.NavBar .navbar-bottom .buttons-bar svg.active.steam {
+    filter: drop-shadow(0px 0px 5px hsl(207, 38%, 30%));
+    transition: 0.5s;
 }

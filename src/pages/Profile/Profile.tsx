@@ -1,12 +1,11 @@
 import './Profile.css';
-import CardSection from '../../Components/CardSection/CardSection';
+import CardCollection from '../../Components/CardCollection/CardCollection';
 import { gameType } from '../../data/game_data';
 import CalendarItem from '../../Components/CalendarItem/CalendarItem';
 
 const Profile = (props: {
     setPage: (page: string) => void
     gameData: gameType[]
-
 }) => {
     //To play filter
     let filter_to_play = [...props.gameData];
@@ -32,18 +31,18 @@ const Profile = (props: {
 
                 <h1 onClick={() => props.setPage('backlog')}>Your Backlog</h1>
                 <hr />
-                <CardSection gameList={filter_to_play} platformFilter='' />
+                <CardCollection gameList={filter_to_play} />
 
                 <h1>Completed Games</h1>
                 <hr />
-                <CardSection gameList={filter_completed} platformFilter='' />
+                <CardCollection gameList={filter_completed} />
 
             </div>
             <div className='Aside'>
                 <div className='Favorites'>
                     <h1>Favorites</h1>
                     <hr />
-                    <CardSection gameList={filter_favorite} platformFilter='' />
+                    <CardCollection gameList={filter_favorite} />
                 </div>
                 <div className='Calendar'>
                     <h1>Calendar</h1>
