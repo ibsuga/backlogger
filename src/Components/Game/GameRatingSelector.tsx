@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import CardRatingStar from "./CardRatingStar";
+import GameRatingStar from "./GameRatingStar";
 
 
-const CardRatingSelector = (props: {
+const GameRatingSelector = (props: {
     defaultRating: number,
     handleUpdateRating: (rating: number) => void
 }) => {
@@ -17,7 +17,7 @@ const CardRatingSelector = (props: {
         let stars = [];
         for (let i = 0; i < 5; i++) {
             stars.push(
-                <CardRatingStar
+                <GameRatingStar
                     key={i}
                     value={i}
                     rating={rating}
@@ -31,7 +31,7 @@ const CardRatingSelector = (props: {
     }
 
     return (
-        <div className="CardRatingSelector" onMouseLeave={() => setHoveredRating(-1)}>
+        <div className="GameRatingSelector" onMouseLeave={() => setHoveredRating(-1)}>
             {getStars()}
         </div>
     )
@@ -39,4 +39,4 @@ const CardRatingSelector = (props: {
 
 
 
-export default CardRatingSelector;
+export default GameRatingSelector;

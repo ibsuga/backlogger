@@ -1,7 +1,7 @@
 import { FaRegStar, FaStarHalfAlt, FaStar } from "react-icons/fa";
 
 
-const CardRatingStar = (props: {
+const GameRatingStar = (props: {
     value: number,
     rating: number,
     hoveredRating: number,
@@ -52,10 +52,10 @@ const CardRatingStar = (props: {
     }
 
     return (
-        <div className={`CardRatingStar ${isHovered ? 'hovered' : ''}`} onClick={handleClick} onMouseMove={handleHover}>
+        <div className={`GameRatingStar ${isHovered ? 'hovered' : ''}`} onClick={handleClick} onMouseMove={handleHover}>
             {getIcon()}
         </div>
     )
 }
 
-export default CardRatingStar;
+export default GameRatingStar;

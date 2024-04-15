@@ -1,14 +1,15 @@
 import { useContext } from 'react';
 import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data';
-import Card from '../Card/Card';
+import Game from '../Game/Game';
 import Section from '../Section/Section';
-import './CardCollection.css';
+import './GameCollection.css';
 
 
-const CardCollection = (props: {
+const GameCollection = (props: {
     gameList: gameType[],
-
+    title: string,
+    disableScroll?: boolean
 }) => {
     const gameDataCtx = useContext(GameDataContext);
 
@@ -20,10 +21,10 @@ const CardCollection = (props: {
     }
 
     return (
-        <Section>
-            <div className='CardCollection'>
+        <Section title={props.title}>
+            <div className={`GameCollection ${props.disableScroll ? 'no-scroll' : ''}`}>
                 {filtered_games.map((game, index) =>
-                    <Card
+                    <Game
                         key={index}
                         game={game}
                     />
@@ -33,4 +34,4 @@ const CardCollection = (props: {
     )
 }
 
-export default CardCollection;
+export default GameCollection;

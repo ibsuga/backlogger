@@ -3,15 +3,15 @@ import { MdFavoriteBorder, MdFavorite, MdDelete } from "react-icons/md";
 import { SiNintendoswitch } from "react-icons/si";
 import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
 import { IoTrophyOutline, IoTrophySharp } from "react-icons/io5";
-import { GiDiamondTrophy } from "react-icons/gi";
+import { GiLaurelsTrophy } from "react-icons/gi";
 import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data'
-import './Card.css'
-import CardRatingSelector from './CardRatingSelector';
+import './Game.css'
+import GameRatingSelector from './GameRatingSelector';
 
 type GameDataType = { [key: string]: { 'label': string, 'icon': JSX.Element } };
 
-const Card = (props: {
+const Game = (props: {
     game: gameType,
 }) => {
     const gameDataCtx = useContext(GameDataContext);
@@ -40,34 +40,45 @@ const Card = (props: {
         'ps5': { 'label': 'PlayStation 5', 'icon': <FaPlaystation /> },
     }
 
-    //Sets the completion mark as a logo, based on the selected completion state.
-    const getCompletionLogo = (completion: string) => {
-        switch (completion) {
-            case 'full-complete':
-                return <GiDiamondTrophy />;
-            case 'complete':
-                return <IoTrophySharp />;
-            default:
-                return <IoTrophyOutline />;
+    //Sets the status mark as a logo, based on the selected status state.
+    const statusLogo: { [key: string]: JSX.Element } = {
+        'complete': <IoTrophySharp />,
+        'mastered': <GiLaurelsTrophy />,
+        'to-play': <IoTrophyOutline />,
+    }
+
+    const handleToggleCompletion = () => {
+        let status = props.game.status
+        if (status === 'to-play') {
+            status = 'complete'
+        } else if (status === 'complete') {
+            status = 'mastered'
+        } else {
+            status = 'to-play'
         }
+        const game = {
+            ...props.game,
+            'status': status
+        }
+        gameDataCtx.handleUpdateGame(game);
     }
 
     return (
-        <div className="Card">
-            <div className="card-content">
-                <div className="card-rating">
-                    <CardRatingSelector defaultRating={props.game.rating} handleUpdateRating={handleUpdateRating} />
+        <div className="Game">
+            <div className="Game-content">
+                <div className="Game-rating">
+                    <GameRatingSelector defaultRating={props.game.rating} handleUpdateRating={handleUpdateRating} />
                 </div>
-                <div className="card-completion">{getCompletionLogo(props.game.completion)}</div>
-                <div className="card-name"><span>{props.game.name}</span></div>
-                <div className="card-tools">
-                    <button className={`card-favorite ${props.game.favorite ? 'active' : ''}`} onClick={handleToggleFavorite}>
+                <div className="Game-status" onClick={handleToggleCompletion}>{statusLogo[props.game.status]}</div>
+                <div className="Game-name"><span>{props.game.name}</span></div>
+                <div className="Game-tools">
+                    <button className={`Game-favorite ${props.game.favorite ? 'active' : ''}`} onClick={handleToggleFavorite}>
                         {props.game.favorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
                     </button>
-                    <button className={'card-delete'} onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
+                    <button className={'Game-delete'} onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
                 </div>
             </div>
-            <div className={`card-platform ${props.game.platform}`}>
+            <div className={`Game-platform ${props.game.platform}`}>
                 <span>{GameData[props.game.platform].label}</span>
                 <div>{GameData[props.game.platform].icon}</div>
             </div>
@@ -75,4 +86,4 @@ const Card = (props: {
     )
 }
 
-export default Card;
+export default Game;

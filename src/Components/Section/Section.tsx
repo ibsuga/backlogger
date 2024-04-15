@@ -5,6 +5,7 @@ import { GameDataContext } from '../../App'
 
 const Section = (props: {
     children: JSX.Element | JSX.Element[]
+    title: string
 }) => {
 
     const gameDataCtx = useContext(GameDataContext);
@@ -12,7 +13,7 @@ const Section = (props: {
     return (
         <div className={`Section ${gameDataCtx.platformFilter}`}>
             <div className="section-title">
-                <span>Latest</span>
+                <span>{props.title}</span>
                 <div></div>
             </div>
             <div className='section-content'>

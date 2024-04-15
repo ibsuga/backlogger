@@ -1,4 +1,4 @@
-.Card {
+.Game {
     position: relative;
     display: grid;
     grid-template-columns: auto 1.75em;
@@ -12,7 +12,7 @@
     transition: 0.2s;
 }
 
-.Card:hover {
+.Game:hover {
     transform: scale(1.05);
 }
 
@@ -27,20 +27,30 @@
     transform: perspective(800px) rotateY(0deg);
 }
 
-.Card .card-content {
+.Game .Game-content {
     display: grid;
     grid-template-rows: min-content min-content auto min-content;
     padding: 0.25em;
     gap: 0.5em;
 }
 
-.Card .card-completion,
-.Card .card-rating {
+.Game .Game-status,
+.Game .Game-rating {
     font-size: 1.15em;
     filter: drop-shadow(0 0 2px rgb(0 0 0 / 1));
 }
 
-.Card .card-name {
+.Game .Game-status {
+    cursor: pointer;
+    width: 1em;
+    flex-grow: 0;
+}
+
+.Game .Game-status:hover svg {
+    transform: scale(1.05);
+}
+
+.Game .Game-name {
     padding-bottom: 0;
     display: flex;
     align-items: end;
@@ -49,13 +59,14 @@
     line-height: 1em;
     text-shadow: hsl(0, 0%, 20%) 1px 0 10px;
     user-select: none;
+    word-break: break-word;
 }
 
-.Card .card-tools {
+.Game .Game-tools {
     display: flex;
 }
 
-.Card .card-tools button {
+.Game .Game-tools button {
     padding: 0;
     border: none;
     background: none;
@@ -64,36 +75,36 @@
     transition: 0.25s;
 }
 
-.Card .card-tools button.card-delete {
+.Game .Game-tools button.Game-delete {
     right: 0;
     margin-left: auto;
 }
 
-.Card .card-tools button:hover {
+.Game .Game-tools button:hover {
     cursor: pointer;
 }
 
-.Card .card-tools .card-favorite:hover {
+.Game .Game-tools .Game-favorite:hover {
     color: rgb(255, 70, 150);
 }
 
-.Card .card-tools .card-delete:hover {
+.Game .Game-tools .Game-delete:hover {
     color: hsl(0, 90%, 60%);
 }
 
-.Card .card-platform {
+.Game .Game-platform {
     display: flex;
     flex-direction: column;
     padding: 0.5em 0.25em;
     gap: 0.2em;
 }
 
-.Card .card-platform div {
+.Game .Game-platform div {
     display: flex;
     font-size: 20px;
 }
 
-.Card .card-platform span {
+.Game .Game-platform span {
     flex-grow: 1;
     font-size: 1.5em;
     line-height: 0.9em;
@@ -104,40 +115,40 @@
     justify-items: start;
 }
 
-.Card .card-platform.nsw {
+.Game .Game-platform.nsw {
     background: linear-gradient(180deg, hsl(0, 60%, 40%) 50%, hsl(0, 60%, 50%) 100%);
     color: hsl(0, 60%, 90%);
 }
 
-.Card .card-platform.steam {
+.Game .Game-platform.steam {
     background: linear-gradient(180deg, hsl(0, 0%, 10%) 20%, hsl(0, 0%, 20%) 100%);
     color: hsl(0, 0%, 90%)
 }
 
-.Card .card-platform.ps5 {
+.Game .Game-platform.ps5 {
     background: linear-gradient(180deg, hsl(215, 90%, 65%) 50%, hsl(215, 90%, 80%) 100%);
     color: hsl(215, 90%, 95%);
 }
 
-/* Card Ratings */
-.CardRatingSelector {
+/* Game Ratings */
+.GameRatingSelector {
     display: flex;
     flex-direction: row;
 }
 
-.CardRatingStar {
+.GameRatingStar {
     cursor: pointer;
 }
 
-.CardRatingStar .full-star,
-.CardRatingStar .half-star {
+.GameRatingStar .full-star,
+.GameRatingStar .half-star {
     color: goldenrod;
 }
 
 
 
-.CardRatingStar.hovered .full-star,
-.CardRatingStar.hovered .half-star,
-.CardRatingStar.hovered .empty-star {
+.GameRatingStar.hovered .full-star,
+.GameRatingStar.hovered .half-star,
+.GameRatingStar.hovered .empty-star {
     color: hsl(170, 75%, 45%);
 }

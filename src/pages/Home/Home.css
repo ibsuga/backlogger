@@ -1,0 +1,15 @@
+.Home {
+    display: grid;
+    grid-template-columns: 12em 1fr 1fr 1fr;
+    gap: 1em;
+}
+
+.Home>*:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.Home>*:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
