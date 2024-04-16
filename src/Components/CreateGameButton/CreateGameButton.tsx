@@ -7,29 +7,33 @@ import './CreateGameButton.css';
 const CreateGameButton = () => {
     const [name, setName] = useState('');
     const [platform, setPlatform] = useState('-');
+    const [background, setBackground] = useState('');
     const ref: any = useRef(null);
     const gameDataCtx = useContext(GameDataContext);
 
     const handleOpenDialog = () => {
         if (ref.current?.open) ref.current.close();
-        else ref.current?.showModal()
+        else ref.current?.showModal();
     }
 
     const handleSubmitGame = () => {
-        if (name != '' && platform != '-') {
+        if (name != '' && platform != '-' && background != '-') {
             console.log(name, platform);
             const game = {
                 id: Date.now(),
                 name,
                 platform,
-                status: 'to-play',
+                isPlaying: false,
                 favorite: false,
-                rating: -1
+                completion: 'unfinished',
+                rating: -1,
+                background
             }
             gameDataCtx.handleAddGame(game);
-            setName('')
-            setPlatform('-')
-            ref.current.close()
+            setName('');
+            setPlatform('-');
+            setBackground('-');
+            ref.current.close();
         }
     }
 
@@ -56,6 +60,10 @@ const CreateGameButton = () => {
                             <option value="nsw">Nintendo Switch</option>
                             <option value="ps5">PlayStation 5</option>
                         </select>
+                    </div>
+                    <div>
+                        <label>Background</label>
+                        <input placeholder='Insert a valid image URL' type="text" value={background} onChange={(event) => setBackground(event.target.value)} />
                     </div>
                     <button className='submit-game' onClick={handleSubmitGame}>Submit Game</button>
                 </div>

@@ -37,8 +37,9 @@ body,
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* background-color: rgba(102, 101, 101, 1); */
+  /* background: url('./assets/testback.jpeg'); */
   background-color: rgb(58, 58, 58);
+  /* background-color: rgba(102, 101, 101, 1); */
   /* transition: background 1s ease; */
 }
 

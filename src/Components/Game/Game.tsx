@@ -4,6 +4,7 @@ import { SiNintendoswitch } from "react-icons/si";
 import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
 import { IoTrophyOutline, IoTrophySharp } from "react-icons/io5";
 import { GiLaurelsTrophy } from "react-icons/gi";
+import { MdOutlinePlayCircleOutline, MdOutlineCircle } from "react-icons/md";
 import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data'
 import './Game.css'
@@ -20,7 +21,7 @@ const Game = (props: {
     const handleToggleFavorite = () => {
         const game = {
             ...props.game,
-            'favorite': !props.game.favorite
+            'isFavorite': !props.game.isFavorite
         }
         gameDataCtx.handleUpdateGame(game);
     }
@@ -41,44 +42,53 @@ const Game = (props: {
     }
 
     //Sets the status mark as a logo, based on the selected status state.
-    const statusLogo: { [key: string]: JSX.Element } = {
+    const completionLogo: { [key: string]: JSX.Element } = {
+        'unfinished': <IoTrophyOutline />,
         'complete': <IoTrophySharp />,
         'mastered': <GiLaurelsTrophy />,
-        'to-play': <IoTrophyOutline />,
+    }
+
+    const handleTogglePlayingStatus = () => {
+        const game = {
+            ...props.game,
+            'isPlaying': !props.game.isPlaying,
+        }
+        gameDataCtx.handleUpdateGame(game);
     }
 
     const handleToggleCompletion = () => {
-        let status = props.game.status
-        if (status === 'to-play') {
-            status = 'complete'
-        } else if (status === 'complete') {
-            status = 'mastered'
+        let completion = props.game.completion
+        if (completion === 'unfinished') {
+            completion = 'complete'
+        } else if (completion === 'complete') {
+            completion = 'mastered'
         } else {
-            status = 'to-play'
+            completion = 'unfinished'
         }
         const game = {
             ...props.game,
-            'status': status
+            'completion': completion
         }
         gameDataCtx.handleUpdateGame(game);
     }
 
     return (
         <div className="Game">
-            <div className="Game-content">
-                <div className="Game-rating">
+            <div className="game-content" style={{ background: `url(${props.game.background})` }}>
+                <div className="game-rating">
                     <GameRatingSelector defaultRating={props.game.rating} handleUpdateRating={handleUpdateRating} />
                 </div>
-                <div className="Game-status" onClick={handleToggleCompletion}>{statusLogo[props.game.status]}</div>
-                <div className="Game-name"><span>{props.game.name}</span></div>
-                <div className="Game-tools">
-                    <button className={`Game-favorite ${props.game.favorite ? 'active' : ''}`} onClick={handleToggleFavorite}>
-                        {props.game.favorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
+                <div className="game-completion" onClick={handleToggleCompletion}>{completionLogo[props.game.completion]}</div>
+                <div className='game-playing-status' onClick={handleTogglePlayingStatus}>{props.game.isPlaying ? <MdOutlinePlayCircleOutline /> : <MdOutlineCircle />}</div>
+                <div className="game-name"><span>{props.game.name}</span></div>
+                <div className="game-tools">
+                    <button className={`game-favorite ${props.game.isFavorite ? 'active' : ''}`} onClick={handleToggleFavorite}>
+                        {props.game.isFavorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
                     </button>
-                    <button className={'Game-delete'} onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
+                    <button className={'game-delete'} onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
                 </div>
             </div>
-            <div className={`Game-platform ${props.game.platform}`}>
+            <div className={`game-platform ${props.game.platform}`}>
                 <span>{GameData[props.game.platform].label}</span>
                 <div>{GameData[props.game.platform].icon}</div>
             </div>

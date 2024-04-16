@@ -9,19 +9,19 @@ const Profile = (props: {
 }) => {
     //To play filter
     let filter_to_play = [...props.gameData];
-    filter_to_play = filter_to_play.filter((game: gameType) => game.status === 'to-play')
+    filter_to_play = filter_to_play.filter((game: gameType) => game.completion === 'unfinished')
 
     //Completed filter
     let filter_completed = [...props.gameData];
     filter_completed = filter_completed.filter((game: gameType) => {
-        if (game.status === 'completed') {
+        if (game.completion === 'complete' || game.completion === 'mastered') {
             return true;
         }
     })
 
     //Favorites filter
     let filter_favorite = [...props.gameData];
-    filter_favorite = filter_favorite.filter((game: gameType) => game.favorite === true)
+    filter_favorite = filter_favorite.filter((game: gameType) => game.isFavorite === true)
 
     return (
         <div className="Profile">
@@ -31,18 +31,18 @@ const Profile = (props: {
 
                 <h1 onClick={() => props.setPage('backlog')}>Your Backlog</h1>
                 <hr />
-                <GameCollection gameList={filter_to_play} />
+                <GameCollection title={'To play'} gameList={filter_to_play} />
 
                 <h1>Completed Games</h1>
                 <hr />
-                <GameCollection gameList={filter_completed} />
+                <GameCollection title={'Completed'} gameList={filter_completed} />
 
             </div>
             <div className='Aside'>
                 <div className='Favorites'>
                     <h1>Favorites</h1>
                     <hr />
-                    <GameCollection gameList={filter_favorite} />
+                    <GameCollection title={'Favorites'} gameList={filter_favorite} />
                 </div>
                 <div className='Calendar'>
                     <h1>Calendar</h1>

@@ -8,14 +8,14 @@ const Backlog = (props: {
 }) => {
     //filtered backlog games
     let games_to_play = [...props.gameData];
-    games_to_play = games_to_play.filter((game: gameType) => game.status === 'to-play')
+    games_to_play = games_to_play.filter((game: gameType) => game.completion === 'unfinished')
 
     return (
         <div className="Backlog">
             <div className='Content'>
                 <h1>Games you want to play</h1>
                 <hr />
-                <GameCollection gameList={games_to_play} />
+                <GameCollection title={'Backlog'} gameList={games_to_play} />
             </div>
             <div className='Aside'>
                 <CreateGameButton />

@@ -7,8 +7,7 @@
     border-radius: 0.3em;
     overflow: hidden;
     box-shadow: 4px 4px 10px 1px hsla(0, 0%, 0%, 0.5);
-    background: url(../../assets/bg.png);
-    background-size: cover;
+    background-color: hsl(0, 0%, 20%);
     transition: 0.2s;
 }
 
@@ -27,30 +26,41 @@
     transform: perspective(800px) rotateY(0deg);
 }
 
-.Game .Game-content {
+.Game .game-content {
     display: grid;
-    grid-template-rows: min-content min-content auto min-content;
+    grid-template-rows: min-content min-content min-content auto min-content;
     padding: 0.25em;
     gap: 0.5em;
+    background-size: cover !important;
+    background-position: center !important;
+    box-shadow: inset 0px -90px 40px 0px hsla(0, 0%, 0%, 0.5);
 }
 
-.Game .Game-status,
-.Game .Game-rating {
+.Game .game-completion,
+.Game .game-rating {
     font-size: 1.15em;
-    filter: drop-shadow(0 0 2px rgb(0 0 0 / 1));
+    filter: drop-shadow(2px 2px 1px rgb(0 0 0 / 1));
 }
 
-.Game .Game-status {
+.Game .game-completion,
+.Game .game-playing-status {
     cursor: pointer;
     width: 1em;
     flex-grow: 0;
 }
 
-.Game .Game-status:hover svg {
-    transform: scale(1.05);
+.Game .game-completion svg,
+.game .game-playing-status svg {
+    transition: 0.1s;
 }
 
-.Game .Game-name {
+.Game .game-completion:hover svg,
+.Game .game-playing-status:hover svg {
+    transform: scale(1.2);
+}
+
+
+.Game .game-name {
     padding-bottom: 0;
     display: flex;
     align-items: end;
@@ -62,11 +72,11 @@
     word-break: break-word;
 }
 
-.Game .Game-tools {
+.Game .game-tools {
     display: flex;
 }
 
-.Game .Game-tools button {
+.Game .game-tools button {
     padding: 0;
     border: none;
     background: none;
@@ -75,36 +85,36 @@
     transition: 0.25s;
 }
 
-.Game .Game-tools button.Game-delete {
+.Game .game-tools button.game-delete {
     right: 0;
     margin-left: auto;
 }
 
-.Game .Game-tools button:hover {
+.Game .game-tools button:hover {
     cursor: pointer;
 }
 
-.Game .Game-tools .Game-favorite:hover {
+.Game .game-tools .game-favorite:hover {
     color: rgb(255, 70, 150);
 }
 
-.Game .Game-tools .Game-delete:hover {
+.Game .game-tools .game-delete:hover {
     color: hsl(0, 90%, 60%);
 }
 
-.Game .Game-platform {
+.Game .game-platform {
     display: flex;
     flex-direction: column;
     padding: 0.5em 0.25em;
     gap: 0.2em;
 }
 
-.Game .Game-platform div {
+.Game .game-platform div {
     display: flex;
     font-size: 20px;
 }
 
-.Game .Game-platform span {
+.Game .game-platform span {
     flex-grow: 1;
     font-size: 1.5em;
     line-height: 0.9em;
@@ -115,17 +125,17 @@
     justify-items: start;
 }
 
-.Game .Game-platform.nsw {
+.Game .game-platform.nsw {
     background: linear-gradient(180deg, hsl(0, 60%, 40%) 50%, hsl(0, 60%, 50%) 100%);
     color: hsl(0, 60%, 90%);
 }
 
-.Game .Game-platform.steam {
+.Game .game-platform.steam {
     background: linear-gradient(180deg, hsl(0, 0%, 10%) 20%, hsl(0, 0%, 20%) 100%);
     color: hsl(0, 0%, 90%)
 }
 
-.Game .Game-platform.ps5 {
+.Game .game-platform.ps5 {
     background: linear-gradient(180deg, hsl(215, 90%, 65%) 50%, hsl(215, 90%, 80%) 100%);
     color: hsl(215, 90%, 95%);
 }
