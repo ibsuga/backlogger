@@ -24,14 +24,16 @@
 }
 
 
-.NavBar .navbar-top svg {
+.NavBar .navbar-top .navbar-bottom svg,
+.NavBar .navbar-top .profile {
     cursor: pointer;
     font-size: 1.5em;
     margin-right: 1em;
     transition: 0.1s;
 }
 
-.NavBar .navbar-top svg:hover {
+.NavBar .navbar-top .navbar-bottom svg:hover,
+.NavBar .navbar-top .profile:hover {
     transform: scale(1.3);
 }
 

@@ -4,11 +4,12 @@ import { SiNintendoswitch } from "react-icons/si";
 import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
 import { IoTrophyOutline, IoTrophySharp } from "react-icons/io5";
 import { GiLaurelsTrophy } from "react-icons/gi";
-import { MdOutlinePlayCircleOutline, MdOutlineCircle } from "react-icons/md";
+import { MdOutlinePlayCircleOutline, MdOutlineCircle, MdEditSquare } from "react-icons/md";
 import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data'
 import './Game.css'
 import GameRatingSelector from './GameRatingSelector';
+import EditGameButton from '../EditGameButton/EditGameButton';
 
 type GameDataType = { [key: string]: { 'label': string, 'icon': JSX.Element } };
 
@@ -82,10 +83,15 @@ const Game = (props: {
                 <div className='game-playing-status' onClick={handleTogglePlayingStatus}>{props.game.isPlaying ? <MdOutlinePlayCircleOutline /> : <MdOutlineCircle />}</div>
                 <div className="game-name"><span>{props.game.name}</span></div>
                 <div className="game-tools">
-                    <button className={`game-favorite ${props.game.isFavorite ? 'active' : ''}`} onClick={handleToggleFavorite}>
-                        {props.game.isFavorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
-                    </button>
-                    <button className={'game-delete'} onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
+                    <div className="tools-left">
+                        <button className={`tool game-favorite ${props.game.isFavorite ? 'active' : ''}`} onClick={handleToggleFavorite}>
+                            {props.game.isFavorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
+                        </button>
+                    </div>
+                    <div className="tools-right">
+                        <button className='tool game-delete' onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
+                        <EditGameButton gameData={props.game} />
+                    </div>
                 </div>
             </div>
             <div className={`game-platform ${props.game.platform}`}>

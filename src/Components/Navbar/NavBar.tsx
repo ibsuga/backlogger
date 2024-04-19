@@ -20,12 +20,11 @@ const NavBar = (props: {
                 <div className='logo-container'>
                     <div className='logo' onClick={() => props.setPage('home')}>BACKLOGGER</div>
                 </div>
-                <CgProfile onClick={() => props.setPage('profile')} />
+                <CgProfile className={'profile'} onClick={() => props.setPage('profile')} />
                 <CreateGameButton />
             </div>
             <div className='navbar-bottom'>
                 <div className='buttons-bar'>
-
                     <PiGameControllerDuotone onClick={() => props.setPlatformFilter('')} />
                     <BsNintendoSwitch className={`nsw ${props.platformFilter === 'nsw' ? 'active' : ''}`} onClick={() => props.setPlatformFilter('nsw')} />
                     <IoLogoPlaystation className={`ps5 ${props.platformFilter === 'ps5' ? 'active' : ''}`} onClick={() => props.setPlatformFilter('ps5')} />

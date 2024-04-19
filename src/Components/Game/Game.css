@@ -73,39 +73,40 @@
 }
 
 .Game .game-tools {
-    display: flex;
+    display: grid;
+    grid-template-columns: min-content auto;
 }
 
-.Game .game-tools button {
+.Game .game-tools .tools-right {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.25em;
+}
+
+
+.Game .game-tools .tool {
     padding: 0;
     border: none;
     background: none;
     font-size: 1.25em;
     color: hsl(0, 60%, 98%);
     transition: 0.25s;
-}
-
-.Game .game-tools button.game-delete {
-    right: 0;
-    margin-left: auto;
-}
-
-.Game .game-tools button:hover {
     cursor: pointer;
 }
 
-.Game .game-tools .game-favorite:hover {
+
+.Game .game-tools .tool.game-favorite:hover {
     color: rgb(255, 70, 150);
 }
 
-.Game .game-tools .game-delete:hover {
+.Game .game-tools .tool.game-delete:hover {
     color: hsl(0, 90%, 60%);
 }
 
 .Game .game-platform {
     display: flex;
     flex-direction: column;
-    padding: 0.5em 0.25em;
+    padding: 0.6em 0.25em;
     gap: 0.2em;
 }
 

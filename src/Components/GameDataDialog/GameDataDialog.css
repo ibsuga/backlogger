@@ -1,0 +1,91 @@
+.GameDataDialog::backdrop {
+    background: radial-gradient(circle,
+            hsla(0, 0%, 0%, 0.8) 0%,
+            hsla(240, 32%, 8%, 0.5) 70%,
+            hsla(0, 0%, 0%, 0.4) 100%);
+}
+
+
+.GameDataDialog {
+    border: 4px solid hsl(0, 0%, 30%);
+    background-color: hsla(0, 0%, 10%, 0.95);
+    padding: 0;
+    height: 20em;
+    width: 30em;
+    border-radius: 0.5em;
+}
+
+.GameDataDialog .dialog-content {
+    border-radius: 0.3em;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+}
+
+
+.GameDataDialog .close-dialog {
+    height: 1.5em;
+    width: 1.5em;
+    color: hsl(0, 0%, 50%);
+    align-self: end;
+    transition: 0.10s;
+}
+
+.GameDataDialog .dialog-content>div {
+    font-family: 'Bebas Neue';
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 0.5em;
+    color: hsl(0, 5%, 85%);
+}
+
+.GameDataDialog .dialog-content>div input,
+.GameDataDialog .dialog-content>div select {
+    font-family: 'Kanit';
+    color: hsl(0, 5%, 85%);
+    background-color: hsl(0, 0%, 30%);
+    border-color: hsl(170, 75%, 45%);
+    border-radius: 0.3em;
+    width: 70%;
+    text-align: center;
+    align-self: center;
+    box-sizing: border-box;
+}
+
+.GameDataDialog .dialog-content>div input {
+    outline: none;
+}
+
+.GameDataDialog .dialog-content>div select {
+    cursor: pointer;
+}
+
+.GameDataDialog .submit-game {
+    width: 10em;
+    height: 2em;
+    font-family: 'Kanit';
+    cursor: pointer;
+    color: hsl(0, 5%, 85%);
+    background-color: hsl(0, 0%, 30%);
+    border-radius: 0.3em;
+    border-color: hsl(170, 75%, 45%);
+    align-self: center;
+    margin-top: 3em;
+}
+
+.GameDataDialog .submit-game:hover {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 40%);
+    border-color: hsl(170, 75%, 50%);
+}
+
+.GameDataDialog .close-dialog:hover {
+    cursor: pointer;
+    color: hsl(0, 40%, 50%);
+}
+
+.GameDataDialog .close-dialog:active {
+    transform: scale(0.9);
+}
