@@ -37,7 +37,8 @@
 }
 
 .Game .game-completion,
-.Game .game-rating {
+.Game .game-rating,
+.Game .game-playing-status {
     font-size: 1.15em;
     filter: drop-shadow(2px 2px 1px rgb(0 0 0 / 1));
 }
@@ -99,8 +100,12 @@
     color: rgb(255, 70, 150);
 }
 
-.Game .game-tools .tool.game-delete:hover {
+.Game .game-tools .tools-right .tool.game-delete svg:hover {
     color: hsl(0, 90%, 60%);
+}
+
+.Game .game-tools .tools-right svg:hover {
+    color: cadetblue;
 }
 
 .Game .game-platform {

@@ -3,19 +3,15 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     height: auto;
     border-radius: 16px;
+    overflow: hidden;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-.GameDataDialog .p-dialog-content {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 0px 0px 16px 16px;
-}
-
+.GameDataDialog .p-dialog-content,
 .GameDataDialog .p-dialog-header {
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px 16px 0px 0px;
 }
 
 

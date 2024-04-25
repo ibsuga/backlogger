@@ -4,7 +4,7 @@ import { SiNintendoswitch } from "react-icons/si";
 import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
 import { IoTrophyOutline, IoTrophySharp } from "react-icons/io5";
 import { GiLaurelsTrophy } from "react-icons/gi";
-import { MdOutlinePlayCircleOutline, MdOutlineCircle, MdEditSquare } from "react-icons/md";
+import { MdOutlinePlayCircleOutline, MdOutlineCircle } from "react-icons/md";
 import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data'
 import './Game.css'
@@ -56,6 +56,7 @@ const Game = (props: {
         }
         gameDataCtx.handleUpdateGame(game);
     }
+
 
     const handleToggleCompletion = () => {
         let completion = props.game.completion

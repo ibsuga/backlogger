@@ -11,11 +11,12 @@
 
 html,
 body,
-#root {
+#root,
+.App {
   color: hsl(0, 5%, 85%);
   margin: 0;
   padding: 0;
-  min-height: 100%;
+  min-height: 100vh;
   height: auto;
 }
 
@@ -48,4 +49,5 @@ body,
 .Content {
   z-index: 9;
   padding: 1em;
+  flex: 1;
 }

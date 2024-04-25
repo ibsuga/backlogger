@@ -64,28 +64,6 @@ const GameDataDialog = (props: {
                         <input placeholder='Game you want to play...' type='text' value={name} onChange={(event) => setName(event.target.value)} />
                     </div>
                     <div>
-                        <label>Platform</label>
-                        <div className='dialog-platform'>
-                            <input type="radio" id='steam' name='platform' onClick={() => { setPlatform('steam') }} />
-                            <label htmlFor="steam"><FaSteamSquare /></label>
-
-                            <input type="radio" id='nsw' name='platform' onClick={() => { setPlatform('nsw') }} />
-                            <label htmlFor="nsw"><BsNintendoSwitch /></label>
-
-                            <input type="radio" id='ps5' name='platform' onClick={() => { setPlatform('ps5') }} />
-                            <label htmlFor="ps5"><IoLogoPlaystation /></label>
-
-
-                        </div>
-
-                        {/* <select value={platform} onChange={(event) => setPlatform(event.target.value)}>
-                            <option hidden value="-">-</option>
-                            <option value="steam">Steam</option>
-                            <option value="nsw">Nintendo Switch</option>
-                            <option value="ps5">PlayStation 5</option>
-                        </select> */}
-                    </div>
-                    <div>
                         <label>Background</label>
                         <input
                             placeholder='Insert a valid image URL'
@@ -93,7 +71,20 @@ const GameDataDialog = (props: {
                             value={background}
                             onChange={(event) => setBackground(event.target.value)} />
                     </div>
-                    <Calendar value={date} onChange={(e) => setDate(e.value)} />
+                    <div>
+                        <label>Platform</label>
+                        <div className='dialog-platform'>
+                            <input type="radio" id='steam' name='platform' onClick={() => setPlatform('steam')} />
+                            <label htmlFor="steam"><FaSteamSquare /></label>
+
+                            <input type="radio" id='nsw' name='platform' onClick={() => setPlatform('nsw')} />
+                            <label htmlFor="nsw"><BsNintendoSwitch /></label>
+
+                            <input type="radio" id='ps5' name='platform' onClick={() => setPlatform('ps5')} />
+                            <label htmlFor="ps5"><IoLogoPlaystation /></label>
+                        </div>
+                    </div>
+                    {/* <Calendar value={date} onChange={(e) => setDate(e.value)} /> */}
                     <button className='submit-game' onClick={handleSubmitDialog}>Submit Game</button>
                 </div>
             </Dialog>
