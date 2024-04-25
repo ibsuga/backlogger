@@ -1,6 +1,13 @@
 import { useRef, useState, useEffect } from 'react';
-import { FaWindowClose } from "react-icons/fa";
 import './GameDataDialog.css';
+import { Calendar } from 'primereact/calendar';
+import { Nullable } from 'primereact/ts-helpers';
+import 'primereact/resources/themes/nano/theme.css'
+import { Dialog } from 'primereact/dialog';
+import { FaSteamSquare } from "react-icons/fa";
+import { BsNintendoSwitch } from "react-icons/bs";
+import { IoLogoPlaystation } from "react-icons/io";
+
 
 export type GameDataType = {
     name?: string,
@@ -20,6 +27,8 @@ const GameDataDialog = (props: {
     const [name, setName] = useState(props.defaultName || '');
     const [background, setBackground] = useState(props.defaultBackground || '');
     const [platform, setPlatform] = useState(props.defaultPlatform || '-');
+    const [date, setDate] = useState<Nullable<Date>>();
+
     const ref: any = useRef(null);
 
     useEffect(() => {
@@ -44,33 +53,51 @@ const GameDataDialog = (props: {
     return (
         <>
             {props.btnElement}
-            <dialog
+            {/* <dialog
                 ref={ref}
                 className="GameDataDialog"
-            >
+            > */}
+            <Dialog className="GameDataDialog" visible={props.dialogOpen} style={{ width: '30vw' }} draggable={false} resizable={false} onHide={() => props.setDialogOpen(false)}>
                 <div className="dialog-content">
-                    <FaWindowClose className='close-dialog' onClick={() => props.setDialogOpen(false)}>x</FaWindowClose>
                     <div>
                         <label>Game Title</label>
                         <input placeholder='Game you want to play...' type='text' value={name} onChange={(event) => setName(event.target.value)} />
                     </div>
                     <div>
                         <label>Platform</label>
-                        <select value={platform} onChange={(event) => setPlatform(event.target.value)}>
+                        <div className='dialog-platform'>
+                            <input type="radio" id='steam' name='platform' onClick={() => { setPlatform('steam') }} />
+                            <label htmlFor="steam"><FaSteamSquare /></label>
+
+                            <input type="radio" id='nsw' name='platform' onClick={() => { setPlatform('nsw') }} />
+                            <label htmlFor="nsw"><BsNintendoSwitch /></label>
+
+                            <input type="radio" id='ps5' name='platform' onClick={() => { setPlatform('ps5') }} />
+                            <label htmlFor="ps5"><IoLogoPlaystation /></label>
+
+
+                        </div>
+
+                        {/* <select value={platform} onChange={(event) => setPlatform(event.target.value)}>
                             <option hidden value="-">-</option>
                             <option value="steam">Steam</option>
                             <option value="nsw">Nintendo Switch</option>
                             <option value="ps5">PlayStation 5</option>
-                        </select>
+                        </select> */}
                     </div>
                     <div>
                         <label>Background</label>
-                        <input placeholder='Insert a valid image URL' type="text" value={background} onChange={(event) => setBackground(event.target.value)} />
+                        <input
+                            placeholder='Insert a valid image URL'
+                            type="text"
+                            value={background}
+                            onChange={(event) => setBackground(event.target.value)} />
                     </div>
+                    <Calendar value={date} onChange={(e) => setDate(e.value)} />
                     <button className='submit-game' onClick={handleSubmitDialog}>Submit Game</button>
                 </div>
-            </dialog>
-
+            </Dialog>
+            {/* </dialog> */}
         </>
     )
 }
