@@ -13,6 +13,7 @@ export type GameDataType = {
     name?: string,
     background?: string,
     platform?: string,
+    date?: string,
 }
 
 const GameDataDialog = (props: {
@@ -23,11 +24,14 @@ const GameDataDialog = (props: {
     defaultName?: string,
     defaultBackground?: string,
     defaultPlatform?: string,
+    defaultDate?: string,
 }) => {
     const [name, setName] = useState(props.defaultName || '');
     const [background, setBackground] = useState(props.defaultBackground || '');
     const [platform, setPlatform] = useState(props.defaultPlatform || '-');
-    const [date, setDate] = useState<Nullable<Date>>();
+    const [date, setDate] = useState<Nullable<Date>>(props.defaultDate ? new Date(props.defaultDate) : null);
+
+
 
     const ref: any = useRef(null);
 
@@ -38,6 +42,7 @@ const GameDataDialog = (props: {
             setName(props.defaultName || '');
             setBackground(props.defaultBackground || '');
             setPlatform(props.defaultPlatform || '-');
+            setDate(props.defaultDate ? new Date(props.defaultDate) : null);
             ref.current?.close();
         }
     }, [props.dialogOpen]);
@@ -47,6 +52,12 @@ const GameDataDialog = (props: {
         if (name != '') data.name = name;
         if (background != '') data.background = background;
         if (platform != '-') data.platform = platform;
+        if (date) {
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            data.date = `${year}-${month}-${day}`;
+        }
         props.handleSubmit(data);
     }
 
@@ -84,7 +95,7 @@ const GameDataDialog = (props: {
                             <label htmlFor="ps5"><IoLogoPlaystation /></label>
                         </div>
                     </div>
-                    {/* <Calendar value={date} onChange={(e) => setDate(e.value)} /> */}
+                    <Calendar value={date} onChange={(e) => setDate(e.value)} dateFormat='dd/mm/yy' />
                     <button className='submit-game' onClick={handleSubmitDialog}>Submit Game</button>
                 </div>
             </Dialog>

@@ -7,5 +7,6 @@ export type gameType = {
     isFavorite: boolean,
     completion: 'unfinished' | 'complete' | 'mastered',
     rating: number,
-    background: string
+    background: string,
+    date?: string
 }

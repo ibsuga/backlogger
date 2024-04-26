@@ -10,7 +10,7 @@ const CreateGameButton = () => {
     const gameDataCtx = useContext(GameDataContext);
 
     const handleCreateGame = (gameData: GameDataType) => {
-        let { name, platform, background } = gameData;
+        let { name, platform, background, date } = gameData;
         if (name && platform && background) {
             const game = {
                 id: Date.now(),
@@ -20,7 +20,8 @@ const CreateGameButton = () => {
                 favorite: false,
                 completion: 'unfinished',
                 rating: -1,
-                background
+                background,
+                date
             }
             gameDataCtx.handleAddGame(game);
             setDialogOpen(false);

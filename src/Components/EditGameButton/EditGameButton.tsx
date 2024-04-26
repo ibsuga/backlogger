@@ -13,13 +13,14 @@ const EditGameButton = (props: {
     const gameDataCtx = useContext(GameDataContext);
 
     const handleEditGame = (gameData: GameDataType) => {
-        let { name, platform, background } = gameData;
+        let { name, platform, background, date } = gameData;
 
         if (name && platform && background) {
             let game = { ...props.gameData };
             game.name = name;
             game.platform = platform;
             game.background = background;
+            game.date = date;
             gameDataCtx.handleUpdateGame(game);
             setDialogOpen(false);
         }
@@ -37,6 +38,7 @@ const EditGameButton = (props: {
                 defaultName={props.gameData.name}
                 defaultBackground={props.gameData.background}
                 defaultPlatform={props.gameData.platform}
+                defaultDate={props.gameData.date}
             />
         </>
     )

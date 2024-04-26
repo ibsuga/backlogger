@@ -1,7 +1,6 @@
 import './Profile.css';
 import GameCollection from '../../Components/GameCollection/GameCollection';
 import { gameType } from '../../data/game_data';
-import CalendarItem from '../../Components/CalendarItem/CalendarItem';
 
 const Profile = (props: {
     setPage: (page: string) => void
@@ -47,9 +46,7 @@ const Profile = (props: {
                 <div className='Calendar'>
                     <h1>Calendar</h1>
                     <hr />
-                    <CalendarItem />
-                    <CalendarItem />
-                    <CalendarItem />
+
                 </div>
                 <div className='Activity'>
                     <h1>Activity</h1>

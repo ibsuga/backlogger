@@ -45,7 +45,7 @@ function App() {
     'home': <Home gameData={gameData} setPage={setPage} />,
     'profile': <Profile gameData={gameData} setPage={setPage} />,
     'backlog': <Backlog gameData={gameData} />,
-    'calendar': <ReleasesCalendar />
+    'calendar': <ReleasesCalendar gameData={gameData} />
   }
 
   const ctx_value = { handleAddGame, handleUpdateGame, handleDeleteGame, platformFilter };
