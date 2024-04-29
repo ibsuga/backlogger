@@ -1,36 +1,87 @@
-.p-calendar {
-    width: 100%;
-}
+ .ReleasesCalendar {
+     display: flex;
+     justify-content: center;
+ }
 
-.p-datepicker,
-.p-datepicker-header {
-    background: none;
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
+ .p-calendar {
+     width: 90%;
+ }
 
-.p-datepicker-header {
-    background: rgba(255, 255, 255, 0.2);
-}
+ .p-datepicker,
+ .p-datepicker-header {
+     background: none;
+     border-radius: 16px;
+     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+     backdrop-filter: blur(5px);
+     -webkit-backdrop-filter: blur(5px);
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     color: hsl(0, 0%, 80%);
+     gap: 0.5em;
+ }
 
-.p-icon {
-    color: black;
-}
+ .p-datepicker-header {
+     background: rgba(255, 255, 255, 0.2);
+ }
 
-.p-datepicker-calendar td.p-datepicker-today span {
-    outline: 2px solid rgb(83, 160, 118);
-    background: none;
-}
+ .p-icon {
+     color: black;
+ }
 
-.p-datepicker-calendar td[data-pc-section='day'] {
-    padding: 0.2em;
-}
+ .p-datepicker-calendar td.p-datepicker-today span {
+     outline: 2px solid rgb(83, 160, 118);
+     background: none;
+ }
 
-.p-datepicker-calendar td[data-pc-section='day'] span {
-    border-radius: unset;
-    width: inherit;
-    height: min-content;
-}
+ .p-datepicker-calendar td[data-pc-section='day'] {
+     padding: 0.2em;
+     transition: 0.3s;
+ }
+
+ .p-datepicker-calendar td[data-pc-section='day'] span {
+     border-radius: unset;
+     width: inherit;
+     height: min-content;
+ }
+
+ .p-datepicker-calendar td span[data-p-highlight='true'] {
+     background-color: tomato;
+ }
+
+ .p-datepicker-calendar td:hover {
+     border-radius: 5px;
+     transform: scale(1.03);
+ }
+
+ .p-datepicker table td>span.p-highlight {
+     background: none;
+     background-color: none;
+ }
+
+ /*Unsets default hover background*/
+ .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
+     background: none;
+ }
+
+ .ReleasesCalendar tr[data-pc-section="tableheaderrow"] {
+     display: none;
+ }
+
+ .ReleasesCalendar tr[data-pc-section="tablebodyrowprops"] {
+     display: flex;
+ }
+
+ .ReleasesCalendar tr[data-pc-section="tablebodyrowprops"]>* {
+     flex-grow: 1;
+ }
+
+ .p-datepicker table td span:focus {
+     outline: 0 none;
+     outline-offset: 0;
+     box-shadow: none !important;
+ }
+
+ .p-datepicker table td span:active .day {
+     background-color: hsl(170, 75%, 45%);
+     border-color: hsl(170, 75%, 45%);
+
+ }
