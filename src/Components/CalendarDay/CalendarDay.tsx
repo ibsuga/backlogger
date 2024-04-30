@@ -1,26 +1,36 @@
 import './CalendarDay.css'
+import { CgMoreAlt } from "react-icons/cg";
 import { gameType } from '../../data/game_data';
 
+
+type GameLabelType = { [key: string]: string }
 
 const CalendarDay = (props: {
     games: gameType[]
     day: number,
 }) => {
 
+    const GameLabel: GameLabelType = {
+        'nsw': 'Switch',
+        'steam': 'Steam',
+        'ps5': 'PS5',
+    }
 
     const getGameComponents = () => {
         let to_return = [];
         for (let i = 0; i < (Math.min(3, props.games.length)); i++) {
             to_return.push(
                 <div className="calendar-game" style={{ backgroundImage: `url(${props.games[i].background})` }}>
-                    <div className='calendar-game-platform'>platform</div>
                     <div className="calendar-game-name">{props.games[i].name}</div>
+                    <div className={`calendar-game-platform ${props.games[i].platform}`}>{GameLabel[props.games[i].platform]}</div>
                 </div>
             )
         }
         if (props.games.length > 3) {
             to_return.push(
-                <div className="calendar-plus">+</div>
+                <div className="calendar-plus">
+                    <span><CgMoreAlt /></span>
+                </div>
             )
         }
         return to_return;

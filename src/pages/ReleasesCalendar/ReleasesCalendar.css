@@ -34,7 +34,7 @@
 
  .p-datepicker-calendar td[data-pc-section='day'] {
      padding: 0.2em;
-     transition: 0.3s;
+     transition: 0.2s;
  }
 
  .p-datepicker-calendar td[data-pc-section='day'] span {
@@ -49,7 +49,7 @@
 
  .p-datepicker-calendar td:hover {
      border-radius: 5px;
-     transform: scale(1.03);
+     transform: scale(1.02);
  }
 
  .p-datepicker table td>span.p-highlight {

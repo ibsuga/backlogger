@@ -1,21 +1,20 @@
 .CalendarDay {
     height: 20em;
-    /* width: 13.2vw; */
-    /* width: 12.2vw; */
     flex: 1;
     width: auto;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
     transition: 0.2s;
     cursor: pointer;
     position: relative;
+    opacity: 75%;
+    min-width: 5em;
 }
 
 .CalendarDay:hover {
-    border-color: hsl(170, 75%, 45%);
+    opacity: 100%;
 }
 
 .CalendarDay:hover .day {
@@ -28,7 +27,7 @@
     left: 0;
     width: 3em;
     height: 3em;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: hsl(0, 0%, 10%);
     color: white;
     padding: 0.25em;
     clip-path: polygon(0 0, 0% 100%, 100% 0);
@@ -41,11 +40,13 @@
 }
 
 .calendar-day-content {
-    height: inherit;
+    height: inherit !important;
     width: inherit;
 }
 
 .calendar-day-content .calendar-game {
+    display: grid;
+    grid-template-columns: 60% 40%;
     background-size: cover;
     background-position: center;
 }
@@ -59,7 +60,7 @@
 .calendar-day-content.grid-2 {
     gap: 0.25em;
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 1fr 1fr;
     background-color: hsla(0, 0%, 0%, 0.7);
 }
 
@@ -67,8 +68,8 @@
 .calendar-day-content.grid-4 {
     gap: 0.25em;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     background-color: hsla(0, 0%, 0%, 0.7);
 }
 
@@ -76,4 +77,54 @@
     grid-column: 2;
     grid-row-start: 1;
     grid-row-end: 3;
+}
+
+.CalendarDay .calendar-game-name {
+    font-family: 'Bebas Neue';
+    color: white;
+    font-size: 1.5em;
+    align-self: end;
+    filter: drop-shadow(0px 0px 2px black);
+    padding: 0.5em;
+    line-height: 1em;
+}
+
+.CalendarDay .calendar-game-platform {
+    font-family: 'Kanit';
+    text-align: center;
+    align-self: end;
+    font-size: 0.8em;
+    padding: 0.25em;
+    width: 3.5em;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: auto;
+    color: white;
+    border-radius: 5px;
+    filter: drop-shadow(0px 0px 2px black);
+}
+
+
+.CalendarDay .calendar-game-platform.nsw {
+    background-color: var(--platform-nsw);
+}
+
+.CalendarDay .calendar-game-platform.steam {
+    background-color: var(--platform-steam);
+}
+
+.CalendarDay .calendar-game-platform.ps5 {
+    background-color: var(--platform-ps5);
+}
+
+.CalendarDay .calendar-plus {
+    display: grid;
+}
+
+.CalendarDay .calendar-plus span {
+    font-family: 'Bebas Neue';
+    font-size: 4em;
+    text-align: center;
+    padding-top: 0.7em;
+    filter: drop-shadow(0px 0px 10px hsl(170, 75%, 45%));
 }
