@@ -17,6 +17,10 @@
     opacity: 100%;
 }
 
+.CalendarDay:active {
+    transform: scale(0.97);
+}
+
 .CalendarDay:hover .day {
     background-color: hsl(170, 75%, 45%);
 }
@@ -31,6 +35,7 @@
     color: white;
     padding: 0.25em;
     clip-path: polygon(0 0, 0% 100%, 100% 0);
+    user-select: none;
 }
 
 .CalendarDay .day div {
@@ -44,7 +49,8 @@
     width: inherit;
 }
 
-.calendar-day-content .calendar-game {
+.calendar-day-content .calendar-game,
+.sidebar-content .calendar-game {
     display: grid;
     grid-template-columns: 60% 40%;
     background-size: cover;
@@ -79,7 +85,8 @@
     grid-row-end: 3;
 }
 
-.CalendarDay .calendar-game-name {
+.CalendarDay .calendar-game-name,
+.calendar-sidebar .calendar-game-name {
     font-family: 'Bebas Neue';
     color: white;
     font-size: 1.5em;
@@ -87,9 +94,11 @@
     filter: drop-shadow(0px 0px 2px black);
     padding: 0.5em;
     line-height: 1em;
+    user-select: none;
 }
 
-.CalendarDay .calendar-game-platform {
+.CalendarDay .calendar-game-platform,
+.calendar-sidebar .calendar-game-platform {
     font-family: 'Kanit';
     text-align: center;
     align-self: end;
@@ -102,18 +111,19 @@
     color: white;
     border-radius: 5px;
     filter: drop-shadow(0px 0px 2px black);
+    user-select: none;
 }
 
 
-.CalendarDay .calendar-game-platform.nsw {
+.calendar-game-platform.nsw {
     background-color: var(--platform-nsw);
 }
 
-.CalendarDay .calendar-game-platform.steam {
+.calendar-game-platform.steam {
     background-color: var(--platform-steam);
 }
 
-.CalendarDay .calendar-game-platform.ps5 {
+.calendar-game-platform.ps5 {
     background-color: var(--platform-ps5);
 }
 
@@ -127,4 +137,38 @@
     text-align: center;
     padding-top: 0.7em;
     filter: drop-shadow(0px 0px 10px hsl(170, 75%, 45%));
+}
+
+.CalendarDay .calendar-sidebar {
+    z-index: 15;
+}
+
+.calendar-sidebar {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 35%;
+}
+
+.calendar-sidebar .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 1em;
+}
+
+.calendar-sidebar .calendar-game {
+    height: 10em;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+}
+
+.calendar-sidebar .p-sidebar-header {
+    font-family: 'Kanit';
+    color: white;
+    user-select: none;
 }
