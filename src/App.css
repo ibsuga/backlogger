@@ -39,7 +39,8 @@ body,
   display: flex;
   flex-direction: column;
   /* background: url('./assets/testback.jpeg'); */
-  background-color: rgb(58, 58, 58);
+  background-color: hsl(222, 20%, 10%);
+  /* background-color: rgb(58, 58, 58);S */
   /* background-color: rgba(102, 101, 101, 1); */
   /* transition: background 1s ease; */
 }

@@ -13,6 +13,7 @@ const CalendarDay = (props: {
 
     const [visible, setVisible] = useState(false);
 
+
     const GameLabel: GameLabelType = {
         'nsw': 'Switch',
         'steam': 'Steam',
@@ -48,21 +49,32 @@ const CalendarDay = (props: {
                     <div className={`calendar-game-platform ${props.games[i].platform}`}>{GameLabel[props.games[i].platform]}</div>
                 </div>
             )
+            visible === true ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'scroll';
         }
         return to_return;
-
     }
+
+    const sidebarDate = new Date(props.date.year, props.date.month, props.date.day);
 
     return (
         <>
             <div className={"CalendarDay"} onClick={() => setVisible(true)}>
-                <div className='day'><div>{props.date.day}</div></div>
+                <div className='day'><div>{sidebarDate.getDate()}</div></div>
                 <div className={`calendar-day-content grid-${Math.min(4, props.games.length)}`}>
                     {getGameComponents()}
                 </div>
             </div>
 
-            <Sidebar className='calendar-sidebar' position='right' header={`${props.date.day}/${props.date.month + 1}/${props.date.year}`} visible={visible} onHide={() => setVisible(false)}>
+            <Sidebar
+                className='calendar-sidebar'
+                position='right'
+                visible={visible}
+                onHide={() => setVisible(false)}
+                header={`
+                    ${sidebarDate.toLocaleDateString('default', { month: 'long' })} 
+                    ${sidebarDate.getDate()}, 
+                    ${sidebarDate.getFullYear()}
+                    `}>
                 <div className='sidebar-content'>
                     {getSidebarGames()}
                 </div>
