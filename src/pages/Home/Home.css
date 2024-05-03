@@ -16,5 +16,5 @@
 
 .Home>*:nth-child(4) {
     grid-column-start: 1;
-    grid-column-end: 5;
+    grid-column-end: 6;
 }

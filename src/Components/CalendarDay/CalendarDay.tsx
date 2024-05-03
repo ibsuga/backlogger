@@ -1,8 +1,8 @@
 import './CalendarDay.css'
 import { CgMoreAlt } from "react-icons/cg";
+import { useState } from 'react';
 import { gameType } from '../../data/game_data';
 import { Sidebar } from 'primereact/sidebar';
-import { useState } from 'react';
 
 type GameLabelType = { [key: string]: string }
 
@@ -10,16 +10,14 @@ const CalendarDay = (props: {
     games: gameType[]
     date: any,
 }) => {
-
     const [visible, setVisible] = useState(false);
-
-
     const GameLabel: GameLabelType = {
         'nsw': 'Switch',
         'steam': 'Steam',
         'ps5': 'PS5',
     }
 
+    //Games that show on the calendar component.
     const getGameComponents = () => {
         let to_return = [];
         for (let i = 0; i < (Math.min(3, props.games.length)); i++) {
@@ -40,6 +38,7 @@ const CalendarDay = (props: {
         return to_return;
     }
 
+    //Games that show on the sidebar component.
     const getSidebarGames = () => {
         let to_return = [];
         for (let i = 0; i < props.games.length; i++) {
@@ -49,6 +48,7 @@ const CalendarDay = (props: {
                     <div className={`calendar-game-platform ${props.games[i].platform}`}>{GameLabel[props.games[i].platform]}</div>
                 </div>
             )
+            //Makes website body non-scrollable when the sidebar is open.
             visible === true ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'scroll';
         }
         return to_return;
