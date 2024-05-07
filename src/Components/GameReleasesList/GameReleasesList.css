@@ -24,6 +24,7 @@
     width: 6em;
     border-radius: 10px;
     object-fit: cover;
+    height: 4em;
 }
 
 .release-list ul {

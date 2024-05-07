@@ -13,7 +13,7 @@ const Home = (props: {
 
     return (
         <div className="Home">
-            <CompletedGames gameList={props.gameData} />
+            <CompletedGames gameList={props.gameData} setPage={props.setPage} />
             <NowPlayingGames gameList={props.gameData} />
             <GameReleasesList gameList={props.gameData} setPage={props.setPage} />
             <GameCollection gameList={props.gameData} title={'All Games'} disableScroll={true} />

@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data';
 import Game from '../Game/Game';
 import Section from '../Section/Section';
 import './GameCollection.css';
+import SmallGame from '../SmallGame/SmallGame';
 
 
 const GameCollection = (props: {
@@ -11,6 +12,7 @@ const GameCollection = (props: {
     title: string,
     disableScroll?: boolean
 }) => {
+    const [listDisplay, setListDisplay] = useState(false);
     const gameDataCtx = useContext(GameDataContext);
 
     let filtered_games;
@@ -21,13 +23,23 @@ const GameCollection = (props: {
     }
 
     return (
-        <Section title={props.title}>
+        <Section
+            title={props.title}
+            tools={[
+                <button onClick={() => setListDisplay(!listDisplay)}>
+                    {listDisplay ? 'CARD MODE' : 'LIST MODE'}
+                </button>,
+            ]}
+        >
             <div className={`GameCollection ${props.disableScroll ? 'no-scroll' : ''}`}>
                 {filtered_games.map((game, index) =>
-                    <Game
-                        key={index}
-                        game={game}
-                    />
+                    listDisplay ?
+                        <SmallGame game={game} />
+                        :
+                        <Game
+                            key={index}
+                            game={game}
+                        />
                 )}
             </div>
         </Section>

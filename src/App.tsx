@@ -6,6 +6,7 @@ import Backlog from './pages/Backlog/Backlog';
 import Home from './pages/Home/Home';
 import './App.css';
 import ReleasesCalendar from './pages/ReleasesCalendar/ReleasesCalendar';
+import CompletedGamesPage from './pages/CompletedGamesPage/CompletedGamesPage';
 
 export const GameDataContext = createContext<any>(null);
 
@@ -45,7 +46,8 @@ function App() {
     'home': <Home gameData={gameData} setPage={setPage} />,
     'profile': <Profile gameData={gameData} setPage={setPage} />,
     'backlog': <Backlog gameData={gameData} />,
-    'calendar': <ReleasesCalendar gameData={gameData} />
+    'calendar': <ReleasesCalendar gameData={gameData} />,
+    'completed': <CompletedGamesPage gameData={gameData} />
   }
 
   const ctx_value = { handleAddGame, handleUpdateGame, handleDeleteGame, platformFilter };

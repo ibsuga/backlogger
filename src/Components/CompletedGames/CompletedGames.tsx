@@ -8,6 +8,7 @@ import './CompletedGames.css';
 
 const CompletedGames = (props: {
     gameList: gameType[]
+    setPage: (page: string) => void;
 }) => {
 
     const gameDataCtx = useContext(GameDataContext);
@@ -24,19 +25,22 @@ const CompletedGames = (props: {
     let mastered_games = filtered_games.filter((game: gameType) => game.completion === 'mastered');
 
     return (
-        <Section title={'Completed Games'}>
-            <div className="CompletedGames">
-                <div className='completed'>
-                    <div>{completed_games.length}</div>
-                    <IoTrophySharp />
-                </div>
-                <div className='mastered'>
-                    <div>{mastered_games.length}</div>
-                    <GiLaurelsTrophy />
-                </div>
+        <div>
+            <Section title={'Completed Games'} >
+                <div className="CompletedGames" onClick={() => props.setPage('completed')}>
+                    <div className='completed'>
+                        <div>{completed_games.length}</div>
+                        <IoTrophySharp />
+                    </div>
+                    <div className='mastered'>
+                        <div>{mastered_games.length}</div>
+                        <GiLaurelsTrophy />
+                    </div>
 
-            </div>
-        </Section>
+                </div>
+            </Section>
+
+        </div>
 
 
     )
