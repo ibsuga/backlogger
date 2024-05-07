@@ -1,10 +1,10 @@
+import './GameCollection.css';
+import { MdWebStories, MdFormatListBulleted } from "react-icons/md";
 import { useContext, useState } from 'react';
 import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data';
 import Game from '../Game/Game';
 import Section from '../Section/Section';
-import './GameCollection.css';
-import SmallGame from '../SmallGame/SmallGame';
 
 
 const GameCollection = (props: {
@@ -26,21 +26,13 @@ const GameCollection = (props: {
         <Section
             title={props.title}
             tools={[
-                <button onClick={() => setListDisplay(!listDisplay)}>
-                    {listDisplay ? 'CARD MODE' : 'LIST MODE'}
+                <button className='list-display-button' onClick={() => setListDisplay(!listDisplay)}>
+                    {listDisplay ? <MdWebStories /> : <MdFormatListBulleted />}
                 </button>,
             ]}
         >
             <div className={`GameCollection ${props.disableScroll ? 'no-scroll' : ''}`}>
-                {filtered_games.map((game, index) =>
-                    listDisplay ?
-                        <SmallGame game={game} />
-                        :
-                        <Game
-                            key={index}
-                            game={game}
-                        />
-                )}
+                {filtered_games.map((game, index) => <Game key={index} game={game} listDisplay={listDisplay} />)}
             </div>
         </Section>
     )

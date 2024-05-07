@@ -1,20 +1,20 @@
 import { useContext } from 'react';
-import { MdFavoriteBorder, MdFavorite, MdDelete } from "react-icons/md";
 import { SiNintendoswitch } from "react-icons/si";
 import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
 import { IoTrophyOutline, IoTrophySharp } from "react-icons/io5";
 import { GiLaurelsTrophy } from "react-icons/gi";
-import { MdOutlinePlayCircleOutline, MdOutlineCircle } from "react-icons/md";
 import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data'
+import GameCard from '../GameCard/GameCard';
 import './Game.css'
-import GameRatingSelector from './GameRatingSelector';
-import EditGameButton from '../EditGameButton/EditGameButton';
+import GameSmall from '../GameSmall/GameSmall';
+
 
 type GameDataType = { [key: string]: { 'label': string, 'icon': JSX.Element } };
 
 const Game = (props: {
     game: gameType,
+    listDisplay: boolean
 }) => {
     const gameDataCtx = useContext(GameDataContext);
 
@@ -43,7 +43,7 @@ const Game = (props: {
     }
 
     //Sets the status mark as a logo, based on the selected status state.
-    const completionLogo: { [key: string]: JSX.Element } = {
+    const completionIcon: { [key: string]: JSX.Element } = {
         'unfinished': <IoTrophyOutline />,
         'complete': <IoTrophySharp />,
         'mastered': <GiLaurelsTrophy />,
@@ -74,33 +74,31 @@ const Game = (props: {
         gameDataCtx.handleUpdateGame(game);
     }
 
-    return (
-        <div className="Game">
-            <div className="game-content" style={{ background: `url(${props.game.background})` }}>
-                <div className="game-rating">
-                    <GameRatingSelector defaultRating={props.game.rating} handleUpdateRating={handleUpdateRating} />
-                </div>
-                <div className="game-completion" onClick={handleToggleCompletion}>{completionLogo[props.game.completion]}</div>
-                <div className='game-playing-status' onClick={handleTogglePlayingStatus}>{props.game.isPlaying ? <MdOutlinePlayCircleOutline /> : <MdOutlineCircle />}</div>
-                <div className="game-name"><span>{props.game.name}</span></div>
-                <div className="game-tools">
-                    <div className="tools-left">
-                        <button className={`tool game-favorite ${props.game.isFavorite ? 'active' : ''}`} onClick={handleToggleFavorite}>
-                            {props.game.isFavorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
-                        </button>
-                    </div>
-                    <div className="tools-right">
-                        <button className='tool game-delete' onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
-                        <EditGameButton gameData={props.game} />
-                    </div>
-                </div>
-            </div>
-            <div className={`game-platform ${props.game.platform}`}>
-                <span>{GameData[props.game.platform].label}</span>
-                <div>{GameData[props.game.platform].icon}</div>
-            </div>
-        </div>
-    )
+    if (props.listDisplay) {
+        return (
+            <GameSmall
+                game={props.game}
+                gameCompletionIcon={completionIcon[props.game.completion]}
+                gamePlatform={GameData[props.game.platform]}
+                handleUpdateRating={handleUpdateRating}
+                handleToggleCompletion={handleToggleCompletion}
+                handleTogglePlayingStatus={handleTogglePlayingStatus}
+                handleToggleFavorite={handleToggleFavorite}
+            />
+        )
+    } else {
+        return (
+            <GameCard
+                game={props.game}
+                gameCompletionIcon={completionIcon[props.game.completion]}
+                gamePlatform={GameData[props.game.platform]}
+                handleUpdateRating={handleUpdateRating}
+                handleToggleCompletion={handleToggleCompletion}
+                handleTogglePlayingStatus={handleTogglePlayingStatus}
+                handleToggleFavorite={handleToggleFavorite}
+            />
+        )
+    }
 }
 
 export default Game;

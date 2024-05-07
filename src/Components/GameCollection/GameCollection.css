@@ -20,3 +20,24 @@ h1 {
 .GameCollection .Game {
     flex-shrink: 0;
 }
+
+
+.list-display-button {
+    display: flex;
+    background-color: hsl(222, 20%, 20%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0.3em 0.5em;
+}
+
+.list-display-button svg {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    transition: color 0.2s;
+}
+
+.list-display-button svg:hover {
+    color: var(--accent-color);
+}
