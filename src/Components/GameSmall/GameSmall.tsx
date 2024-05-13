@@ -10,7 +10,7 @@ import './GameSmall.css';
 const GameSmall = (props: {
     game: gameType,
     gameCompletionIcon: JSX.Element,
-    gamePlatform: { 'label': string, 'icon': JSX.Element },
+    gamePlatform: { 'label': string, 'shortLabel': string, 'icon': JSX.Element },
     handleUpdateRating: (rating: number) => void,
     handleToggleCompletion: () => void,
     handleTogglePlayingStatus: () => void,
@@ -26,17 +26,17 @@ const GameSmall = (props: {
                     <div className="game-rating">
                         <GameRatingSelector defaultRating={props.game.rating} handleUpdateRating={props.handleUpdateRating} />
                     </div>
+                    <button className={`tool game-favorite ${props.game.isFavorite ? 'active' : ''}`} onClick={props.handleToggleFavorite}>
+                        {props.game.isFavorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
+                    </button>
                     <div className="game-completion" onClick={props.handleToggleCompletion}>{props.gameCompletionIcon}</div>
                     <div className='game-playing-status' onClick={props.handleTogglePlayingStatus}>{props.game.isPlaying ? <MdOutlinePlayCircleOutline /> : <MdOutlineCircle />}</div>
 
                     <div className='game-tools'>
-                        <button className={`tool game-favorite ${props.game.isFavorite ? 'active' : ''}`} onClick={props.handleToggleFavorite}>
-                            {props.game.isFavorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
-                        </button>
                         <button className='tool game-delete' onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
                         <EditGameButton gameData={props.game} />
                     </div>
-                    <div className={`game-platform ${props.game.platform}`}>{props.game.platform}</div>
+                    <div className={`game-platform ${props.game.platform}`}>{props.gamePlatform.shortLabel}</div>
                 </div>
             </div>
         </div>

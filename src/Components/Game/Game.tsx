@@ -10,7 +10,7 @@ import './Game.css'
 import GameSmall from '../GameSmall/GameSmall';
 
 
-type GameDataType = { [key: string]: { 'label': string, 'icon': JSX.Element } };
+type GameDataType = { [key: string]: { 'label': string, 'icon': JSX.Element, 'shortLabel': string } };
 
 const Game = (props: {
     game: gameType,
@@ -37,9 +37,9 @@ const Game = (props: {
 
     //Sets the platform logo and label, based on the selected platform on game creation.
     const GameData: GameDataType = {
-        'nsw': { 'label': 'Nintendo Switch', 'icon': <SiNintendoswitch /> },
-        'steam': { 'label': 'Steam', 'icon': <FaSteamSquare /> },
-        'ps5': { 'label': 'PlayStation 5', 'icon': <FaPlaystation /> },
+        'nsw': { 'label': 'Nintendo Switch', 'shortLabel': 'Switch', 'icon': <SiNintendoswitch /> },
+        'steam': { 'label': 'Steam', 'shortLabel': 'Steam', 'icon': <FaSteamSquare /> },
+        'ps5': { 'label': 'PlayStation 5', 'shortLabel': 'PS5', 'icon': <FaPlaystation /> },
     }
 
     //Sets the status mark as a logo, based on the selected status state.
