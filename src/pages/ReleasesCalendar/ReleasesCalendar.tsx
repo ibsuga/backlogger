@@ -1,14 +1,12 @@
 import { Calendar } from 'primereact/calendar';
 import CalendarDay from "../../Components/CalendarDay/CalendarDay";
-import { gameType } from "../../data/game_data";
+import useGameStore from '../../stores/useGameStore';
 import './ReleasesCalendar.css'
 
-
-const ReleasesCalendar = (props: {
-    gameData: gameType[],
-}) => {
+const ReleasesCalendar = () => {
+    const [games] = useGameStore((state) => [state.games])
     const dateTemplate = (date: any) => {
-        let released_games = props.gameData.filter((game) => game.date === `${date.year}-${date.month + 1}-${date.day}`);
+        let released_games = games.filter((game) => game.date === `${date.year}-${date.month + 1}-${date.day}`);
         return <CalendarDay games={released_games} date={date} />
     }
 
@@ -21,6 +19,5 @@ const ReleasesCalendar = (props: {
         </div>
     )
 }
-
 
 export default ReleasesCalendar;

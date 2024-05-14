@@ -1,17 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import GameRatingStar from "./GameRatingStar";
 
 
 const GameRatingSelector = (props: {
-    defaultRating: number,
+    rating: number,
     handleUpdateRating: (rating: number) => void
 }) => {
-    const [rating, setRating] = useState(props.defaultRating);
     const [hoveredRating, setHoveredRating] = useState(-1);
-
-    useEffect(() => {
-        props.handleUpdateRating(rating);
-    }, [rating])
 
     const getStars = () => {
         let stars = [];
@@ -20,9 +15,9 @@ const GameRatingSelector = (props: {
                 <GameRatingStar
                     key={i}
                     value={i}
-                    rating={rating}
+                    rating={props.rating}
                     hoveredRating={hoveredRating}
-                    setRating={setRating}
+                    setRating={props.handleUpdateRating}
                     setHoveredRating={setHoveredRating}
                 />
             )

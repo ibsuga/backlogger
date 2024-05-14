@@ -1,10 +1,9 @@
-import { useContext } from 'react'
-import { GameDataContext } from '../../App'
+import './GameCard.css'
 import { MdDelete, MdFavorite, MdFavoriteBorder, MdOutlineCircle, MdOutlinePlayCircleOutline } from 'react-icons/md'
 import { gameType } from '../../data/game_data'
 import GameRatingSelector from '../Game/GameRatingSelector'
 import EditGameButton from '../EditGameButton/EditGameButton'
-import './GameCard.css'
+import useGameStore from '../../stores/useGameStore'
 
 
 const GameCard = (props: {
@@ -16,12 +15,12 @@ const GameCard = (props: {
     handleTogglePlayingStatus: () => void,
     handleToggleFavorite: () => void,
 }) => {
-    const gameDataCtx = useContext(GameDataContext);
+    const deleteGame = useGameStore((state) => state.deleteGame)
     return (
         <div className="GameCard">
             <div className="game-content" style={{ background: `url(${props.game.background})` }}>
                 <div className="game-rating">
-                    <GameRatingSelector defaultRating={props.game.rating} handleUpdateRating={props.handleUpdateRating} />
+                    <GameRatingSelector rating={props.game.rating} handleUpdateRating={props.handleUpdateRating} />
                 </div>
                 <div className="game-completion" onClick={props.handleToggleCompletion}>{props.gameCompletionIcon}</div>
                 <div className='game-playing-status' onClick={props.handleTogglePlayingStatus}>{props.game.isPlaying ? <MdOutlinePlayCircleOutline /> : <MdOutlineCircle />}</div>
@@ -33,7 +32,7 @@ const GameCard = (props: {
                         </button>
                     </div>
                     <div className="tools-right">
-                        <button className='tool game-delete' onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
+                        <button className='tool game-delete' onClick={() => deleteGame(props.game.id)}><MdDelete /></button>
                         <EditGameButton gameData={props.game} />
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import Section from '../Section/Section';
 import { useContext } from 'react';
+import useGameStore from '../../stores/useGameStore';
 import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data';
 import { GiLaurelsTrophy } from "react-icons/gi";
@@ -7,17 +8,17 @@ import { IoTrophySharp } from "react-icons/io5";
 import './CompletedGames.css';
 
 const CompletedGames = (props: {
-    gameList: gameType[]
     setPage: (page: string) => void;
 }) => {
-
+    const [games] = useGameStore((state) => [state.games]);
     const gameDataCtx = useContext(GameDataContext);
+
     //Filters games by platform if there is one selected
     let filtered_games;
     if (gameDataCtx.platformFilter === '') {
-        filtered_games = [...props.gameList]
+        filtered_games = [...games]
     } else {
-        filtered_games = props.gameList.filter((game: gameType) => game.platform === gameDataCtx.platformFilter);
+        filtered_games = games.filter((game: gameType) => game.platform === gameDataCtx.platformFilter);
     }
     //games filtered by status = 'complete'
     let completed_games = filtered_games.filter((game: gameType) => game.completion === 'complete' || game.completion === 'mastered');

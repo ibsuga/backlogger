@@ -1,18 +1,16 @@
+import useGameStore, { gameType } from '../../stores/useGameStore';
 import './CompletedGamesPage.css'
-import { gameType } from '../../data/game_data'
 import GameCollection from '../../Components/GameCollection/GameCollection'
 
-const CompletedGamesPage = (props: {
-    gameData: gameType[]
-}) => {
+const CompletedGamesPage = () => {
+    const [games] = useGameStore((state) => [state.games])
 
-
-    let completed_games = props.gameData.filter((game: gameType) => game.completion === 'complete' || game.completion === 'mastered');
+    const filtered_games = games.filter((game: gameType) => game.completion === 'complete' || game.completion === 'mastered');
 
     return (
         <div className="CompletedGamesPage">
             <div className='completed-games-content'>
-                <GameCollection title='Completed Games' gameList={completed_games} />
+                <GameCollection gameList={filtered_games} title='Completed Games' />
             </div>
         </div>
     )

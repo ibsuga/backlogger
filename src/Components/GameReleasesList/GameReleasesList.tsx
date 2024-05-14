@@ -1,15 +1,15 @@
+import useGameStore from "../../stores/useGameStore";
 import { gameType } from "../../data/game_data";
 import Section from "../Section/Section";
 import './GameReleasesList.css'
 
 const GameReleasesList = (props: {
-    gameList: gameType[]
     setPage: (page: string) => void,
 }) => {
-
+    const [games] = useGameStore((state) => [state.games])
     const today = new Date();
 
-    let games_to_release = props.gameList
+    let games_to_release = games
         .filter((game: gameType) => {
             const game_date = new Date(game.date!);
             return game_date > today;
@@ -21,33 +21,25 @@ const GameReleasesList = (props: {
         })
         .slice(0, 3);
 
-
-
     return (
         <div className="GameReleasesList" onClick={() => props.setPage('calendar')}>
             <Section title="Upcoming Games" >
                 <div className="release-list">
                     <ul>
-                        {games_to_release.map((game: gameType) => {
+                        {games_to_release.map((game: gameType, index: number) => {
                             const date = new Date(game.date!);
-
                             const year = date.getFullYear();
                             const month = date.toLocaleDateString('default', { month: 'long' })
                             const day = date.getDate();
 
-
-
-
-                            return <li>
+                            return <li key={index}>
                                 <img src={game.background} />
                                 <div>
                                     <p>{game.name}</p>
                                     <p className="release-date">{`${month} ${day}, ${year}`}</p>
                                 </div>
                             </li>
-                        }
-
-                        )}
+                        })}
                     </ul>
                 </div>
             </Section>

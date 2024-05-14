@@ -1,29 +1,29 @@
-import { useState, useContext } from 'react';
-import { GameDataContext } from "../../App";
+import { useState } from 'react';
 import GameDataDialog from "../GameDataDialog/GameDataDialog";
 import { GameDataType } from "../GameDataDialog/GameDataDialog";
 import './CreateGameButton.css';
+import useGameStore, { gameType } from '../../stores/useGameStore';
 
 
 const CreateGameButton = () => {
+    const addGame = useGameStore((state) => state.addGame)
     const [dialogOpen, setDialogOpen] = useState(false);
-    const gameDataCtx = useContext(GameDataContext);
 
     const handleCreateGame = (gameData: GameDataType) => {
         let { name, platform, background, date } = gameData;
         if (name && platform && background) {
-            const game = {
+            const game: gameType = {
                 id: Date.now(),
                 name,
                 platform,
                 isPlaying: false,
-                favorite: false,
+                isFavorite: false,
                 completion: 'unfinished',
                 rating: -1,
                 background,
                 date
             }
-            gameDataCtx.handleAddGame(game);
+            addGame(game);
             setDialogOpen(false);
         }
     }

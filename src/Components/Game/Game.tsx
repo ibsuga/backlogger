@@ -1,9 +1,8 @@
-import { useContext } from 'react';
+import useGameStore from '../../stores/useGameStore';
 import { SiNintendoswitch } from "react-icons/si";
 import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
 import { IoTrophyOutline, IoTrophySharp } from "react-icons/io5";
 import { GiLaurelsTrophy } from "react-icons/gi";
-import { GameDataContext } from '../../App';
 import { gameType } from '../../data/game_data'
 import GameCard from '../GameCard/GameCard';
 import './Game.css'
@@ -16,7 +15,7 @@ const Game = (props: {
     game: gameType,
     listDisplay: boolean
 }) => {
-    const gameDataCtx = useContext(GameDataContext);
+    const updateGame = useGameStore((state) => state.updateGame)
 
     //Favorite toggler
     const handleToggleFavorite = () => {
@@ -24,7 +23,7 @@ const Game = (props: {
             ...props.game,
             'isFavorite': !props.game.isFavorite
         }
-        gameDataCtx.handleUpdateGame(game);
+        updateGame(game);
     }
 
     const handleUpdateRating = (rating: number) => {
@@ -32,7 +31,7 @@ const Game = (props: {
             ...props.game,
             'rating': rating
         }
-        gameDataCtx.handleUpdateGame(game);
+        updateGame(game);
     }
 
     //Sets the platform logo and label, based on the selected platform on game creation.
@@ -54,7 +53,7 @@ const Game = (props: {
             ...props.game,
             'isPlaying': !props.game.isPlaying,
         }
-        gameDataCtx.handleUpdateGame(game);
+        updateGame(game);
     }
 
 
@@ -71,7 +70,7 @@ const Game = (props: {
             ...props.game,
             'completion': completion
         }
-        gameDataCtx.handleUpdateGame(game);
+        updateGame(game);
     }
 
     if (props.listDisplay) {

@@ -8,7 +8,7 @@ import Section from '../Section/Section';
 
 
 const GameCollection = (props: {
-    gameList: gameType[],
+    gameList: gameType[] | [],
     title: string,
     disableScroll?: boolean
 }) => {

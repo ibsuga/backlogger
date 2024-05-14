@@ -1,10 +1,9 @@
-import { useContext } from 'react'
-import { GameDataContext } from '../../App'
+import './GameSmall.css';
 import { MdDelete, MdFavorite, MdFavoriteBorder, MdOutlineCircle, MdOutlinePlayCircleOutline } from 'react-icons/md'
 import { gameType } from '../../data/game_data'
 import GameRatingSelector from '../Game/GameRatingSelector'
 import EditGameButton from '../EditGameButton/EditGameButton'
-import './GameSmall.css';
+import useGameStore from '../../stores/useGameStore'
 
 
 const GameSmall = (props: {
@@ -16,7 +15,7 @@ const GameSmall = (props: {
     handleTogglePlayingStatus: () => void,
     handleToggleFavorite: () => void,
 }) => {
-    const gameDataCtx = useContext(GameDataContext);
+    const deleteGame = useGameStore((state) => state.deleteGame)
     return (
         <div className="GameSmall">
             <div className='game-image' style={{ backgroundImage: `url(${props.game.background})` }}></div>
@@ -24,7 +23,7 @@ const GameSmall = (props: {
                 <div className='game-name'>{props.game.name}</div>
                 <div className='game-bottom-content'>
                     <div className="game-rating">
-                        <GameRatingSelector defaultRating={props.game.rating} handleUpdateRating={props.handleUpdateRating} />
+                        <GameRatingSelector rating={props.game.rating} handleUpdateRating={props.handleUpdateRating} />
                     </div>
                     <button className={`tool game-favorite ${props.game.isFavorite ? 'active' : ''}`} onClick={props.handleToggleFavorite}>
                         {props.game.isFavorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
@@ -33,7 +32,7 @@ const GameSmall = (props: {
                     <div className='game-playing-status' onClick={props.handleTogglePlayingStatus}>{props.game.isPlaying ? <MdOutlinePlayCircleOutline /> : <MdOutlineCircle />}</div>
 
                     <div className='game-tools'>
-                        <button className='tool game-delete' onClick={() => gameDataCtx.handleDeleteGame(props.game.id)}><MdDelete /></button>
+                        <button className='tool game-delete' onClick={() => deleteGame(props.game.id)}><MdDelete /></button>
                         <EditGameButton gameData={props.game} />
                     </div>
                     <div className={`game-platform ${props.game.platform}`}>{props.gamePlatform.shortLabel}</div>

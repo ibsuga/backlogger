@@ -17,7 +17,7 @@ const Section = (props: {
                 <span>{props.title}</span>
                 <div className='section-tools'>
                     {
-                        props.tools && props.tools.map((tool) => tool)
+                        props.tools && props.tools.map((tool, index) => <div key={index}>{tool}</div>)
                     }
                 </div>
             </div>

@@ -1,16 +1,16 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { gameType } from '../../data/game_data';
-import { GameDataContext } from "../../App";
 import { MdEditSquare } from "react-icons/md";
 import GameDataDialog from "../GameDataDialog/GameDataDialog";
 import { GameDataType } from "../GameDataDialog/GameDataDialog";
+import useGameStore from '../../stores/useGameStore';
 
 
 const EditGameButton = (props: {
     gameData: gameType
 }) => {
+    const updateGame = useGameStore((state) => state.updateGame)
     const [dialogOpen, setDialogOpen] = useState(false);
-    const gameDataCtx = useContext(GameDataContext);
 
     const handleEditGame = (gameData: GameDataType) => {
         let { name, platform, background, date } = gameData;
@@ -21,7 +21,7 @@ const EditGameButton = (props: {
             game.platform = platform;
             game.background = background;
             game.date = date;
-            gameDataCtx.handleUpdateGame(game);
+            updateGame(game);
             setDialogOpen(false);
         }
     }
