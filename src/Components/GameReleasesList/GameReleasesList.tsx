@@ -8,11 +8,12 @@ const GameReleasesList = (props: {
 }) => {
     const [games] = useGameStore((state) => [state.games])
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
     let games_to_release = games
         .filter((game: gameType) => {
             const game_date = new Date(game.date!);
-            return game_date > today;
+            return game_date >= today;
         })
         .sort((a: gameType, b: gameType) => {
             const game_date_a = new Date(a.date!);

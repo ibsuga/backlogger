@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import './App.css';
 import ReleasesCalendar from './pages/ReleasesCalendar/ReleasesCalendar';
 import CompletedGamesPage from './pages/CompletedGamesPage/CompletedGamesPage';
+import ActivitiesPage from './pages/ActivitiesPage/ActivitiesPage';
 
 export const GameDataContext = createContext<any>(null);
 
@@ -17,10 +18,11 @@ function App() {
   }, [page])
 
   const pages: { [key: string]: JSX.Element } = {
-    'home': <Home setPage={setPage} />,
     // 'profile': <Profile setPage={setPage} />,
+    'home': <Home setPage={setPage} />,
     'calendar': <ReleasesCalendar />,
-    'completed': <CompletedGamesPage />
+    'completed': <CompletedGamesPage />,
+    'activities': <ActivitiesPage />
   }
 
   const ctx_value = { platformFilter };

@@ -44,5 +44,4 @@ const useGameStore = create<gameStore>()((set) => ({
     }),
 }))
 
-
 export default useGameStore;

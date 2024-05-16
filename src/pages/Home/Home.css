@@ -5,16 +5,21 @@
 }
 
 .Home>*:nth-child(2) {
-    grid-column-start: 1;
-    grid-column-end: 5;
-}
-
-.Home>*:nth-child(3) {
     grid-column-start: 5;
     grid-column-end: 5;
 }
 
+.Home>*:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
 .Home>*:nth-child(4) {
+    grid-column-start: 5;
+    grid-column-end: 5;
+}
+
+.Home>*:nth-child(5) {
     grid-column-start: 1;
     grid-column-end: 6;
 }

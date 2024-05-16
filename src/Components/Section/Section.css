@@ -25,10 +25,8 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    /* border: 1px solid rgba(255, 255, 255, 0.3); */
     background: linear-gradient(310deg, hsla(240, 1%, 33%, 0.336) 10%, color-mix(in hsl, hsl(222, 19%, 35%) 20%, transparent), hsla(0, 0%, 44%, 0.349) 90%);
 }
-
 
 .Section.nsw .section-content {
     background: linear-gradient(310deg, hsla(240, 1%, 33%, 0.336) 10%, color-mix(in hsl, var(--platform-nsw) 40%, transparent), hsla(0, 0%, 44%, 0.349) 90%);

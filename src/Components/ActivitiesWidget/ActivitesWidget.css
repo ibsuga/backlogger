@@ -1,0 +1,43 @@
+.ActivitiesWidget .p-timeline-event-opposite {
+    display: none;
+}
+
+.ActivitiesWidget .section-content {
+    cursor: pointer;
+}
+
+.ActivitiesWidget .p-timeline {
+    padding: 1em;
+}
+
+.ActivitiesWidget .p-timeline-event-content {
+    font-size: 14px;
+    user-select: none;
+}
+
+.ActivitiesWidget .section-content {
+    height: 9.3em;
+}
+
+.ActivitiesWidget .p-timeline-event {
+    min-height: 24px;
+}
+
+.ActivitiesWidget .p-timeline-event .p-timeline-event-content {
+    width: 10em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    margin-top: -6px;
+}
+
+.ActivitiesWidget .p-timeline-event-marker {
+    height: 10px;
+    width: 10px;
+    background-color: var(--accent-color);
+}
+
+.ActivitiesWidget .p-timeline-event-connector {
+    background-color: var(--accent-color);
+}

@@ -37,7 +37,6 @@ const CompletedGames = (props: {
                         <div>{mastered_games.length}</div>
                         <GiLaurelsTrophy />
                     </div>
-
                 </div>
             </Section>
 
