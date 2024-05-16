@@ -12,7 +12,7 @@ const ActivitiesPage = () => {
         'sdfasdfasfasf'
     ]
 
-    const ActivityCard = (item) => {
+    const ActivityCard = (item: any) => {
         return (
             <div className="ActivityCard">
                 <img src={test_image} />
