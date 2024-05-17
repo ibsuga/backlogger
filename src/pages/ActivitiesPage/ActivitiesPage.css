@@ -12,5 +12,14 @@
 .ActivityCard img {
     width: 150px;
     border-radius: 5px;
+}
 
+.ActivitiesPage .p-timeline-event:nth-child(even) .ActivityCard img {
+    right: 0;
+    margin-left: auto;
+}
+
+.ActivitiesPage .p-timeline-event-marker,
+.ActivitiesPage .p-timeline-event-connector {
+    background-color: var(--accent-color);
 }

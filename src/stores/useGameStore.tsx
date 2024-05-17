@@ -38,7 +38,7 @@ const useGameStore = create<gameStore>()((set) => ({
     }),
     deleteGame: (id) => set((state) => {
         let games = [...state.games];
-        games.filter((game: gameType) => game.id !== id);
+        games = games.filter((game: gameType) => game.id !== id);
         localStorage.setItem('BackloggerGames', JSON.stringify(games));
         return { games: games };
     }),

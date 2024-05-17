@@ -7,6 +7,7 @@ import { gameType } from '../../data/game_data'
 import GameCard from '../GameCard/GameCard';
 import './Game.css'
 import GameSmall from '../GameSmall/GameSmall';
+import useActivityStore from '../../stores/useActivityStore';
 
 
 type GameDataType = { [key: string]: { 'label': string, 'icon': JSX.Element, 'shortLabel': string } };
@@ -16,6 +17,7 @@ const Game = (props: {
     listDisplay: boolean
 }) => {
     const updateGame = useGameStore((state) => state.updateGame)
+    const addActivity = useActivityStore((state) => state.addActivity)
 
     //Favorite toggler
     const handleToggleFavorite = () => {
@@ -23,6 +25,7 @@ const Game = (props: {
             ...props.game,
             'isFavorite': !props.game.isFavorite
         }
+        addActivity(game.isFavorite ? `Added ${game.name} to favorites` : `Removed ${game.name} from favorites`);
         updateGame(game);
     }
 
@@ -31,6 +34,7 @@ const Game = (props: {
             ...props.game,
             'rating': rating
         }
+        addActivity(`Gave ${game.name} a rating of ${rating + 1} stars.`);
         updateGame(game);
     }
 

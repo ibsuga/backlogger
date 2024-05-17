@@ -3,10 +3,13 @@ import GameDataDialog from "../GameDataDialog/GameDataDialog";
 import { GameDataType } from "../GameDataDialog/GameDataDialog";
 import './CreateGameButton.css';
 import useGameStore, { gameType } from '../../stores/useGameStore';
+import useActivityStore from '../../stores/useActivityStore';
+
 
 
 const CreateGameButton = () => {
     const addGame = useGameStore((state) => state.addGame)
+    const addActivity = useActivityStore((state) => state.addActivity)
     const [dialogOpen, setDialogOpen] = useState(false);
 
     const handleCreateGame = (gameData: GameDataType) => {
@@ -24,6 +27,7 @@ const CreateGameButton = () => {
                 date
             }
             addGame(game);
+            addActivity(`Added ${name} to the backlog`);
             setDialogOpen(false);
         }
     }
