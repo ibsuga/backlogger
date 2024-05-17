@@ -29,13 +29,4 @@ const useActivityStore = create<activityStore>()((set) => ({
     })
 }))
 
-
 export default useActivityStore;
-
-
-
-/**
- Crear activities cuando:
- · Cuando se marque un juego como completado/mastered
- · Cuando se marque un juego como now playing
-**/

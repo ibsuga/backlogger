@@ -57,12 +57,13 @@ const Game = (props: {
             ...props.game,
             'isPlaying': !props.game.isPlaying,
         }
+        addActivity(game.isPlaying ? `Started playing ${game.name}` : `Stopped playing ${game.name}`)
         updateGame(game);
     }
 
-
     const handleToggleCompletion = () => {
         let completion = props.game.completion
+
         if (completion === 'unfinished') {
             completion = 'complete'
         } else if (completion === 'complete') {
@@ -70,9 +71,16 @@ const Game = (props: {
         } else {
             completion = 'unfinished'
         }
+
         const game = {
             ...props.game,
             'completion': completion
+        }
+
+        if (game.completion === 'complete') {
+            addActivity(`You completed ${game.name}.`, game.background)
+        } else if (game.completion === 'mastered') {
+            addActivity(`You mastered ${game.name}.`, game.background)
         }
         updateGame(game);
     }

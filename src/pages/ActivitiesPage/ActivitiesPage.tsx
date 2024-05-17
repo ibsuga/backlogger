@@ -1,32 +1,25 @@
 import './ActivitiesPage.css'
 import { Timeline } from 'primereact/timeline';
-import test_image from '../../assets/testback.jpeg';
+import useActivityStore from '../../stores/useActivityStore';
 
 
 const ActivitiesPage = () => {
-    const activities = [
-        'Started playing Sandland',
-        'Rated Crusader Kings III with 5 stars jhdfgjshdfljkgjksdfgjkflvsdfkjlglkjhds',
-        'Finally finished AC Odyssey :_)',
-        'sdgfdsgsdfg',
-        'sdfasdfasfasf'
-    ]
+
+    const activities = useActivityStore((state) => state.activities);
 
     const ActivityCard = (item: any) => {
         return (
             <div className="ActivityCard">
-                <img src={test_image} />
-                <div className='activity-date'>
-                    LA FECHA AQUI
-                </div>
-                {item}
+                <img src={item.image} />
+                <div className='activity-date'> {item.date} </div>
+                <div className='activity-description'>{item.description}</div>
             </div>
         )
     }
 
     return (
         <div className="ActivitiesPage">
-            <Timeline align='alternate' value={activities} content={ActivityCard} />
+            <Timeline align='alternate' value={[...activities].reverse()} content={ActivityCard} />
         </div>
     )
 }
