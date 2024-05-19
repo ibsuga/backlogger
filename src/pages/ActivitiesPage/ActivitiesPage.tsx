@@ -7,6 +7,7 @@ const ActivitiesPage = () => {
 
     const activities = useActivityStore((state) => state.activities);
 
+    //Card component
     const ActivityCard = (item: any) => {
         return (
             <div className="ActivityCard">

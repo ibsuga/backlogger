@@ -21,7 +21,7 @@ const useActivityStore = create<activityStore>()((set) => ({
         const year = activityDate.getFullYear();
         const month = activityDate.toLocaleDateString('default', { month: 'long' })
         const day = activityDate.getDate();
-        const new_activity = { description, image, date: `${month}-${day}-${year}` };
+        const new_activity = { description, image, date: `${month} ${day}, ${year}` };
 
         activities_.push(new_activity);
         localStorage.setItem('BackloggerActivities', JSON.stringify(activities_))
