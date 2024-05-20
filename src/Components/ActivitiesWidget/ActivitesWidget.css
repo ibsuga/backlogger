@@ -4,13 +4,16 @@
 
 .ActivitiesWidget .section-content {
     cursor: pointer;
+    overflow: hidden;
 }
 
 .ActivitiesWidget .p-timeline {
-    padding: 1em;
+    padding: 1.25em 1em;
 }
 
 .ActivitiesWidget .p-timeline-event-content {
+    letter-spacing: -0.5px;
+    font-family: 'Jetbrains Mono';
     font-size: 14px;
     user-select: none;
 }

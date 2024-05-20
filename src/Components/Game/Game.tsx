@@ -25,7 +25,8 @@ const Game = (props: {
             ...props.game,
             'isFavorite': !props.game.isFavorite
         }
-        addActivity(game.isFavorite ? `Added ${game.name} to favorites` : `Removed ${game.name} from favorites`);
+
+        addActivity('favorite', game.name, game.background);
         updateGame(game);
     }
 
@@ -34,7 +35,7 @@ const Game = (props: {
             ...props.game,
             'rating': rating
         }
-        addActivity(`Gave ${game.name} a rating of ${rating + 1} stars.`);
+        addActivity('rating', game.name, game.background, game.rating + 1);
         updateGame(game);
     }
 
@@ -57,7 +58,7 @@ const Game = (props: {
             ...props.game,
             'isPlaying': !props.game.isPlaying,
         }
-        addActivity(game.isPlaying ? `Started playing ${game.name}` : `Stopped playing ${game.name}`)
+        addActivity('playing', game.name, game.background)
         updateGame(game);
     }
 
@@ -78,9 +79,9 @@ const Game = (props: {
         }
 
         if (game.completion === 'complete') {
-            addActivity(`You completed ${game.name}.`, game.background)
+            addActivity('complete', game.name, game.background)
         } else if (game.completion === 'mastered') {
-            addActivity(`You mastered ${game.name}.`, game.background)
+            addActivity('mastered', game.name, game.background)
         }
         updateGame(game);
     }

@@ -3,16 +3,17 @@ import Section from '../Section/Section';
 import './ActivitesWidget.css'
 import useActivityStore from '../../stores/useActivityStore';
 
+
 const ActivitiesWidget = (props: {
     setPage: (page: string) => void;
 }) => {
-    const activities = useActivityStore((state) => state.activities);
+    const [activities, getActivityDescription] = useActivityStore((state) => [state.activities, state.getActivityDescription]);
 
     return (
         <div className="ActivitiesWidget">
             <Section title='Recent Activity'>
                 <div onClick={() => props.setPage('activities')}>
-                    <Timeline align='left' value={[...activities].reverse()} content={(activity) => activity.description} />
+                    <Timeline align='left' value={[...activities].reverse().slice(0, 5)} content={getActivityDescription} />
                 </div>
             </Section>
         </div>

@@ -1,13 +1,34 @@
 .ActivityCard {
     gap: 0.5em;
+    min-height: 10em;
     display: grid;
-    grid-template-rows: auto min-content min-content;
+    grid-template-rows: auto min-content;
     padding: 1em;
     border-radius: 5px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     background: linear-gradient(310deg, hsla(240, 1%, 33%, 0.336) 10%, color-mix(in hsl, hsl(222, 19%, 35%) 20%, transparent), hsla(0, 0%, 44%, 0.349) 90%);
+    background-size: cover;
+    background-position: center;
+}
+
+.ActivityCard::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(180deg, hsla(240, 100%, 50%, 0) 25%, hsla(229, 13%, 17%, 0.85) 75%);
+}
+
+.ActivitiesPage {
+    display: flex;
+    justify-content: center;
+}
+
+.ActivitiesPage .p-timeline {
+    max-width: 60em;
 }
 
 .ActivitiesPage .p-timeline-event:nth-child(even) .ActivityCard img {
@@ -23,18 +44,24 @@
 .ActivityCard img {
     height: 5em;
     width: 10em;
-    object-fit: cover;
     border-radius: 5px;
     filter: drop-shadow(0px 0px 2px black);
+    object-fit: cover;
 }
 
 .ActivityCard .activity-date {
     font-style: italic;
     font-size: 12px;
     font-family: 'Sora';
-    color: hsl(0, 0%, 49%)
+    color: hsl(0, 5%, 70%);
+    align-self: end;
+    z-index: 2;
+    user-select: none;
 }
 
 .ActivityCard .activity-description {
+    letter-spacing: -0.5px;
     font-family: 'JetBrains Mono';
+    z-index: 2;
+    user-select: none;
 }

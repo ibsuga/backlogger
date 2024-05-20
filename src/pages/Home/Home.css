@@ -6,7 +6,7 @@
 
 .Home>div:first-child {
     display: grid;
-    grid-template-columns: 1fr 20em;
+    grid-template-columns: 1fr 25em;
     gap: 1em;
 }
 
@@ -16,6 +16,6 @@
 
 .Home>div:nth-child(2) {
     display: grid;
-    grid-template-columns: 1fr 20em;
+    grid-template-columns: 1fr 25em;
     gap: 1em;
 }

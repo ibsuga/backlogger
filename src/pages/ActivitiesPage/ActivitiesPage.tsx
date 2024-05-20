@@ -1,19 +1,22 @@
 import './ActivitiesPage.css'
 import { Timeline } from 'primereact/timeline';
-import useActivityStore from '../../stores/useActivityStore';
+import useActivityStore, { activityType } from '../../stores/useActivityStore';
 
 
 const ActivitiesPage = () => {
 
-    const activities = useActivityStore((state) => state.activities);
+    const [activities, getActivityDescription] = useActivityStore((state) => [state.activities, state.getActivityDescription]);
 
     //Card component
-    const ActivityCard = (item: any) => {
+    const ActivityCard = (item: activityType) => {
         return (
-            <div className="ActivityCard">
-                <img src={item.image} />
-                <div className='activity-date'> {item.date} </div>
-                <div className='activity-description'>{item.description}</div>
+            <div className="ActivityCard" style={{ backgroundImage: `url(${item.image})` }}>
+                <div className='activity-date'>{item.date}</div>
+                <div className='activity-description'>
+                    {
+                        getActivityDescription(item)
+                    }
+                </div>
             </div>
         )
     }

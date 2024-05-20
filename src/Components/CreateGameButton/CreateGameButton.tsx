@@ -27,7 +27,7 @@ const CreateGameButton = () => {
                 date
             }
             addGame(game);
-            addActivity(`Added ${name} to the backlog`, game.background);
+            addActivity('add', game.name, game.background);
             setDialogOpen(false);
         }
     }
