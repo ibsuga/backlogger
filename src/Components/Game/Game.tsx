@@ -58,7 +58,7 @@ const Game = (props: {
             ...props.game,
             'isPlaying': !props.game.isPlaying,
         }
-        addActivity('playing', game.name, game.background)
+        addActivity(game.isPlaying ? 'playing' : 'stopped', game.name, game.background)
         updateGame(game);
     }
 
