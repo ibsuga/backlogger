@@ -1,9 +1,9 @@
 import './GameSmall.css';
-import { MdDelete, MdFavorite, MdFavoriteBorder, MdOutlineCircle, MdOutlinePlayCircleOutline } from 'react-icons/md'
+import { MdFavorite, MdFavoriteBorder, MdOutlineCircle, MdOutlinePlayCircleOutline } from 'react-icons/md'
 import { gameType } from '../../data/game_data'
 import GameRatingSelector from '../Game/GameRatingSelector'
 import EditGameButton from '../EditGameButton/EditGameButton'
-import useGameStore from '../../stores/useGameStore'
+import DeleteGameDialog from '../DeleteGameDialog/DeleteGameDialog';
 
 
 const GameSmall = (props: {
@@ -15,7 +15,6 @@ const GameSmall = (props: {
     handleTogglePlayingStatus: () => void,
     handleToggleFavorite: () => void,
 }) => {
-    const deleteGame = useGameStore((state) => state.deleteGame)
     return (
         <div className="GameSmall">
             <div className='game-image' style={{ backgroundImage: `url(${props.game.background})` }}></div>
@@ -32,7 +31,7 @@ const GameSmall = (props: {
                     <div className='game-playing-status' onClick={props.handleTogglePlayingStatus}>{props.game.isPlaying ? <MdOutlinePlayCircleOutline /> : <MdOutlineCircle />}</div>
 
                     <div className='game-tools'>
-                        <button className='tool game-delete' onClick={() => deleteGame(props.game.id)}><MdDelete /></button>
+                        <DeleteGameDialog game={props.game} />
                         <EditGameButton gameData={props.game} />
                     </div>
                     <div className={`game-platform ${props.game.platform}`}>{props.gamePlatform.shortLabel}</div>

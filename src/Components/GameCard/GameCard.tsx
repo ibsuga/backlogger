@@ -1,10 +1,11 @@
 import './GameCard.css'
-import { MdDelete, MdFavorite, MdFavoriteBorder, MdOutlineCircle, MdOutlinePlayCircleOutline } from 'react-icons/md'
+import { MdFavorite, MdFavoriteBorder, MdOutlineCircle, MdOutlinePlayCircleOutline } from 'react-icons/md'
 import { gameType } from '../../data/game_data'
 import GameRatingSelector from '../Game/GameRatingSelector'
 import EditGameButton from '../EditGameButton/EditGameButton'
-import useGameStore from '../../stores/useGameStore'
+import DeleteGameDialog from '../DeleteGameDialog/DeleteGameDialog'
 
+// import useGameStore from '../../stores/useGameStore'
 
 const GameCard = (props: {
     game: gameType,
@@ -15,7 +16,8 @@ const GameCard = (props: {
     handleTogglePlayingStatus: () => void,
     handleToggleFavorite: () => void,
 }) => {
-    const deleteGame = useGameStore((state) => state.deleteGame)
+
+    // const deleteGame = useGameStore((state) => state.deleteGame)
     return (
         <div className="GameCard">
             <div className="game-content" style={{ background: `url(${props.game.background})` }}>
@@ -32,7 +34,7 @@ const GameCard = (props: {
                         </button>
                     </div>
                     <div className="tools-right">
-                        <button className='tool game-delete' onClick={() => deleteGame(props.game.id)}><MdDelete /></button>
+                        <DeleteGameDialog game={props.game} />
                         <EditGameButton gameData={props.game} />
                     </div>
                 </div>

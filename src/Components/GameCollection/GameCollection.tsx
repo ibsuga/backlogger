@@ -32,7 +32,7 @@ const GameCollection = (props: {
             ]}
         >
             <div className={`GameCollection ${props.disableScroll ? 'no-scroll' : ''}`}>
-                {filtered_games.map((game, index) => <Game key={index} game={game} listDisplay={listDisplay} />)}
+                {filtered_games.map((game, index) => <Game key={index} game={game} listDisplay={listDisplay} />).reverse()}
             </div>
         </Section>
     )

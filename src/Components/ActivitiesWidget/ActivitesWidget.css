@@ -7,6 +7,10 @@
     overflow: hidden;
 }
 
+.ActivitiesWidget .section-content:hover {
+    background: linear-gradient(310deg, hsla(240, 1%, 33%, 0.336) 10%, color-mix(in hsl, var(--accent-color) 20%, transparent), hsla(0, 0%, 44%, 0.349) 90%);
+}
+
 .ActivitiesWidget .p-timeline {
     padding: 1.25em 1em;
 }
