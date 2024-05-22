@@ -1,7 +1,7 @@
 import './CalendarDay.css'
 import { CgMoreAlt } from "react-icons/cg";
 import { useState } from 'react';
-import { gameType } from '../../data/game_data';
+
 import { Sidebar } from 'primereact/sidebar';
 
 type GameLabelType = { [key: string]: string }

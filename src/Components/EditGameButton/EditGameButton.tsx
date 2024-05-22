@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { gameType } from '../../data/game_data';
+
 import { MdEditSquare } from "react-icons/md";
 import GameDataDialog from "../GameDataDialog/GameDataDialog";
 import { GameDataType } from "../GameDataDialog/GameDataDialog";

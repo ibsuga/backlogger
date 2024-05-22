@@ -1,9 +1,8 @@
-import useGameStore from '../../stores/useGameStore';
+import useGameStore, { gameType } from '../../stores/useGameStore';
 import { SiNintendoswitch } from "react-icons/si";
 import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
 import { IoTrophyOutline, IoTrophySharp } from "react-icons/io5";
 import { GiLaurelsTrophy } from "react-icons/gi";
-import { gameType } from '../../data/game_data'
 import GameCard from '../GameCard/GameCard';
 import './Game.css'
 import GameSmall from '../GameSmall/GameSmall';

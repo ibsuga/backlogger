@@ -1,9 +1,9 @@
 import './GameCard.css'
 import { MdFavorite, MdFavoriteBorder, MdOutlineCircle, MdOutlinePlayCircleOutline } from 'react-icons/md'
-import { gameType } from '../../data/game_data'
 import GameRatingSelector from '../Game/GameRatingSelector'
 import EditGameButton from '../EditGameButton/EditGameButton'
 import DeleteGameDialog from '../DeleteGameDialog/DeleteGameDialog'
+import { gameType } from '../../stores/useGameStore'
 
 // import useGameStore from '../../stores/useGameStore'
 

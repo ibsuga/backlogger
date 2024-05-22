@@ -1,6 +1,6 @@
 import './Profile.css';
 import GameCollection from '../../Components/GameCollection/GameCollection';
-import { gameType } from '../../data/game_data';
+
 
 const Profile = (props: {
     setPage: (page: string) => void

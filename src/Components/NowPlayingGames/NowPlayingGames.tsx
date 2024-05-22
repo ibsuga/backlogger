@@ -1,5 +1,5 @@
 import useGameStore from '../../stores/useGameStore';
-import { gameType } from '../../data/game_data';
+
 import GameCollection from '../GameCollection/GameCollection';
 
 const NowPlayingGames = () => {

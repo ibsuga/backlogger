@@ -1,8 +1,6 @@
-
 import { ConfirmDialog } from 'primereact/confirmdialog';
 import useGameStore, { gameType } from '../../stores/useGameStore';
 import { MdDelete } from 'react-icons/md';
-import { Button } from 'primereact/button';
 import { useState } from 'react';
 
 
@@ -29,7 +27,7 @@ const DeleteGameDialog = (props: {
                 onHide={() => setVisible(false)}
             />
             <ConfirmDialog />
-            <Button onClick={() => setVisible(true)} icon={<MdDelete />} className="tool game-delete"></Button>
+            <button onClick={() => setVisible(true)} className="tool game-delete"><MdDelete /></button>
         </>
     )
 }

@@ -2,7 +2,7 @@ import Section from '../Section/Section';
 import { useContext } from 'react';
 import useGameStore from '../../stores/useGameStore';
 import { GameDataContext } from '../../App';
-import { gameType } from '../../data/game_data';
+
 import { GiLaurelsTrophy } from "react-icons/gi";
 import { IoTrophySharp } from "react-icons/io5";
 import './CompletedGames.css';

@@ -2,9 +2,10 @@ import './GameCollection.css';
 import { MdWebStories, MdFormatListBulleted } from "react-icons/md";
 import { useContext, useState } from 'react';
 import { GameDataContext } from '../../App';
-import { gameType } from '../../data/game_data';
+
 import Game from '../Game/Game';
 import Section from '../Section/Section';
+import { gameType } from '../../stores/useGameStore';
 
 
 const GameCollection = (props: {
