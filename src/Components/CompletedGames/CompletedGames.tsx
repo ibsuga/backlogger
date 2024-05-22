@@ -1,6 +1,6 @@
 import Section from '../Section/Section';
 import { useContext } from 'react';
-import useGameStore from '../../stores/useGameStore';
+import useGameStore, { gameType } from '../../stores/useGameStore';
 import { GameDataContext } from '../../App';
 
 import { GiLaurelsTrophy } from "react-icons/gi";

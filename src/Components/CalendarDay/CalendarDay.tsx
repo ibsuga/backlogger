@@ -3,6 +3,7 @@ import { CgMoreAlt } from "react-icons/cg";
 import { useState } from 'react';
 
 import { Sidebar } from 'primereact/sidebar';
+import { gameType } from '../../stores/useGameStore';
 
 type GameLabelType = { [key: string]: string }
 

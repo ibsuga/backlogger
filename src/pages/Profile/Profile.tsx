@@ -1,5 +1,6 @@
 import './Profile.css';
 import GameCollection from '../../Components/GameCollection/GameCollection';
+import { gameType } from '../../stores/useGameStore';
 
 
 const Profile = (props: {

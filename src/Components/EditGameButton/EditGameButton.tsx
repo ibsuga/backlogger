@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { MdEditSquare } from "react-icons/md";
 import GameDataDialog from "../GameDataDialog/GameDataDialog";
 import { GameDataType } from "../GameDataDialog/GameDataDialog";
-import useGameStore from '../../stores/useGameStore';
+import useGameStore, { gameType } from '../../stores/useGameStore';
 
 
 const EditGameButton = (props: {

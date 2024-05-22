@@ -1,5 +1,4 @@
-import useGameStore from "../../stores/useGameStore";
-import { gameType } from "../../data/game_data";
+import useGameStore, { gameType } from "../../stores/useGameStore";
 import Section from "../Section/Section";
 import './GameReleasesList.css'
 

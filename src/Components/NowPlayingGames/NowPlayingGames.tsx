@@ -1,4 +1,4 @@
-import useGameStore from '../../stores/useGameStore';
+import useGameStore, { gameType } from '../../stores/useGameStore';
 
 import GameCollection from '../GameCollection/GameCollection';
 
