@@ -4,6 +4,15 @@
     flex-direction: column;
 }
 
+.Home .home-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2em;
+}
+
+
+
+/* 
 .Home>div:first-child {
     display: grid;
     grid-template-columns: 1fr 25em;
@@ -18,4 +27,4 @@
     display: grid;
     grid-template-columns: 1fr 25em;
     gap: 1em;
-}
+} */

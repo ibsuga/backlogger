@@ -5,7 +5,6 @@ import EditGameButton from '../EditGameButton/EditGameButton'
 import DeleteGameDialog from '../DeleteGameDialog/DeleteGameDialog'
 import { gameType } from '../../stores/useGameStore'
 
-// import useGameStore from '../../stores/useGameStore'
 
 const GameCard = (props: {
     game: gameType,
@@ -17,7 +16,6 @@ const GameCard = (props: {
     handleToggleFavorite: () => void,
 }) => {
 
-    // const deleteGame = useGameStore((state) => state.deleteGame)
     return (
         <div className="GameCard">
             <div className="game-content" style={{ background: `url(${props.game.background})` }}>

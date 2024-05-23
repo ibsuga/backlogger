@@ -13,7 +13,7 @@ const ActivitiesWidget = (props: {
         <div className="ActivitiesWidget">
             <Section title='Recent Activity'>
                 <div onClick={() => props.setPage('activities')}>
-                    <Timeline align='left' value={[...activities].reverse().slice(0, 5)} content={getActivityDescription} />
+                    <Timeline align='left' value={[...activities].reverse().slice(0, 10)} content={getActivityDescription} />
                 </div>
             </Section>
         </div>

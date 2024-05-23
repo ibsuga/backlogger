@@ -14,15 +14,15 @@ const Home = (props: {
 
     return (
         <div className="Home">
-            <div>
-                <CompletedGames setPage={props.setPage} />
+            <div className='home-top'>
+                {/* <CompletedGames setPage={props.setPage} /> */}
+                <GameReleasesList setPage={props.setPage} />
                 <ActivitiesWidget setPage={props.setPage} />
             </div>
-            <div>
-                <NowPlayingGames />
-                <GameReleasesList setPage={props.setPage} />
+            <div className='home-bottom'>
+                {/* <NowPlayingGames /> */}
+                <GameCollection gameList={games} title={'All Games'} disableScroll={true} />
             </div>
-            <GameCollection gameList={games} title={'All Games'} disableScroll={true} />
         </div>
     )
 }

@@ -1,4 +1,7 @@
+import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
+import { SiNintendoswitch } from "react-icons/si";
 import { create } from "zustand";
+
 
 export type gameType = {
     id: number,
@@ -12,11 +15,20 @@ export type gameType = {
     date?: string
 }
 
+type platformDataType = { label: string, shortLabel: string, icon: JSX.Element };
+
 type gameStore = {
     games: gameType[] | [],
     addGame: (game: gameType) => void,
     updateGame: (game: gameType) => void,
     deleteGame: (id: number) => void,
+    getPlatformData: (platform: string) => platformDataType
+}
+
+const gamePlatformData: { [key: string]: platformDataType } = {
+    'nsw': { 'label': 'Nintendo Switch', 'shortLabel': 'Switch', 'icon': <SiNintendoswitch /> },
+    'steam': { 'label': 'Steam', 'shortLabel': 'Steam', 'icon': <FaSteamSquare /> },
+    'ps5': { 'label': 'PlayStation 5', 'shortLabel': 'PS5', 'icon': <FaPlaystation /> },
 }
 
 const useGameStore = create<gameStore>()((set) => ({
@@ -42,6 +54,9 @@ const useGameStore = create<gameStore>()((set) => ({
         localStorage.setItem('BackloggerGames', JSON.stringify(games));
         return { games: games };
     }),
+    getPlatformData: (platform) => {
+        return gamePlatformData[platform];
+    }
 }))
 
 export default useGameStore;

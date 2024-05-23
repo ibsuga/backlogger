@@ -1,6 +1,4 @@
 import useGameStore, { gameType } from '../../stores/useGameStore';
-import { SiNintendoswitch } from "react-icons/si";
-import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
 import { IoTrophyOutline, IoTrophySharp } from "react-icons/io5";
 import { GiLaurelsTrophy } from "react-icons/gi";
 import GameCard from '../GameCard/GameCard';
@@ -9,13 +7,12 @@ import GameSmall from '../GameSmall/GameSmall';
 import useActivityStore from '../../stores/useActivityStore';
 
 
-type GameDataType = { [key: string]: { 'label': string, 'icon': JSX.Element, 'shortLabel': string } };
-
 const Game = (props: {
     game: gameType,
     listDisplay: boolean
+
 }) => {
-    const updateGame = useGameStore((state) => state.updateGame)
+    const [updateGame, getPlatformData] = useGameStore((state) => [state.updateGame, state.getPlatformData])
     const addActivity = useActivityStore((state) => state.addActivity)
 
     //Favorite toggler
@@ -36,13 +33,6 @@ const Game = (props: {
         }
         addActivity('rating', game.name, game.background, game.rating + 1);
         updateGame(game);
-    }
-
-    //Sets the platform logo and label, based on the selected platform on game creation.
-    const GameData: GameDataType = {
-        'nsw': { 'label': 'Nintendo Switch', 'shortLabel': 'Switch', 'icon': <SiNintendoswitch /> },
-        'steam': { 'label': 'Steam', 'shortLabel': 'Steam', 'icon': <FaSteamSquare /> },
-        'ps5': { 'label': 'PlayStation 5', 'shortLabel': 'PS5', 'icon': <FaPlaystation /> },
     }
 
     //Sets the status mark as a logo, based on the selected status state.
@@ -90,7 +80,7 @@ const Game = (props: {
             <GameSmall
                 game={props.game}
                 gameCompletionIcon={completionIcon[props.game.completion]}
-                gamePlatform={GameData[props.game.platform]}
+                gamePlatform={getPlatformData(props.game.platform)}
                 handleUpdateRating={handleUpdateRating}
                 handleToggleCompletion={handleToggleCompletion}
                 handleTogglePlayingStatus={handleTogglePlayingStatus}
@@ -102,7 +92,7 @@ const Game = (props: {
             <GameCard
                 game={props.game}
                 gameCompletionIcon={completionIcon[props.game.completion]}
-                gamePlatform={GameData[props.game.platform]}
+                gamePlatform={getPlatformData(props.game.platform)}
                 handleUpdateRating={handleUpdateRating}
                 handleToggleCompletion={handleToggleCompletion}
                 handleTogglePlayingStatus={handleTogglePlayingStatus}

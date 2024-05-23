@@ -1,4 +1,5 @@
 import useGameStore, { gameType } from "../../stores/useGameStore";
+import GameReleaseCard from "../GameReleaseCard/GameReleaseCard";
 import Section from "../Section/Section";
 import './GameReleasesList.css'
 
@@ -25,22 +26,9 @@ const GameReleasesList = (props: {
         <div className="GameReleasesList" onClick={() => props.setPage('calendar')}>
             <Section title="Upcoming Games" >
                 <div className="release-list">
-                    <ul>
-                        {games_to_release.map((game: gameType, index: number) => {
-                            const date = new Date(game.date!);
-                            const year = date.getFullYear();
-                            const month = date.toLocaleDateString('default', { month: 'long' })
-                            const day = date.getDate();
-
-                            return <li key={index}>
-                                <img src={game.background} />
-                                <div>
-                                    <p>{game.name}</p>
-                                    <p className="release-date">{`${month} ${day}, ${year}`}</p>
-                                </div>
-                            </li>
-                        })}
-                    </ul>
+                    {games_to_release.map((game: gameType, index: number) =>
+                        <GameReleaseCard game={game} key={index} />
+                    )}
                 </div>
             </Section>
         </div>
