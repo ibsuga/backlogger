@@ -1,10 +1,10 @@
 import './NavBar.css'
 import CreateGameButton from '../CreateGameButton/CreateGameButton';
-import { CgProfile } from "react-icons/cg";
 import { BsNintendoSwitch } from "react-icons/bs";
 import { IoLogoPlaystation } from "react-icons/io";
 import { FaSteam } from "react-icons/fa";
 import { PiGameControllerDuotone } from "react-icons/pi";
+// import { CgProfile } from "react-icons/cg";
 
 const NavBar = (props: {
     setPage: (page: string) => void;
@@ -20,7 +20,7 @@ const NavBar = (props: {
                 <div className='logo-container'>
                     <div className='logo' onClick={() => props.setPage('home')}>BACKLOGGER</div>
                 </div>
-                <CgProfile className={'profile'} onClick={() => props.setPage('profile')} />
+                {/* <CgProfile className={'profile'} onClick={() => props.setPage('profile')} /> */}
                 <CreateGameButton />
             </div>
             <div className='navbar-bottom'>

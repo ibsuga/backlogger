@@ -1,5 +1,17 @@
 .CreateGameButton {
     cursor: pointer;
+    font-family: 'Bebas Neue';
+    text-align: left;
+    font-size: 2.5em;
+    transition: color 0.5s;
+    width: min-content;
+    background: none;
+    border: none;
+    color: hsl(0, 5%, 85%);
+    width: fit-content;
+
+
+    /* cursor: pointer;
     width: 8em;
     height: 3em;
     border: 0;
@@ -13,14 +25,13 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     display: inline-block;
-    transition: 0.7s;
+    transition: 0.7s; */
 }
 
 .CreateGameButton:hover {
-    background-color: hsl(170, 75%, 45%, 0.2);
-    letter-spacing: 3px;
+    color: hsl(170, 75%, 45%);
     transition: 0.2s;
-    filter: drop-shadow(0px 0px 5px hsl(170, 75%, 45%));
+    filter: drop-shadow(0px 0px 5px hsla(170, 75%, 45%, 0.25));
 }
 
 .CreateGameButton .CreateGameButton span {

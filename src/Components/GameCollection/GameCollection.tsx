@@ -7,6 +7,7 @@ import Game from '../Game/Game';
 import Section from '../Section/Section';
 import { gameType } from '../../stores/useGameStore';
 import GameReleaseCard from '../GameReleaseCard/GameReleaseCard';
+import GameReleaseSmall from '../GameReleaseSmall/GameReleaseSmall';
 
 
 const GameCollection = (props: {
@@ -41,7 +42,11 @@ const GameCollection = (props: {
                         let game_date = new Date(game.date);
 
                         if (game_date > today) {
-                            return <GameReleaseCard game={game} />
+                            if (listDisplay) {
+                                return <GameReleaseSmall game={game} />
+                            } else {
+                                return <GameReleaseCard game={game} />
+                            }
                         } else {
                             return <Game key={index} game={game} listDisplay={listDisplay} />
                         }

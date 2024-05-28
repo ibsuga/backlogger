@@ -1,0 +1,114 @@
+.GameReleaseSmall {
+    display: grid;
+    grid-template-columns: min-content auto;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.GameReleaseSmall .game-content {
+    display: grid;
+    padding: 0.25em;
+}
+
+.GameReleaseSmall .game-image {
+    height: 5em;
+    width: 10em;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    filter: drop-shadow(0px 0px 2px black);
+    z-index: 1;
+    opacity: 50%;
+}
+
+.GameReleaseSmall .release-date {
+    font-family: 'Bebas Neue';
+    font-size: 20px;
+    line-height: 5px;
+    font-style: italic;
+    color: hsl(170, 75%, 45%);
+}
+
+.GameReleaseSmall .game-tools {
+    display: flex;
+    gap: 0.25em;
+    /* margin-left: auto;
+    right: 0; */
+}
+
+.GameReleaseSmall .game-buttons {
+    display: flex;
+    gap: 0.25em;
+    margin-left: auto;
+    right: 0;
+    align-items: center;
+}
+
+.GameReleaseSmall .game-tools .game-buttons .game-platform {
+    padding: 0.2em;
+    display: grid;
+    place-content: center;
+    right: 0;
+    font-family: 'Kanit';
+    text-align: center;
+    font-size: 0.8em;
+    width: min-content;
+    height: 1.5em;
+    color: white;
+    border-radius: 5px;
+    filter: drop-shadow(0px 0px 2px black);
+    user-select: none;
+    white-space: nowrap;
+    padding: 0.5em;
+
+
+    margin-left: 1em;
+}
+
+.GameReleaseSmall .game-name {
+    font-family: 'Bebas Neue';
+    font-size: 1.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.GameReleaseSmall .game-tools .game-buttons>svg {
+    font-size: 1.25em;
+}
+
+.GameReleaseSmall .game-tools .tool.game-delete {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 1.25em;
+    color: hsl(0, 60%, 98%);
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.GameReleaseSmall .game-tools .tool,
+.GameReleaseSmall .game-tools .tool.game-delete {
+    color: hsl(0, 0%, 51%);
+}
+
+.GameReleaseSmall .tool.game-delete svg:hover {
+    color: hsl(0, 90%, 60%);
+}
+
+.GameReleaseSmall .game-tools .game-buttons>svg:hover {
+    cursor: pointer;
+    color: cadetblue;
+}
+
+.GameReleaseSmall .game-platform.nsw {
+    background-color: var(--platform-nsw);
+}
+
+.GameReleaseSmall .game-platform.steam {
+    background-color: var(--platform-steam);
+}
+
+.GameReleaseSmall .game-platform.ps5 {
+    background-color: var(--platform-ps5);
+}

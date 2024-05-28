@@ -2,6 +2,8 @@ import useGameStore, { gameType } from "../../stores/useGameStore";
 import GameReleaseCard from "../GameReleaseCard/GameReleaseCard";
 import Section from "../Section/Section";
 import './GameReleasesList.css'
+import { GameDataContext } from "../../App";
+import { useContext } from "react";
 
 const GameReleasesList = (props: {
     setPage: (page: string) => void,
@@ -9,8 +11,10 @@ const GameReleasesList = (props: {
     const [games] = useGameStore((state) => [state.games])
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+    const gameDataCtx = useContext(GameDataContext);
 
     let games_to_release = games
+        .filter((game: gameType) => gameDataCtx.platformFilter === '' || game.platform === gameDataCtx.platformFilter)
         .filter((game: gameType) => {
             const game_date = new Date(game.date!);
             return game_date >= today;
@@ -27,7 +31,7 @@ const GameReleasesList = (props: {
             <Section title="Upcoming Games" >
                 <div className="release-list">
                     {games_to_release.map((game: gameType, index: number) =>
-                        <GameReleaseCard game={game} key={index} />
+                        <GameReleaseCard game={game} key={index} hideTools />
                     )}
                 </div>
             </Section>

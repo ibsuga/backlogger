@@ -30,7 +30,10 @@ const EditGameButton = (props: {
         <>
             <GameDataDialog
                 btnElement={
-                    <MdEditSquare className={'tool'} onClick={() => setDialogOpen(!dialogOpen)} />
+                    <MdEditSquare className={'tool'} onClick={(event) => {
+                        event.stopPropagation()
+                        setDialogOpen(!dialogOpen)
+                    }} />
                 }
                 dialogOpen={dialogOpen}
                 setDialogOpen={setDialogOpen}

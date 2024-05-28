@@ -36,3 +36,7 @@
 .release-list .release-date {
     color: hsl(170, 75%, 45%)
 }
+
+.release-list .GameReleaseCard:hover {
+    transform: unset;
+}

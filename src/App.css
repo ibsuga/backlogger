@@ -50,7 +50,7 @@ body,
 
 .Content {
   z-index: 9;
-  padding: 5em;
+  padding: 2.5em;
   padding-top: 6em;
   flex: 1;
 }
