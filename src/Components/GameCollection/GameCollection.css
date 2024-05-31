@@ -22,7 +22,7 @@ h1 {
 }
 
 
-.list-display-button {
+.filter-button {
     display: flex;
     background-color: hsl(222, 20%, 20%);
     border: none;
@@ -31,13 +31,77 @@ h1 {
     padding: 0.3em 0.5em;
 }
 
-.list-display-button svg {
-    color: white;
+.filter-button svg {
+    color: hsl(220, 5%, 40%);
     font-size: 2em;
     text-align: center;
     transition: color 0.2s;
 }
 
-.list-display-button svg:hover {
+.filter-button svg:hover {
     color: var(--accent-color);
+}
+
+.filter-button.spaced {
+    margin-right: 1em;
+}
+
+.filter-button.active svg {
+    color: var(--accent-color);
+
+}
+
+.p-dropdown {
+    background-color: #14171f;
+    border: none;
+}
+
+.p-dropdown:hover .p-inputtext,
+.p-dropdown:hover .p-dropdown-trigger svg {
+    color: var(--accent-color);
+}
+
+.p-inputtext {
+    font-family: 'JetBrains Mono';
+    letter-spacing: -0.5px;
+}
+
+.p-focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.p-dropdown-panel {
+    background: transparent;
+}
+
+.p-dropdown .p-dropdown-trigger svg {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.p-dropdown-items {
+    background: transparent;
+}
+
+.p-dropdown-item.p-focus {
+    background-color: var(--accent-color);
+}
+
+.p-dropdown-item.p-focus .p-dropdown-item-label {
+    color: hsla(224, 22%, 20%, 1);
+}
+
+.p-dropdown-item-label {
+    color: hsl(0, 5%, 85%);
+    ;
+    font-family: 'JetBrains Mono';
+    letter-spacing: -0.5px;
+}
+
+.p-dropdown-items-wrapper {
+    border-radius: 5px;
+    /* background-color: tomato; */
+    background-color: hsla(224, 22%, 20%, 0.90);
+    backdrop-filter: blur(4px);
+
 }

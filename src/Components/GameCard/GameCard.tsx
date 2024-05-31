@@ -16,6 +16,10 @@ const GameCard = (props: {
     handleToggleFavorite: () => void,
 }) => {
 
+    if (props.game.name === `Demon's Souls`) {
+        console.log(props.game);
+    }
+
     return (
         <div className="GameCard">
             <div className="game-content" style={{ background: `url(${props.game.background})` }}>

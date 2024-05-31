@@ -1,13 +1,16 @@
 import './GameCollection.css';
-import { MdWebStories, MdFormatListBulleted } from "react-icons/md";
+import { MdWebStories, MdFormatListBulleted, MdFavorite, MdOutlinePlayCircleOutline, MdLayersClear } from "react-icons/md";
+import { IoTrophySharp } from "react-icons/io5";
+import { GiLaurelsTrophy } from "react-icons/gi";
 import { useContext, useState } from 'react';
 import { GameDataContext } from '../../App';
-
 import Game from '../Game/Game';
 import Section from '../Section/Section';
 import { gameType } from '../../stores/useGameStore';
 import GameReleaseCard from '../GameReleaseCard/GameReleaseCard';
 import GameReleaseSmall from '../GameReleaseSmall/GameReleaseSmall';
+import { Dropdown } from 'primereact/dropdown';
+
 
 
 const GameCollection = (props: {
@@ -16,10 +19,13 @@ const GameCollection = (props: {
     disableScroll?: boolean
 }) => {
     const [listDisplay, setListDisplay] = useState(false);
+    const [filter, setFilter] = useState<string | null>(null);
+    const [sorting, setSorting] = useState<string | null>(null);
     const gameDataCtx = useContext(GameDataContext);
     let today = new Date();
     today.setHours(0, 0, 0, 0);
 
+    //Filters games by platform.
     let filtered_games;
     if (gameDataCtx.platformFilter === '') {
         filtered_games = [...props.gameList]
@@ -27,13 +33,73 @@ const GameCollection = (props: {
         filtered_games = props.gameList.filter((game: gameType) => game.platform === gameDataCtx.platformFilter);
     }
 
+    //Filters games by selected option.
+    switch (filter) {
+        case 'favorite':
+            filtered_games = filtered_games.filter((game: gameType) => game.isFavorite);
+            break;
+        case 'now_playing':
+            filtered_games = filtered_games.filter((game: gameType) => game.isPlaying);
+            break;
+        case 'completed':
+            filtered_games = filtered_games.filter((game: gameType) => game.completion === 'complete');
+            break;
+        case 'mastered':
+            filtered_games = filtered_games.filter((game: gameType) => game.completion === 'mastered');
+            break;
+    }
+
+    const sorting_options = [
+        { label: 'Sort alphabetically', value: 'alphabetical' },
+        { label: 'Sort by rating', value: 'rating' },
+        { label: 'Sort by release date', value: 'release_date' },
+    ]
+
+    switch (sorting) {
+        case 'alphabetical':
+            filtered_games.sort((game_a: gameType, game_b: gameType) => {
+                if (game_a.name > game_b.name) return -1;
+                if (game_a.name < game_b.name) return 1;
+                return 0;
+            });
+            break;
+        case 'rating':
+            filtered_games.sort((game_a: gameType, game_b: gameType) => {
+                let a = typeof game_a.rating !== 'number' ? -1 : game_a.rating;
+                let b = typeof game_b.rating !== 'number' ? -1 : game_b.rating;
+                return a - b;
+            });
+            break;
+        case 'release_date':
+            filtered_games.sort((a: gameType, b: gameType) => {
+                const game_date_a = new Date(a.date!);
+                const game_date_b = new Date(b.date!);
+                return game_date_a.getTime() - game_date_b.getTime();
+            })
+            break;
+    }
+
     return (
         <Section
             title={props.title}
             tools={[
-                <button className='list-display-button' onClick={() => setListDisplay(!listDisplay)}>
+                <Dropdown
+                    className="filter-button spaced"
+                    value={sorting}
+                    options={sorting_options}
+                    optionLabel='label'
+                    onChange={(e) => setSorting(e.value)}
+                    showClear
+                    placeholder='Select sorting option'
+                />,
+                <button className={`filter-button ${filter === 'favorite' ? 'active' : null}`} onClick={() => setFilter('favorite')}><MdFavorite /></button>,
+                <button className={`filter-button ${filter === 'now_playing' ? 'active' : null}`} onClick={() => setFilter('now_playing')}><MdOutlinePlayCircleOutline /></button>,
+                <button className={`filter-button ${filter === 'completed' ? 'active' : null}`} onClick={() => setFilter('completed')}>< IoTrophySharp /></button>,
+                <button className={`filter-button ${filter === 'mastered' ? 'active' : null}`} onClick={() => setFilter('mastered')}><GiLaurelsTrophy /></button>,
+                <button className='filter-button spaced' onClick={() => setFilter(null)}><MdLayersClear /></button>,
+                <button className='filter-button' onClick={() => setListDisplay(!listDisplay)}>
                     {listDisplay ? <MdWebStories /> : <MdFormatListBulleted />}
-                </button>,
+                </button>
             ]}
         >
             <div className={`GameCollection ${props.disableScroll ? 'no-scroll' : ''}`}>
