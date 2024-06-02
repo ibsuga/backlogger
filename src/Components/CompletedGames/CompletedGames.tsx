@@ -1,15 +1,14 @@
-import Section from '../Section/Section';
+// import Section from '../Section/Section';
 import { useContext } from 'react';
 import useGameStore, { gameType } from '../../stores/useGameStore';
 import { GameDataContext } from '../../App';
-
 import { GiLaurelsTrophy } from "react-icons/gi";
 import { IoTrophySharp } from "react-icons/io5";
 import './CompletedGames.css';
 
-const CompletedGames = (props: {
-    setPage: (page: string) => void;
-}) => {
+import { Tooltip } from 'primereact/tooltip';
+
+const CompletedGames = () => {
     const [games] = useGameStore((state) => [state.games]);
     const gameDataCtx = useContext(GameDataContext);
 
@@ -27,18 +26,26 @@ const CompletedGames = (props: {
 
     return (
         <div>
-            <Section title={'Completed Games'} >
-                <div className="CompletedGames" onClick={() => props.setPage('completed')}>
-                    <div className='completed'>
-                        <div>{completed_games.length}</div>
-                        <IoTrophySharp />
-                    </div>
-                    <div className='mastered'>
-                        <div>{mastered_games.length}</div>
-                        <GiLaurelsTrophy />
-                    </div>
+            <div className="CompletedGames">
+                <div className='completed'>
+                    <Tooltip target='.completed-icon' showDelay={500} />
+                    <IoTrophySharp
+                        className='completed-icon'
+                        data-pr-tooltip='Completed Games'
+                        data-pr-position='bottom'
+                    />
+                    <div>{completed_games.length}</div>
                 </div>
-            </Section>
+                <div className='mastered'>
+                    <Tooltip target='.mastered-icon' showDelay={500} />
+                    <GiLaurelsTrophy
+                        className='mastered-icon'
+                        data-pr-tooltip='Mastered Games'
+                        data-pr-position='bottom'
+                    />
+                    <div>{mastered_games.length}</div>
+                </div>
+            </div>
 
         </div>
 

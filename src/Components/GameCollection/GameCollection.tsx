@@ -10,6 +10,7 @@ import { gameType } from '../../stores/useGameStore';
 import GameReleaseCard from '../GameReleaseCard/GameReleaseCard';
 import GameReleaseSmall from '../GameReleaseSmall/GameReleaseSmall';
 import { Dropdown } from 'primereact/dropdown';
+import { Tooltip } from 'primereact/tooltip';
 
 
 
@@ -78,6 +79,8 @@ const GameCollection = (props: {
             })
             break;
     }
+    //Targets for the tooltip to show
+    const tooltip_targets = ['.btn_favorite', '.btn_playing', '.btn_complete', '.btn_mastered', '.btn_clear', '.btn_list'];
 
     return (
         <Section
@@ -92,12 +95,39 @@ const GameCollection = (props: {
                     showClear
                     placeholder='Select sorting option'
                 />,
-                <button className={`filter-button ${filter === 'favorite' ? 'active' : null}`} onClick={() => setFilter('favorite')}><MdFavorite /></button>,
-                <button className={`filter-button ${filter === 'now_playing' ? 'active' : null}`} onClick={() => setFilter('now_playing')}><MdOutlinePlayCircleOutline /></button>,
-                <button className={`filter-button ${filter === 'completed' ? 'active' : null}`} onClick={() => setFilter('completed')}>< IoTrophySharp /></button>,
-                <button className={`filter-button ${filter === 'mastered' ? 'active' : null}`} onClick={() => setFilter('mastered')}><GiLaurelsTrophy /></button>,
-                <button className='filter-button spaced' onClick={() => setFilter(null)}><MdLayersClear /></button>,
-                <button className='filter-button' onClick={() => setListDisplay(!listDisplay)}>
+                <Tooltip target={tooltip_targets} showDelay={500} position='bottom' />,
+                <button
+                    className={`filter-button btn_favorite ${filter === 'favorite' ? 'active' : null}`}
+                    onClick={() => setFilter('favorite')}
+                    data-pr-tooltip='Filter by Favorites'>
+                    <MdFavorite />
+                </button>,
+                <button
+                    className={`filter-button btn_playing ${filter === 'now_playing' ? 'active' : null}`}
+                    onClick={() => setFilter('now_playing')}
+                    data-pr-tooltip='Filter by Now Playing'>
+                    <MdOutlinePlayCircleOutline />
+                </button>,
+                <button
+                    className={`filter-button btn_complete ${filter === 'completed' ? 'active' : null}`}
+                    onClick={() => setFilter('completed')}
+                    data-pr-tooltip='Filter by Completed Games'>
+                    < IoTrophySharp />
+                </button>,
+                <button
+                    className={`filter-button btn_mastered ${filter === 'mastered' ? 'active' : null}`}
+                    onClick={() => setFilter('mastered')}
+                    data-pr-tooltip='Filter by Mastered Games'>
+                    <GiLaurelsTrophy />
+                </button>,
+                <button className='filter-button btn_clear spaced'
+                    onClick={() => setFilter(null)}
+                    data-pr-tooltip='Clear Filter'>
+                    <MdLayersClear />
+                </button>,
+                <button className='filter-button btn_list'
+                    onClick={() => setListDisplay(!listDisplay)}
+                    data-pr-tooltip={listDisplay ? 'Card display' : 'List display'}>
                     {listDisplay ? <MdWebStories /> : <MdFormatListBulleted />}
                 </button>
             ]}

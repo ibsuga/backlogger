@@ -1,43 +1,49 @@
 .CompletedGames {
-    display: grid;
+    display: flex;
+    user-select: none;
+    /* display: grid;
     grid-template-columns: auto 3em;
     padding: 0.5em;
-    user-select: none;
+    user-select: none; */
 }
-
-.CompletedGames:hover {
-    background: linear-gradient(310deg, hsla(240, 1%, 33%, 0.336) 10%, color-mix(in hsl, var(--accent-color) 20%, transparent), hsla(0, 0%, 44%, 0.349) 90%);
-    cursor: pointer;
-}
-
 
 .CompletedGames .completed,
 .CompletedGames .mastered {
     font-family: 'Sora';
     font-weight: 800;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
 
 .CompletedGames .completed {
-    font-size: 5em;
+    font-size: 1.25em;
     text-align: center;
-    color: rgb(180, 156, 19);
+    margin-right: 1em;
 }
 
 .CompletedGames .completed svg {
-    font-size: 0.4em;
+    font-size: 1.25em;
     color: rgb(180, 156, 19);
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 0.25em;
 }
 
 .CompletedGames .mastered {
-    font-size: 3em;
+    font-size: 1.25em;
+    margin-right: 0.25em;
 }
 
 .CompletedGames .mastered svg {
-    font-size: 0.6em;
+    color: hsl(180, 50%, 60%);
+    font-size: 1.25em;
+    margin-right: 0.25em;
+}
+
+.p-tooltip-text {
+    color: hsl(0, 5%, 85%);
+    background-color: hsla(222, 20%, 20%);
+    border-radius: 5px;
+    font-family: 'Jetbrains Mono';
+    letter-spacing: -0.5px;
 }

@@ -48,8 +48,6 @@
 .NavBar .navbar-bottom .buttons-bar {
     display: flex;
     gap: 1em;
-    margin-left: 2em;
-
 }
 
 .NavBar .navbar-bottom .buttons-bar svg {
@@ -101,4 +99,9 @@
 .NavBar .navbar-bottom .buttons-bar svg.active.steam {
     filter: drop-shadow(0px 0px 5px hsl(207, 38%, 30%));
     transition: 0.5s;
+}
+
+.NavBar .navbar-bottom .stats-bar {
+    right: 0;
+    margin-left: auto;
 }
