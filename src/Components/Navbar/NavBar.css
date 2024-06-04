@@ -27,16 +27,14 @@
 }
 
 
-.NavBar .navbar-top .navbar-bottom svg,
-.NavBar .navbar-top .profile {
+.NavBar .navbar-top .navbar-bottom svg {
     cursor: pointer;
     font-size: 1.5em;
     margin-right: 1em;
     transition: 0.1s;
 }
 
-.NavBar .navbar-top .navbar-bottom svg:hover,
-.NavBar .navbar-top .profile:hover {
+.NavBar .navbar-top .navbar-bottom svg:hover {
     transform: scale(1.3);
 }
 
@@ -48,6 +46,10 @@
 .NavBar .navbar-bottom .buttons-bar {
     display: flex;
     gap: 1em;
+}
+
+.NavBar .navbar-bottom .buttons-bar>*:first-child {
+    color: hsl(222, 11%, 30%);
 }
 
 .NavBar .navbar-bottom .buttons-bar svg {
