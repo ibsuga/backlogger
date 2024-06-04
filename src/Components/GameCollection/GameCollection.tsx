@@ -139,9 +139,9 @@ const GameCollection = (props: {
 
                         if (game_date > today) {
                             if (listDisplay) {
-                                return <GameReleaseSmall game={game} />
+                                return <GameReleaseSmall game={game} key={index} />
                             } else {
-                                return <GameReleaseCard game={game} />
+                                return <GameReleaseCard game={game} key={index} />
                             }
                         } else {
                             return <Game key={index} game={game} listDisplay={listDisplay} />
