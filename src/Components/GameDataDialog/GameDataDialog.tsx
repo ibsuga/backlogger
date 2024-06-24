@@ -7,6 +7,7 @@ import { Dialog } from 'primereact/dialog';
 import { FaSteamSquare } from "react-icons/fa";
 import { BsNintendoSwitch } from "react-icons/bs";
 import { IoLogoPlaystation } from "react-icons/io";
+import { SiRetroarch } from 'react-icons/si';
 
 
 export type GameDataType = {
@@ -93,6 +94,9 @@ const GameDataDialog = (props: {
 
                             <input type="radio" id='ps5' name='platform' onClick={() => setPlatform('ps5')} />
                             <label htmlFor="ps5"><IoLogoPlaystation /></label>
+
+                            <input type="radio" id='retro' name='platform' onClick={() => setPlatform('retro')} />
+                            <label htmlFor="retro"><SiRetroarch /></label>
                         </div>
                     </div>
                     <Calendar value={date} onChange={(e) => setDate(e.value)} dateFormat='dd/mm/yy' />

@@ -112,3 +112,7 @@
 .GameReleaseSmall .game-platform.ps5 {
     background-color: var(--platform-ps5);
 }
+
+.GameReleaseSmall .game-platform.retro {
+    background-color: var(--platform-retro);
+}

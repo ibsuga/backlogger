@@ -1,5 +1,5 @@
 import { FaPlaystation, FaSteamSquare } from "react-icons/fa";
-import { SiNintendoswitch } from "react-icons/si";
+import { SiNintendoswitch, SiRetroarch } from "react-icons/si";
 import { create } from "zustand";
 
 
@@ -29,6 +29,7 @@ const gamePlatformData: { [key: string]: platformDataType } = {
     'nsw': { 'label': 'Nintendo Switch', 'shortLabel': 'Switch', 'icon': <SiNintendoswitch /> },
     'steam': { 'label': 'Steam', 'shortLabel': 'Steam', 'icon': <FaSteamSquare /> },
     'ps5': { 'label': 'PlayStation 5', 'shortLabel': 'PS5', 'icon': <FaPlaystation /> },
+    'retro': { 'label': 'Retro', 'shortLabel': 'Retro', 'icon': <SiRetroarch /> },
 }
 
 const useGameStore = create<gameStore>()((set) => ({

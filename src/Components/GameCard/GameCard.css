@@ -133,3 +133,8 @@
     background: linear-gradient(180deg, hsl(215, 90%, 65%) 50%, hsl(215, 90%, 80%) 100%);
     color: hsl(215, 90%, 95%);
 }
+
+.GameCard .game-platform.retro {
+    background: linear-gradient(180deg, hsl(290, 70%, 40%) 50%, hsl(290, 30%, 48%) 100%);
+    color: hsl(215, 90%, 95%);
+}
