@@ -12,17 +12,20 @@ export type gameType = {
     completion: 'unfinished' | 'complete' | 'mastered',
     rating: number,
     background: string,
-    date?: string
+    date?: string,
+    developer?: string,
 }
 
 type platformDataType = { label: string, shortLabel: string, icon: JSX.Element };
 
 type gameStore = {
     games: gameType[] | [],
+    gameDialogId: number | null,
     addGame: (game: gameType) => void,
     updateGame: (game: gameType) => void,
     deleteGame: (id: number) => void,
-    getPlatformData: (platform: string) => platformDataType
+    getPlatformData: (platform: string) => platformDataType,
+    setGameDialogId: (id?: number) => void,
 }
 
 const gamePlatformData: { [key: string]: platformDataType } = {
@@ -34,6 +37,7 @@ const gamePlatformData: { [key: string]: platformDataType } = {
 
 const useGameStore = create<gameStore>()((set) => ({
     games: JSON.parse(localStorage.getItem('BackloggerGames') || '[]'),
+    gameDialogId: null,
     addGame: (game) => set((state) => {
         let games = [...state.games];
         games.push(game);
@@ -57,7 +61,10 @@ const useGameStore = create<gameStore>()((set) => ({
     }),
     getPlatformData: (platform) => {
         return gamePlatformData[platform];
-    }
+    },
+    setGameDialogId: (id) => set(() => {
+        return { gameDialogId: id }
+    }),
 }))
 
 export default useGameStore;

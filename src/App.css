@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 :root {
-  --platform-nsw: hsl(355, 100%, 65%);
+  --platform-nsw: hsl(357, 100%, 45%);
   --platform-ps5: hsl(222, 17%, 75%);
   --platform-steam: hsl(207, 38%, 30%);
   --platform-retro: hsl(290, 70%, 40%);

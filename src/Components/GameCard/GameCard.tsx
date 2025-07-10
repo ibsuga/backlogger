@@ -3,7 +3,7 @@ import { MdFavorite, MdFavoriteBorder, MdOutlineCircle, MdOutlinePlayCircleOutli
 import GameRatingSelector from '../Game/GameRatingSelector'
 import EditGameButton from '../EditGameButton/EditGameButton'
 import DeleteGameDialog from '../DeleteGameDialog/DeleteGameDialog'
-import { gameType } from '../../stores/useGameStore'
+import useGameStore, { gameType } from '../../stores/useGameStore'
 
 
 const GameCard = (props: {
@@ -15,8 +15,10 @@ const GameCard = (props: {
     handleTogglePlayingStatus: () => void,
     handleToggleFavorite: () => void,
 }) => {
+    const setGameDialogId = useGameStore((state) => state.setGameDialogId);
+
     return (
-        <div className="GameCard">
+        <div className="GameCard" onClick={() => setGameDialogId(props.game.id)}>
             <div className="game-content" style={{ background: `url(${props.game.background})` }}>
                 <div className="game-rating">
                     <GameRatingSelector rating={props.game.rating} handleUpdateRating={props.handleUpdateRating} />

@@ -1,0 +1,192 @@
+.GameDialog {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+
+  --color-default: hsla(0, 0%, 100%, 0.85);
+  --color-editable: hsla(0, 0%, 100%, 0.85);
+}
+
+.GameDialog input {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: unset;
+  padding: 0;
+  color: var(--color-editable);
+  transition: background .3s;
+}
+
+.GameDialog input:disabled {
+  color: var(--color-default);
+  pointer-events: none;
+  background: transparent;
+}
+
+.GameDialog input:focus {
+  border: unset;
+  outline: none;
+}
+
+.GameDialog__backdrop {
+  backdrop-filter: blur(2px) grayscale(50%);
+  background: hsla(0, 0%, 0%, 0.5);
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+}
+
+.GameDialog__dialog {
+  border-radius: 10px;
+  font-size: 1rem;
+  height: 55em;
+  overflow: hidden;
+  position: relative;
+  width: clamp(50%, 90em, 90%);
+}
+
+.GameDialog__background,
+.GameDialog__background>* {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.GameDialog__background--image {
+  background-position: center;
+  background-size: cover;
+  filter: blur(4px);
+}
+
+.GameDialog__background--gradient {
+  opacity: 0.8;
+}
+
+.GameDialog__content {
+  display: grid;
+  gap: 4em;
+  grid-template-columns: 1fr 3fr;
+  height: 100%;
+  padding: 3em;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.GameDialog__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.GameDialog__cover {
+  width: 14rem;
+  height: 20rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.GameDialog__title {
+  display: grid;
+  gap: .5em;
+  grid-template-columns: auto min-content min-content;
+}
+
+.GameDialog__title>input {
+  font-family: "Bebas Neue";
+  font-size: 4rem;
+  height: .85em;
+  padding-top: 0.12em;
+}
+
+.GameDialog__title>button {
+  background: transparent;
+  border: none;
+  color: var(--color-default);
+  cursor: pointer;
+  font-size: 2.5em;
+  transition: color .3s;
+  height: 1em;
+}
+
+.GameDialog__title>button.active {
+  color: var(--accent-color);
+}
+
+.GameDialog__title>button:hover {
+  color: white;
+}
+
+/* SVG icons adjustments. :( */
+.GameDialog__title>button:last-child {
+  font-size: 3em;
+  margin-top: -0.1em;
+}
+
+.GameDialog__content {
+  background-color: hsla(0, 0%, 0%, 0.15);
+  z-index: 2;
+}
+
+.GameDialog__body {
+  display: grid;
+  gap: 2em;
+  grid-template-rows: min-content auto;
+  overflow: hidden;
+}
+
+.GameDialog__body_top {
+  height: 10em;
+}
+
+.GameDialog__info {
+  display: flex;
+  gap: 1em;
+  font-family: 'Jetbrains Mono';
+  font-size: 1.25em;
+  padding: 0.5em 0;
+  text-transform: uppercase;
+}
+
+.GameDialog__info>input {
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+}
+
+.GameDialog__body_bottom {
+  display: grid;
+  grid-template-rows: min-content auto;
+  gap: 1em;
+  overflow: hidden;
+}
+
+.GameDialog__header {
+  display: flex;
+  flex-direction: reverse;
+  justify-content: end;
+  gap: .25em;
+  font-family: "Bebas Neue";
+  font-size: 2rem;
+  border-bottom: 2px solid hsla(0, 0%, 100%, 0.25);
+  color: hsla(0, 0%, 100%, 0.25);
+}
+
+.GameDialog__header div:first-child {
+  color: white;
+}
+
+
+.GameDialog .GameRatingSelector {
+  font-size: 1.75rem;
+}
+

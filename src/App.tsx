@@ -6,6 +6,7 @@ import './App.css';
 import ReleasesCalendar from './pages/ReleasesCalendar/ReleasesCalendar';
 import CompletedGamesPage from './pages/CompletedGamesPage/CompletedGamesPage';
 import ActivitiesPage from './pages/ActivitiesPage/ActivitiesPage';
+import GameDialog from './Components/GameDialog/GameDialog';
 
 export const GameDataContext = createContext<any>(null);
 
@@ -34,6 +35,7 @@ function App() {
         <div className='Content'>
           {pages[page]}
         </div>
+        <GameDialog />
       </GameDataContext.Provider>
     </div>
   )
