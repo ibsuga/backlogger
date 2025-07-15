@@ -1,11 +1,89 @@
 .GameStatusSelector {
-  font-family: "Jetbrains Mono";
-  border: 2px solid tomato;
-  color: tomato;
-  background-color: rgba(255, 99, 71, 0.1);
-  font-size: 1.5em;
-  padding: 0 .25em;
-  border-radius: 5px;
+  position: relative;
   width: 100%;
-  box-shadow: 4px 4px 100px 10px rgba(255, 99, 71, 0.355);
+  font-family: "Jetbrains Mono";
+}
+
+
+.GameStatusSelector__button {
+  border: 1px solid var(--game-state-playing);
+  color: white;
+  background: linear-gradient(5deg, color-mix(in hsl, var(--game-state-playing), black 15%) 0%, var(--game-state-playing) 100%);
+  font-size: 1.5em;
+  padding: .25em;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 4px 4px 100px 10px color-mix(in hsl, var(--game-state-playing), transparent 75%);
+  overflow: hidden;
+  position: inherit;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s;
+}
+
+
+.GameStatusSelector__button:hover {
+  border: 1px solid var(--accent-color);
+  background: linear-gradient(5deg, color-mix(in hsl, var(--accent-color), black 15%) 0%, var(--accent-color) 100%);
+  box-shadow: 4px 4px 100px 10px color-mix(in hsl, var(--accent-color), transparent 75%);
+}
+
+
+.GameStatusSelector__menu {
+  bottom: -3em;
+  left: -3em;
+  background-color: hsla(224, 22%, 10%, 0.75);
+  height: 55em;
+  z-index: 0;
+  width: 26em;
+  backdrop-filter: blur(10px) grayscale(75%);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5em;
+  position: absolute;
+  border-right: 1px solid hsl(222, 20%, 20%);
+  box-shadow: 4px 70px 30px 0px black;
+  padding: 0 3em;
+  padding-bottom: 10em;
+}
+
+.GameStatusSelector__status {
+  font-size: 1.5em;
+  display: grid;
+  grid-template-rows: min-content min-content;
+  gap: .25em;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  padding-top: .25em;
+  padding-bottom: .5em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.GameStatusSelector__status>span {
+  font-size: 0.6em;
+}
+
+.GameStatusSelector__status.backlog.active, .GameStatusSelector__status.backlog:hover {
+  color: var(--game-state-backlog);
+}
+
+.GameStatusSelector__status.playing.active, .GameStatusSelector__status.playing:hover {
+  color: var(--game-state-playing);
+}
+
+.GameStatusSelector__status.completed.active, .GameStatusSelector__status.completed:hover {
+  color: var(--game-state-completed);
+}
+
+.GameStatusSelector__status.retired.active, .GameStatusSelector__status.retired:hover {
+  color: var(--game-state-retired);
+}
+
+.GameStatusSelector__status.shelved.active, .GameStatusSelector__status.shelved:hover {
+  color: var(--game-state-shelved);
+}
+
+.GameStatusSelector__status.abandoned.active, .GameStatusSelector__status.abandoned:hover {
+  color: var(--game-state-abandoned);
 }

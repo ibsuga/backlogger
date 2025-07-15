@@ -104,8 +104,13 @@
 .GameDialog__title>input {
   font-family: "Bebas Neue";
   font-size: 4rem;
-  height: .85em;
-  padding-top: 0.12em;
+  height: 0.95em;
+  padding-top: 0.1em;
+  transition: color 0.3s;
+}
+
+.GameDialog__title>input:hover {
+  color: var(--accent-color);
 }
 
 .GameDialog__title>button {
@@ -113,9 +118,10 @@
   border: none;
   color: var(--color-default);
   cursor: pointer;
-  font-size: 2.5em;
+  font-size: 2em;
   transition: color .3s;
   height: 1em;
+  padding-top: 0.1em;
 }
 
 .GameDialog__title>button.active {
@@ -123,12 +129,12 @@
 }
 
 .GameDialog__title>button:hover {
-  color: white;
+  color: var(--accent-color);
 }
 
 /* SVG icons adjustments. :( */
 .GameDialog__title>button:last-child {
-  font-size: 3em;
+  font-size: 2.5em;
   margin-top: -0.1em;
 }
 

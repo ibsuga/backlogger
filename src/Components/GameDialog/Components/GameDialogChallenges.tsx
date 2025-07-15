@@ -1,3 +1,7 @@
+import { IoTrophySharp } from "react-icons/io5";
+import { IoMdCamera } from "react-icons/io";
+import { FaRegCircle } from "react-icons/fa";
+import { FaRegCheckCircle } from "react-icons/fa";
 import "./GameDialogChallenges.css";
 
 
@@ -35,13 +39,11 @@ const GameDialogChallenges = (props: {
       {
         test_challenges.map((challenge) => (
           <div className="GameDialogChallenges__challenge" style={{ backgroundColor: `var(--platform-${props.platform})`}}>
-            <div>{challenge.type}</div>
+            <div className="GameDialogChallenges__challenge_type"><IoTrophySharp /></div>
             <div>{challenge.description}</div>
-            <div>EDIT</div>
-            <div>DELETE</div>
-            <div>PICTURE</div>
-            <div>DATE COMPLETED</div>
-            <div>IN PROGRESS</div>
+            <div className="GameDialogChallenges__challenge_screenshot"><IoMdCamera /></div>
+            <div>14/07/2025</div>
+            <div className="GameDialogChallenges__challenge_status"><FaRegCheckCircle /></div>
           </div>
         ))
       }

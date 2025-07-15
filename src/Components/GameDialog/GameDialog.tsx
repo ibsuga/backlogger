@@ -100,7 +100,7 @@ const GameDialog = () => {
                 <GameRatingSelector rating={gameData.rating} handleUpdateRating={handleUpdateRating} />
               </div>
               <GameDialogStats />
-              <GameStatusSelector />
+              <GameStatusSelector status={"backlog"} />
             </div>
             <div className="GameDialog__body">
               <div className="GameDialog__body_top">

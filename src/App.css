@@ -10,6 +10,14 @@
   --platform-steam: hsl(207, 38%, 30%);
   --platform-retro: hsl(290, 70%, 40%);
   --accent-color: hsl(170, 75%, 45%);
+  --theme-color: hsl(222, 20%, 10%);
+
+  --game-state-backlog: hsl(0, 0%, 50%);
+  --game-state-playing: hsl(35, 100%, 50%);
+  --game-state-completed: hsl(90, 100%, 40%);
+  --game-state-retired: hsl(72, 100%, 40%);
+  --game-state-shelved: hsl(200, 100%, 50%);
+  --game-state-abandoned: hsl(10, 75%, 50%);
 }
 
 html,
@@ -41,7 +49,7 @@ body,
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: hsl(222, 20%, 10%);
+  background-color: var(--theme-color);
 
   /* background: url('./assets/testback.jpeg'); */
   /* background-color: rgb(58, 58, 58);S */
