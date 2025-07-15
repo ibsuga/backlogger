@@ -1,21 +1,69 @@
 .GameCard {
     position: relative;
     display: grid;
-    grid-template-columns: auto 1.75em;
-    height: 16em;
+    grid-template-rows: 10fr 1fr;
+    height: 17em;
     width: 11em;
-    border-radius: 0.3em;
-    overflow: hidden;
+    border-radius: 0.5em;
+    gap: 0.5em;
+
+    background-color: hsla(0, 0%, 0%, 0.15);
+}
+
+.GameCard .game-background {
+    display: grid;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 0.5em;
     box-shadow: 4px 4px 10px 1px hsla(0, 0%, 0%, 0.5);
-    background-color: hsl(0, 0%, 20%);
     transition: 0.2s;
+
+    padding: 0.25em;
 }
 
-.GameCard:hover {
+.GameCard .bottom-bar {
+    font-size: 14px;
+    font-family: var(--default-font);
+    display: flex;
+    gap: 1.5em;
+    height: 1.5em;
+    border-radius: 1em;
+    justify-content: center;
+}
+
+.GameCard .bottom-bar>span {
+    align-self: center;
+}
+
+.GameCard .bottom-bar .challenges {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.GameCard .bottom-bar .challenges svg {
+    font-size: 16px;
+    color: hsl(183, 95%, 52%);
+}
+
+.GameCard .game-background:hover {
     transform: scale(1.05);
+    cursor: pointer;
 }
 
-.GameCard .game-content {
+
+
+
+
+
+
+
+
+
+
+
+
+/* .GameCard .game-content {
     display: grid;
     grid-template-rows: min-content min-content min-content auto min-content;
     padding: 0.25em;
@@ -23,33 +71,33 @@
     background-size: cover !important;
     background-position: center !important;
     box-shadow: inset 0px -90px 40px 0px hsla(0, 0%, 0%, 0.5);
-}
+} */
 
-.GameCard .game-completion,
+/* .GameCard .game-completion,
 .GameCard .game-rating,
 .GameCard .game-playing-status {
     font-size: 1.15em;
     filter: drop-shadow(2px 2px 1px rgb(0 0 0 / 1));
-}
+} */
 
-.GameCard .game-completion,
+/* .GameCard .game-completion,
 .GameCard .game-playing-status {
     cursor: pointer;
     width: 1em;
     flex-grow: 0;
-}
+} */
 
-.GameCard .game-completion svg,
+/* .GameCard .game-completion svg,
 .game .game-playing-status svg {
     transition: 0.1s;
-}
-
+} */
+/* 
 .GameCard .game-completion:hover svg,
 .GameCard .game-playing-status:hover svg {
     transform: scale(1.2);
-}
+} */
 
-.GameCard .game-name {
+/* .GameCard .game-name {
     padding-bottom: 0;
     display: flex;
     align-items: end;
@@ -59,21 +107,21 @@
     text-shadow: hsl(0, 0%, 20%) 1px 0 10px;
     user-select: none;
     word-break: break-word;
-}
+} */
 
-.GameCard .game-tools {
+/* .GameCard .game-tools {
     display: grid;
     grid-template-columns: min-content auto;
-}
+} */
 
-.GameCard .game-tools .tools-right {
+/* .GameCard .game-tools .tools-right {
     display: flex;
     flex-direction: row-reverse;
     gap: 0.25em;
-}
+} */
 
 
-.GameCard .game-tools .tool {
+/* .GameCard .game-tools .tool {
     padding: 0;
     border: none;
     background: none;
@@ -81,9 +129,9 @@
     color: hsl(0, 60%, 98%);
     transition: 0.25s;
     cursor: pointer;
-}
+} */
 
-
+/* 
 .GameCard .game-tools .tool.game-favorite:hover {
     color: rgb(255, 70, 150);
 }
@@ -137,4 +185,4 @@
 .GameCard .game-platform.retro {
     background: linear-gradient(180deg, hsl(290, 70%, 40%) 50%, hsl(290, 30%, 48%) 100%);
     color: hsl(215, 90%, 95%);
-}
+} */

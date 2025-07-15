@@ -6,6 +6,9 @@ import DeleteGameDialog from '../DeleteGameDialog/DeleteGameDialog'
 import { gameType } from '../../stores/useGameStore'
 
 
+import { IoMdTrophy } from "react-icons/io";
+
+
 const GameCard = (props: {
     game: gameType,
     gameCompletionIcon: JSX.Element,
@@ -17,7 +20,28 @@ const GameCard = (props: {
 }) => {
     return (
         <div className="GameCard">
-            <div className="game-content" style={{ background: `url(${props.game.background})` }}>
+
+            <div className="game-background" style={{ background: `url(${props.game.background})` }}>
+
+                <div className="debug-tools">
+                    <DeleteGameDialog game={props.game} />
+                    <EditGameButton gameData={props.game} />
+                </div>
+
+            </div>
+
+            <div className="bottom-bar">
+                <span> GAME STATUS </span>
+
+                <div className="challenges">
+                    <IoMdTrophy />
+                    <span>420</span>
+                </div>
+
+            </div>
+
+
+            {/* <div className="game-content" style={{ background: `url(${props.game.background})` }}>
                 <div className="game-rating">
                     <GameRatingSelector rating={props.game.rating} handleUpdateRating={props.handleUpdateRating} />
                 </div>
@@ -30,16 +54,16 @@ const GameCard = (props: {
                             {props.game.isFavorite === true ? <MdFavorite /> : <MdFavoriteBorder />}
                         </button>
                     </div>
-                    <div className="tools-right">
-                        <DeleteGameDialog game={props.game} />
-                        <EditGameButton gameData={props.game} />
-                    </div>
                 </div>
             </div>
+
             <div className={`game-platform ${props.game.platform}`}>
                 <span>{props.gamePlatform.label}</span>
                 <div>{props.gamePlatform.icon}</div>
-            </div>
+            </div> */}
+
+
+
         </div>
     )
 }
