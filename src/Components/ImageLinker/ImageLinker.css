@@ -1,0 +1,103 @@
+.ImageLinker {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: color-mix(in hsl, var(--theme-color), transparent 25%);
+  backdrop-filter: blur(30px);
+  width: 40rem;
+  z-index: 9999;
+  display: grid;
+  grid-template-rows: min-content;
+  border-radius: 10px;
+  font-family: "JetBrains Mono";
+  border: 1px solid hsl(222, 20%, 20%);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+.ImageLinker__preview {
+  border: 1rem solid;
+  border-color: color-mix(in hsl, var(--theme-color), white 10%);
+  background-color: var(--theme-color);
+  background-position: center;
+  background-size: cover;
+  border-radius: 2px;
+  width: 15rem;
+  height: 20rem;
+  transform: rotateZ(-4deg);
+  margin-top: -10rem;
+  margin-left: 1rem;
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+}
+
+.ImageLinker__preview--bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.ImageLinker__preview--bg-overlay {
+  position: absolute;
+  background-color: color-mix(in hsl, var(--theme-color), transparent 15%);
+  backdrop-filter: blur(10px);
+  height: 100%;
+  width: 100%;
+}
+
+.ImageLinker__preview--bg>div {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.ImageLinker__label {
+  padding: 2rem 0.5rem 0.5rem 0.5rem;
+}
+
+.ImageLinker input {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: unset;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  color: white;
+  font-family: "JetBrains Mono";
+}
+
+.ImageLinker input:focus {
+  border: unset;
+  outline: none;
+  color: var(--accent-color);
+}
+
+.ImageLinker button {
+  font-family: "JetBrains Mono";
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  background-color: color-mix(in hsl, var(--theme-color), white 15%);
+  border: unset;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 1px solid rgb(85, 91, 109);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.384) 0px -5px 0px inset;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ImageLinker button:disabled {
+  background-color: color-mix(in hsl, var(--theme-color), black 50%);
+  color: gray;
+  border-color: black;
+  cursor: unset;
+}
+
+.ImageLinker__close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}

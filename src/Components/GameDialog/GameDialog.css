@@ -1,34 +1,40 @@
 .GameDialog {
   align-items: center;
+  color: var(--text-default-color);
   display: flex;
+  font-family: 'Jetbrains Mono';
   height: 100%;
   justify-content: center;
   position: absolute;
+  user-select: none;
   width: 100%;
   z-index: 99;
-
-  --color-default: hsla(0, 0%, 100%, 0.85);
-  --color-editable: hsla(0, 0%, 100%, 0.85);
+  --text-default-color: hsl(220, 40%, 90%);
+  top: 0;
+  left: 0;
 }
 
 .GameDialog input {
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
+  background: hsla(0, 0%, 0%, 0.25);
+  border-radius: 4px;
   border: unset;
+  color: var(--text-default-color);
   padding: 0;
-  color: var(--color-editable);
-  transition: background .3s;
-}
-
-.GameDialog input:disabled {
-  color: var(--color-default);
-  pointer-events: none;
-  background: transparent;
+  transition: all .3s;
 }
 
 .GameDialog input:focus {
   border: unset;
   outline: none;
+}
+
+.GameDialog input:disabled {
+  pointer-events: none;
+  background: transparent;
+}
+
+.GameDialog input:hover {
+  color: var(--accent-color);
 }
 
 .GameDialog__backdrop {
@@ -69,30 +75,59 @@
 .GameDialog__content {
   display: grid;
   gap: 4em;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 20em auto;
   height: 100%;
-  padding: 3em;
+  padding: 2.5em;
   position: relative;
   width: 100%;
   z-index: 2;
 }
 
 .GameDialog__sidebar {
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 1em;
   justify-content: space-between;
-  align-items: center;
   text-align: center;
 }
 
 .GameDialog__cover {
-  width: 14rem;
-  height: 20rem;
-  background-size: cover;
-  background-position: center;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 20em;
+  width: 14em;
+}
+
+.GameDialog__cover>div {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 10px;
+}
+
+.GameDialog__cover--background {
+  background-position: center;
+  background-size: cover;
+}
+
+.GameDialog__cover--editButton {  
+  font-size: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: color-mix(in hsl, var(--theme-color), transparent 35%);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.GameDialog__cover--editButton:hover {
+  color: var(--accent-color);
+}
+
+
+.GameDialog .GameRatingSelector {
+  font-size: 1.75rem;
 }
 
 .GameDialog__title {
@@ -109,30 +144,23 @@
   transition: color 0.3s;
 }
 
-.GameDialog__title>input:hover {
-  color: var(--accent-color);
-}
-
 .GameDialog__title>button {
   background: transparent;
   border: none;
-  color: var(--color-default);
+  color: var(--text-default-color);
   cursor: pointer;
   font-size: 2em;
-  transition: color .3s;
   height: 1em;
   padding-top: 0.1em;
+  transition: color .3s;
 }
 
-.GameDialog__title>button.active {
-  color: var(--accent-color);
-}
-
+.GameDialog__title>button.active,
 .GameDialog__title>button:hover {
   color: var(--accent-color);
 }
 
-/* SVG icons adjustments. :( */
+/* SVG close icon adjustments. :( */
 .GameDialog__title>button:last-child {
   font-size: 2.5em;
   margin-top: -0.1em;
@@ -140,25 +168,19 @@
 
 .GameDialog__content {
   background-color: hsla(0, 0%, 0%, 0.15);
-  z-index: 2;
 }
 
 .GameDialog__body {
   display: grid;
   gap: 2em;
-  grid-template-rows: min-content auto;
+  grid-template-rows: 10em auto;
   overflow: hidden;
-}
-
-.GameDialog__body_top {
-  height: 10em;
 }
 
 .GameDialog__info {
   display: flex;
-  gap: 1em;
-  font-family: 'Jetbrains Mono';
   font-size: 1.25em;
+  gap: 0.5em;
   padding: 0.5em 0;
   text-transform: uppercase;
 }
@@ -190,9 +212,3 @@
 .GameDialog__header div:first-child {
   color: white;
 }
-
-
-.GameDialog .GameRatingSelector {
-  font-size: 1.75rem;
-}
-
