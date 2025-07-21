@@ -93,10 +93,6 @@ const Game = (props: {
                 game={props.game}
                 gameCompletionIcon={completionIcon[props.game.completion]}
                 gamePlatform={getPlatformData(props.game.platform)}
-                handleUpdateRating={handleUpdateRating}
-                handleToggleCompletion={handleToggleCompletion}
-                handleTogglePlayingStatus={handleTogglePlayingStatus}
-                handleToggleFavorite={handleToggleFavorite}
             />
         )
     }
