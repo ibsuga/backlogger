@@ -10,6 +10,9 @@
   --platform-steam: hsl(207, 38%, 30%);
   --platform-retro: hsl(290, 70%, 40%);
   --accent-color: hsl(170, 75%, 45%);
+
+  --default-font: 'JetBrains Mono';
+  --title-font: "Bebas Neue";
 }
 
 html,
