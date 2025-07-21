@@ -1,0 +1,20 @@
+.GameDialogStats {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  text-align: start;
+  align-items: end;
+  width: 100%;
+  font-family: "Jetbrains Mono";
+  color: hsla(0, 0%, 100%, 0.75);
+}
+
+.GameDialogStats>* {
+  height: 1.5em;
+  line-height: 3em;
+}
+
+.GameDialogStats>div {
+  color: rgb(0, 255, 255);
+  font-size: 1.5em;
+  text-align: end;
+}

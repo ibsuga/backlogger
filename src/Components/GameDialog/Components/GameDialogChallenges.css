@@ -1,0 +1,44 @@
+.GameDialogChallenges {
+  overflow: hidden;
+}
+
+.GameDialogChallenges>div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.GameDialogChallenges__challenge {
+  display: grid;
+  grid-template-columns: min-content auto repeat(3, min-content);
+  align-items: center;
+  white-space: nowrap;
+  gap: 1em;
+  font-family: 'JetBrains Mono';
+  padding: 0.15em .5em;
+  border-radius: 10px;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  pointer-events: none;
+  background: color-mix(in hsl, var(--theme-color), transparent 30%);
+}
+
+.GameDialogChallenges__challenge_type {
+  font-size: 2em;
+  display: flex;
+  color: hsla(0, 0%, 100%, 0.5);
+}
+
+.GameDialogChallenges__challenge_screenshot {
+  font-size: 1.5em;
+  display: flex;
+  color: hsla(0, 0%, 100%, 0.5);
+}
+
+.GameDialogChallenges__challenge_status {
+  font-size: 1.75em;
+  display: flex;
+  color: hsla(0, 0%, 100%, 0.5);
+}

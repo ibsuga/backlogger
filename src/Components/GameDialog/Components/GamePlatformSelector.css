@@ -1,0 +1,37 @@
+.GamePlatformSelector__menu {
+  backdrop-filter: blur(10px) grayscale(75%);
+  background-color: hsla(224, 22%, 10%, 0.75);
+  border-radius: 10px;
+  border: 1px solid hsl(222, 20%, 20%);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5em;
+  margin-left: -1em;
+  margin-top: 0.5em;
+  padding: 1em;
+  position: absolute;
+  width: 40em;
+}
+
+.GamePlatformSelector__selector {
+  min-width: 10em;
+  height: 100%;
+}
+
+.GamePlatformSelector__selector.placeholder {
+  color: gray;
+}
+
+.GamePlatformSelector__selector.active {
+  background-color: hsla(0, 0%, 0%, 0.25);
+  border-radius: 5px;
+  padding: 0 0.1em;
+}
+
+.GamePlatformSelector__selector.active:hover,
+.GamePlatformSelector__menu>div:hover {
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: color 0.3s;
+}

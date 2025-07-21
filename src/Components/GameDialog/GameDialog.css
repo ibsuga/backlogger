@@ -1,0 +1,214 @@
+.GameDialog {
+  align-items: center;
+  color: var(--text-default-color);
+  display: flex;
+  font-family: 'Jetbrains Mono';
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+  z-index: 99;
+  --text-default-color: hsl(220, 40%, 90%);
+  top: 0;
+  left: 0;
+}
+
+.GameDialog input {
+  background: hsla(0, 0%, 0%, 0.25);
+  border-radius: 4px;
+  border: unset;
+  color: var(--text-default-color);
+  padding: 0;
+  transition: all .3s;
+}
+
+.GameDialog input:focus {
+  border: unset;
+  outline: none;
+}
+
+.GameDialog input:disabled {
+  pointer-events: none;
+  background: transparent;
+}
+
+.GameDialog input:hover {
+  color: var(--accent-color);
+}
+
+.GameDialog__backdrop {
+  backdrop-filter: blur(2px) grayscale(50%);
+  background: hsla(0, 0%, 0%, 0.5);
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+}
+
+.GameDialog__dialog {
+  border-radius: 10px;
+  font-size: 1rem;
+  height: 55em;
+  overflow: hidden;
+  position: relative;
+  width: clamp(50%, 90em, 90%);
+}
+
+.GameDialog__background,
+.GameDialog__background>* {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.GameDialog__background--image {
+  background-position: center;
+  background-size: cover;
+  filter: blur(4px);
+}
+
+.GameDialog__background--gradient {
+  opacity: 0.8;
+}
+
+.GameDialog__content {
+  display: grid;
+  gap: 4em;
+  grid-template-columns: 20em auto;
+  height: 100%;
+  padding: 2.5em;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.GameDialog__sidebar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.GameDialog__cover {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 20em;
+  width: 14em;
+}
+
+.GameDialog__cover>div {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 10px;
+}
+
+.GameDialog__cover--background {
+  background-position: center;
+  background-size: cover;
+}
+
+.GameDialog__cover--editButton {  
+  font-size: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: color-mix(in hsl, var(--theme-color), transparent 35%);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.GameDialog__cover--editButton:hover {
+  color: var(--accent-color);
+}
+
+
+.GameDialog .GameRatingSelector {
+  font-size: 1.75rem;
+}
+
+.GameDialog__title {
+  display: grid;
+  gap: .5em;
+  grid-template-columns: auto min-content min-content;
+}
+
+.GameDialog__title>input {
+  font-family: "Bebas Neue";
+  font-size: 4rem;
+  height: 0.95em;
+  padding-top: 0.1em;
+  transition: color 0.3s;
+}
+
+.GameDialog__title>button {
+  background: transparent;
+  border: none;
+  color: var(--text-default-color);
+  cursor: pointer;
+  font-size: 2em;
+  height: 1em;
+  padding-top: 0.1em;
+  transition: color .3s;
+}
+
+.GameDialog__title>button.active,
+.GameDialog__title>button:hover {
+  color: var(--accent-color);
+}
+
+/* SVG close icon adjustments. :( */
+.GameDialog__title>button:last-child {
+  font-size: 2.5em;
+  margin-top: -0.1em;
+}
+
+.GameDialog__content {
+  background-color: hsla(0, 0%, 0%, 0.15);
+}
+
+.GameDialog__body {
+  display: grid;
+  gap: 2em;
+  grid-template-rows: 10em auto;
+  overflow: hidden;
+}
+
+.GameDialog__info {
+  display: flex;
+  font-size: 1.25em;
+  gap: 0.5em;
+  padding: 0.5em 0;
+  text-transform: uppercase;
+}
+
+.GameDialog__info>input {
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+}
+
+.GameDialog__body_bottom {
+  display: grid;
+  grid-template-rows: min-content auto;
+  gap: 1em;
+  overflow: hidden;
+}
+
+.GameDialog__header {
+  display: flex;
+  flex-direction: reverse;
+  justify-content: end;
+  gap: .25em;
+  font-family: "Bebas Neue";
+  font-size: 2rem;
+  border-bottom: 2px solid hsla(0, 0%, 100%, 0.25);
+  color: hsla(0, 0%, 100%, 0.25);
+}
+
+.GameDialog__header div:first-child {
+  color: white;
+}

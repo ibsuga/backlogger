@@ -12,31 +12,45 @@ export type gameType = {
     completion: 'unfinished' | 'complete' | 'mastered',
     rating: number,
     background: string,
-    date?: string
+    date?: string,
+    developer?: string,
 }
 
-type platformDataType = { label: string, shortLabel: string, icon: JSX.Element };
+type platformDataType = { id: string, label: string, shortLabel: string, icon: JSX.Element };
 
 type gameStore = {
     games: gameType[] | [],
-    addGame: (game: gameType) => void,
+    gameDialogId: number | null,
+    addGame: (id: gameType["id"], name: gameType["name"], platform: gameType["platform"], background: gameType["background"], date: gameType["date"]) => void,
     updateGame: (game: gameType) => void,
     deleteGame: (id: number) => void,
-    getPlatformData: (platform: string) => platformDataType
+    getPlatformData: (platform: string) => platformDataType,
+    setGameDialogId: (id?: number) => void,
 }
 
-const gamePlatformData: { [key: string]: platformDataType } = {
-    'nsw': { 'label': 'Nintendo Switch', 'shortLabel': 'Switch', 'icon': <SiNintendoswitch /> },
-    'steam': { 'label': 'Steam', 'shortLabel': 'Steam', 'icon': <FaSteamSquare /> },
-    'ps5': { 'label': 'PlayStation 5', 'shortLabel': 'PS5', 'icon': <FaPlaystation /> },
-    'retro': { 'label': 'Retro', 'shortLabel': 'Retro', 'icon': <SiRetroarch /> },
-}
+export const gamePlatforms: platformDataType[] = [
+  { "id": "nsw", "label": "Nintendo Switch", "shortLabel": "Switch", "icon": <SiNintendoswitch /> },
+  { "id": "steam", "label": "Steam", "shortLabel": "Steam", "icon": <FaSteamSquare /> },
+  { "id": "ps5", "label": "Playstation 5", "shortLabel": "PS5", "icon": <FaPlaystation /> },
+  { "id": "retro", "label": "Retro", "shortLabel": "Retro", "icon": <SiRetroarch /> },
+]
 
 const useGameStore = create<gameStore>()((set) => ({
     games: JSON.parse(localStorage.getItem('BackloggerGames') || '[]'),
-    addGame: (game) => set((state) => {
+    gameDialogId: null,
+    addGame: (id, name, platform, background, date) => set((state) => {
         let games = [...state.games];
-        games.push(game);
+        games.push({
+          id: id,
+          name,
+          platform,
+          isPlaying: false,
+          isFavorite: false,
+          completion: 'unfinished',
+          rating: -1,
+          background,
+          date
+        });
         localStorage.setItem('BackloggerGames', JSON.stringify(games));
         return { games: games };
     }),
@@ -56,8 +70,11 @@ const useGameStore = create<gameStore>()((set) => ({
         return { games: games };
     }),
     getPlatformData: (platform) => {
-        return gamePlatformData[platform];
-    }
+        return gamePlatforms.find((p) => p.id === platform)!;
+    },
+    setGameDialogId: (id) => set(() => {
+        return { gameDialogId: id }
+    }),
 }))
 
 export default useGameStore;
