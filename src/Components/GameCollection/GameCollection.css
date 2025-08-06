@@ -3,7 +3,7 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 1em;
-    padding: 1em;
+    padding-top: 1em;
 }
 
 .GameCollection.no-scroll {
@@ -27,7 +27,6 @@
 }
 
 .filter-button>svg {
-    color: rgba(255, 255, 255, 0.1);
     font-size: 2.5em;
     margin-top: 6px;
     text-align: center;
@@ -44,7 +43,6 @@
 
 .filter-button.active>svg {
     color: var(--accent-color);
-
 }
 
 
@@ -70,7 +68,8 @@
 .p-inputtext,
 .p-dropdown .p-dropdown-trigger svg,
 .p-dropdown .p-dropdown-clear-icon {
-    color: rgba(255, 255, 255, 0.1);
+    /* color: rgba(255, 255, 255, 0.1); */
+    color: inherit;
 }
 
 .Section.nsw .p-inputtext,
