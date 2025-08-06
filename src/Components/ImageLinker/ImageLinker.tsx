@@ -18,6 +18,7 @@ const ImageLinker = (props: {
   return (
       <motion.div
           className="ImageLinker" 
+          onClick={(e) => e.stopPropagation()}
           initial={{opacity: 0, y: "40px"}}
           animate={{opacity: 1, y: "0", transition: { duration: 0.35, type: "tween", ease: "easeOut" }}}
           exit={{opacity: 0, y: "-40px"}}
