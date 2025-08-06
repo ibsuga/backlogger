@@ -2,7 +2,7 @@ import './GameCollection.css';
 import { MdWebStories, MdFormatListBulleted, MdFavorite, MdOutlinePlayCircleOutline, MdLayersClear } from "react-icons/md";
 import { IoTrophySharp } from "react-icons/io5";
 import { GiLaurelsTrophy } from "react-icons/gi";
-import { useContext, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { GameDataContext } from '../../App';
 import Game from '../Game/Game';
 import Section from '../Section/Section';
@@ -11,6 +11,10 @@ import GameReleaseCard from '../GameReleaseCard/GameReleaseCard';
 import GameReleaseSmall from '../GameReleaseSmall/GameReleaseSmall';
 import { Dropdown } from 'primereact/dropdown';
 import { Tooltip } from 'primereact/tooltip';
+
+import nsw2_bg from '../../assets/platforms/nintendo-switch-2-bg.jpeg';
+import steam_bg from '../../assets/platforms/steam-bg.jpg';
+import ps5_bg from '../../assets/platforms/playstation-5-bg.jpg';
 
 
 
@@ -82,9 +86,19 @@ const GameCollection = (props: {
     //Targets for the tooltip to show
     const tooltip_targets = ['.btn_favorite', '.btn_playing', '.btn_complete', '.btn_mastered', '.btn_clear', '.btn_list'];
 
+    const platform_bg = useMemo(() => {
+      switch (gameDataCtx.platformFilter) {
+        case 'nsw': return nsw2_bg;
+        case 'steam': return steam_bg;
+        case 'ps5': return ps5_bg;
+        default: return "";
+      }
+    }, [gameDataCtx.platformFilter])
+
     return (
         <Section
             title={props.title}
+            title_bg={platform_bg}
             tools={[
                 <Dropdown
                     className="filter-button spaced"
@@ -95,45 +109,65 @@ const GameCollection = (props: {
                     showClear
                     placeholder='Select sorting option'
                 />,
-                <Tooltip target={tooltip_targets} showDelay={500} position='bottom' />,
-                <button
-                    className={`filter-button btn_favorite ${filter === 'favorite' ? 'active' : null}`}
-                    onClick={() => setFilter('favorite')}
-                    data-pr-tooltip='Filter by Favorites'>
-                    <MdFavorite />
-                </button>,
-                <button
-                    className={`filter-button btn_playing ${filter === 'now_playing' ? 'active' : null}`}
-                    onClick={() => setFilter('now_playing')}
-                    data-pr-tooltip='Filter by Now Playing'>
-                    <MdOutlinePlayCircleOutline />
-                </button>,
-                <button
-                    className={`filter-button btn_complete ${filter === 'completed' ? 'active' : null}`}
-                    onClick={() => setFilter('completed')}
-                    data-pr-tooltip='Filter by Completed Games'>
-                    < IoTrophySharp />
-                </button>,
-                <button
-                    className={`filter-button btn_mastered ${filter === 'mastered' ? 'active' : null}`}
-                    onClick={() => setFilter('mastered')}
-                    data-pr-tooltip='Filter by Mastered Games'>
-                    <GiLaurelsTrophy />
-                </button>,
-                <button className='filter-button btn_clear spaced'
-                    onClick={() => setFilter(null)}
-                    data-pr-tooltip='Clear Filter'>
-                    <MdLayersClear />
-                </button>,
-                <button className='filter-button btn_list'
-                    onClick={() => setListDisplay(!listDisplay)}
-                    data-pr-tooltip={listDisplay ? 'Card display' : 'List display'}>
-                    {listDisplay ? <MdWebStories /> : <MdFormatListBulleted />}
-                </button>
+                <Tooltip target={tooltip_targets} showDelay={500} position='bottom' />
+            ]}
+            tools_end={[
+              <button
+                  className={`filter-button btn_favorite ${filter === 'favorite' ? 'active' : null}`}
+                  onClick={() => setFilter('favorite')}
+                  data-pr-tooltip='Filter by Favorites'>
+                  <MdFavorite />
+              </button>,
+              <button
+                  className={`filter-button btn_playing ${filter === 'now_playing' ? 'active' : null}`}
+                  onClick={() => setFilter('now_playing')}
+                  data-pr-tooltip='Filter by Now Playing'>
+                  <MdOutlinePlayCircleOutline />
+              </button>,
+              <button
+                  className={`filter-button btn_complete ${filter === 'completed' ? 'active' : null}`}
+                  onClick={() => setFilter('completed')}
+                  data-pr-tooltip='Filter by Completed Games'>
+                  < IoTrophySharp />
+              </button>,
+              <button
+                  className={`filter-button btn_mastered ${filter === 'mastered' ? 'active' : null}`}
+                  onClick={() => setFilter('mastered')}
+                  data-pr-tooltip='Filter by Mastered Games'>
+                  <GiLaurelsTrophy />
+              </button>,
+              <button className='filter-button btn_clear spaced'
+                  onClick={() => setFilter(null)}
+                  data-pr-tooltip='Clear Filter'>
+                  <MdLayersClear />
+              </button>,
+              <button className='filter-button btn_list'
+                  onClick={() => setListDisplay(!listDisplay)}
+                  data-pr-tooltip={listDisplay ? 'Card display' : 'List display'}>
+                  {listDisplay ? <MdWebStories /> : <MdFormatListBulleted />}
+              </button>
             ]}
         >
             <div className={`GameCollection ${props.disableScroll ? 'no-scroll' : ''}`}>
                 {filtered_games.map((game, index) => {
+                    if (game.date) {
+                        let game_date = new Date(game.date);
+
+                        if (game_date > today) {
+                            if (listDisplay) {
+                                return <GameReleaseSmall game={game} key={index} />
+                            } else {
+                                return <GameReleaseCard game={game} key={index} />
+                            }
+                        } else {
+                            return <Game key={index} game={game} listDisplay={listDisplay} />
+                        }
+
+
+                    }
+                }
+                ).reverse()}
+                    {filtered_games.map((game, index) => {
                     if (game.date) {
                         let game_date = new Date(game.date);
 

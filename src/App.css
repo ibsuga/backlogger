@@ -31,7 +31,8 @@ body,
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  height: auto;
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* OVERLAY GRADIENT */
@@ -49,9 +50,8 @@ body,
 /* }  */
 
 .App {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: min-content auto;
   background-color: var(--theme-color);
 
   /* background: url('./assets/testback.jpeg'); */
@@ -63,6 +63,7 @@ body,
 .Content {
   z-index: 9;
   padding: 2.5em;
-  padding-top: 6em;
-  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }

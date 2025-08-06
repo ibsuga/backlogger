@@ -1,29 +1,29 @@
 import './Section.css'
-import { useContext } from 'react'
-import { GameDataContext } from '../../App'
 
 
 const Section = (props: {
     children: JSX.Element | JSX.Element[]
-    title: string,
+    title?: string,
+    title_bg?: string,
     tools?: JSX.Element[]
+    tools_end?: JSX.Element[]
 }) => {
-
-    const gameDataCtx = useContext(GameDataContext);
-
     return (
-        <div className={`Section ${gameDataCtx.platformFilter}`}>
-            <div className="section-title">
-                <span>{props.title}</span>
-                <div className='section-tools'>
-                    {
-                        props.tools && props.tools.map((tool, index) => <div key={index}>{tool}</div>)
-                    }
-                </div>
-            </div>
-            <div className='section-content'>
-                {props.children}
-            </div>
+        <div className="Section">
+          <div className="Section__header">
+            { props.title && <div className="Section__title">{props.title}</div> }
+            {
+              (props.tools ?? props.tools_end) &&
+              <div className="Section__tools">
+                { props.tools && <div className="Section__tools--start">{ props.tools.map((tool, index) => <div key={index}>{tool}</div>) }</div>}
+                { props.tools_end && <div className="Section__tools--end">{ props.tools_end.map((tool, index) => <div key={index}>{tool}</div>) }</div>}
+              </div>
+            }
+            { props.title_bg && <div className="section-title__bg" style={{backgroundImage: `url(${props.title_bg})`}} />}
+          </div>
+          <div className="section-content">
+              {props.children}
+          </div>
         </div>
     )
 }

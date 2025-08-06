@@ -1,44 +1,69 @@
 .Section {
-    width: auto;
-    overflow: hidden;
-}
+    --default-background-color: hsla(220, 22%, 10%, 0.5);
+    --default-section-color: hsl(220, 20%, 25%);
 
-.section-title {
+    backdrop-filter: blur(5px) grayscale(50%);
+    background-color: var(--default-background-color);
+    border-radius: 10px;
+    border: 1px solid color-mix(in hsl, var(--default-section-color), transparent 10%);
+    box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.5), inset 0 0 180px 0 color-mix(in hsl, var(--default-section-color), transparent 50%);
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1em;
-    padding: 0.25em 0em 0.1em 0em;
-    user-select: none;
-    height: 2.8em;
+    font-size: 1rem;
+    grid-template-rows: repeat(min-content);
+    overflow: hidden;
+    padding: 1.5em;
 }
 
-.section-title>span {
-    font-family: 'Bebas Neue';
-    font-size: 2.5em;
-    line-height: 1.5em;
-
-    align-content: center;
-    white-space: nowrap;
-    /* font-family: 'JetBrains Mono'; */
-    /* font-size: 1em; */
-    color: rgba(255, 255, 255, 0.1);
+.Section__title {
+  font-family: 'Bebas Neue';
+  font-size: 4em;
+  color: color-mix(in hsl, var(--default-section-color), white 20%);
 }
 
-.section-tools {
-    display: flex;
-    gap: 0.5em;
+.Section__tools {
+  display: flex;
+  border-bottom: 1px solid var(--default-section-color);
+  margin-bottom: 1em;
+}
+
+.Section__tools * {
+  color: var(--default-section-color);
+  transition: color 0.3s;
+}
+
+.section-tools *:hover {
+  color: var(--color-accent);
+}
+
+.Section__tools--start,
+.Section__tools--end {
+  display: flex;
+  gap: 0.5em;
+}
+
+.Section__tools--end {
+  flex: 1;
+  justify-content: end;
+}
+
+.section-title__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10rem;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0) 100%);
 }
 
 .section-content {
     overflow-x: hidden;
     border-radius: 5px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    background: linear-gradient(310deg, hsla(240, 1%, 33%, 0.336) 10%, color-mix(in hsl, hsl(222, 19%, 35%) 20%, transparent), hsla(0, 0%, 44%, 0.349) 90%);
 }
 
-.Section.nsw .section-content {
+/* .Section.nsw .section-content {
     background: linear-gradient(160deg, color-mix(in hsl, var(--platform-nsw) 40%, transparent), hsla(0, 0%, 44%, 0.349) 90%);
 }
 
@@ -60,4 +85,4 @@
 
 .Section.steam .section-title>span {
     color: color-mix(in hsl, var(--platform-steam) 40%, transparent);
-}
+} */

@@ -1,7 +1,11 @@
+.GameReleasesList {
+  margin-bottom: 2rem;
+}
+
 .release-list {
     display: flex;
     padding: 1em 1em;
-    height: 18em;
+    height: 20rem;
     transition: box-shadow 0.2s;
     gap: 1em;
 }

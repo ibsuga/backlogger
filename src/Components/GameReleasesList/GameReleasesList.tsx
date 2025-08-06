@@ -28,7 +28,7 @@ const GameReleasesList = (props: {
 
     return (
         <div className="GameReleasesList" onClick={() => props.setPage('calendar')}>
-            <Section title="Upcoming Games" >
+            <Section>
                 <div className="release-list">
                     {games_to_release.map((game: gameType, index: number) =>
                         <GameReleaseCard game={game} key={index} hideTools />

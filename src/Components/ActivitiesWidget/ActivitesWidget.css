@@ -1,3 +1,13 @@
+.ActivitiesWidget {
+  width: 25rem;
+}
+
+.ActivitiesWidget>.Section {
+  display: grid;
+  grid-template-rows: min-content auto;
+  height: 100%;
+}
+
 .ActivitiesWidget .p-timeline-event-opposite {
     display: none;
 }
@@ -23,7 +33,7 @@
 }
 
 .ActivitiesWidget .section-content {
-    height: 18em;
+    height: auto;
 }
 
 .ActivitiesWidget .p-timeline-event {

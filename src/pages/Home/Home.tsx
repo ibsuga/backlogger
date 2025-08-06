@@ -11,17 +11,13 @@ const Home = (props: {
     const [games] = useGameStore((state) => [state.games])
 
     return (
-        <div className="Home">
-            <div className='home-top'>
-                {/* <CompletedGames setPage={props.setPage} /> */}
-                <GameReleasesList setPage={props.setPage} />
-                <ActivitiesWidget setPage={props.setPage} />
-            </div>
-            <div className='home-bottom'>
-                {/* <NowPlayingGames /> */}
-                <GameCollection gameList={games} title={'All Games'} disableScroll={true} />
-            </div>
+      <div className="Home">
+        <div className="Home__main">
+          <GameReleasesList setPage={props.setPage} />
+          <GameCollection gameList={games} title={'My game collection'} disableScroll={true} />
         </div>
+        <ActivitiesWidget setPage={props.setPage} />
+      </div>
     )
 }
 
