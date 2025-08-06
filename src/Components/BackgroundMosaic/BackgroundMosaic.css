@@ -17,10 +17,11 @@
   top: -10rem;
   transform: rotateZ(-5deg);
   width: 120vw;
+  filter: grayscale(1);
 }
 
 .BackgroundMosaic__overlay {
-  background: linear-gradient(175deg,rgba(42, 123, 155, 0) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(175deg,rgba(42, 123, 155, 0) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 1) 75%);
   height: 100vh;
   left: 0;
   position: absolute;
